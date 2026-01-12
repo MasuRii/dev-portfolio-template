@@ -8,14 +8,14 @@
   - [x] Use web search to find "2026 web development trends personal portfolios"
   - [x] Document findings in RESEARCH_BEST_PRACTICES.md
   - [x] Identify emerging frameworks, design patterns, and hosting options
-- [ ] 2. Research performance optimization techniques for 2026 [S, Risk: L]
-  - Search for "2026 website performance optimization best practices"
-  - Document Core Web Vitals updates and new metrics
-  - Note any new image formats, loading strategies, or bundling improvements
-- [ ] 3. Research accessibility standards and WCAG 2.2/3.0 updates [S, Risk: L]
-  - Search for "WCAG 2026 updates accessibility requirements"
-  - Document mandatory accessibility features for professional sites
-  - Note any new testing tools or automated checking capabilities
+- [x] 2. Research performance optimization techniques for 2026 [S, Risk: L]
+  - [x] Search for "2026 website performance optimization best practices"
+  - [x] Document Core Web Vitals updates and new metrics
+  - [x] Note any new image formats, loading strategies, or bundling improvements
+- [x] 3. Research accessibility standards and WCAG 2.2/3.0 updates [S, Risk: L]
+  - [x] Search for "WCAG 2026 updates accessibility requirements"
+  - [x] Document mandatory accessibility features for professional sites
+  - [x] Note any new testing tools or automated checking capabilities
 - [ ] 4. Research SEO best practices for developer portfolios in 2026 [S, Risk: L]
   - Search for "2026 developer portfolio SEO optimization"
   - Document schema markup requirements and structured data trends
