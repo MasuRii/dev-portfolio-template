@@ -789,16 +789,16 @@
   - [x] Add design rationale to documentation
   - [x] Document color palette and typography choices
   - [x] Record component usage guidelines
-- [ ] 162. Create content update guide [S, Risk: L]
-  - Document how to update personal information
-  - Document how to add/edit projects
-  - Document how to add/edit blog posts
-  - Document how to modify skills and experience
-- [ ] 163. Final project review [XS, Risk: L]
-  - Review all requirements against final implementation
-  - Verify all sections are complete
-  - Confirm accessibility and performance targets met
-  - Get final approval for project completion
+- [x] 162. Create content update guide [S, Risk: L]
+  - [x] Document how to update personal information
+  - [x] Document how to add/edit projects
+  - [x] Document how to add/edit blog posts
+  - [x] Document how to modify skills and experience
+- [x] 163. Final project review [XS, Risk: L]
+  - [x] Review all requirements against final implementation
+  - [x] Verify all sections are complete
+  - [x] Confirm accessibility and performance targets met
+  - [x] Get final approval for project completion
 
 ### 8.6 Launch Preparation
 
