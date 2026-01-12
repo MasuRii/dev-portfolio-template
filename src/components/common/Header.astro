@@ -13,7 +13,7 @@ import navLinks from '../../data/navigation.json';
       MasuRii<span class="text-accent">.</span>
     </a>
 
-    <nav class="hidden md:block">
+    <nav class="hidden md:block" aria-label="Desktop navigation">
       <ul class="flex items-center gap-8">
         {
           navLinks.map((link) => (
@@ -80,7 +80,7 @@ import navLinks from '../../data/navigation.json';
     class="fixed inset-0 top-[73px] z-40 w-full bg-background transition-all duration-300 translate-x-full opacity-0 pointer-events-none"
   >
     <Container class="py-12">
-      <nav>
+      <nav aria-label="Mobile navigation">
         <ul class="flex flex-col gap-6 text-center">
           {
             navLinks.map((link) => (

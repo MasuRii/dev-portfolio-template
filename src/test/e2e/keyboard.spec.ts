@@ -41,7 +41,8 @@ test.describe('Keyboard Navigation', () => {
     console.log('Focused element after 2 tabs:', focusedLogo);
     const logo = page
       .locator('#main-header')
-      .getByRole('link', { name: 'MasuRii.' });
+      .locator('a', { hasText: 'MasuRii.' })
+      .first();
     await expect(logo).toBeFocused();
 
     // 3. Nav links (Desktop)
@@ -52,7 +53,7 @@ test.describe('Keyboard Navigation', () => {
     );
     console.log('Focused element after 3 tabs:', focused3);
     const firstNavLink = page
-      .locator('#main-header')
+      .locator('nav[aria-label="Desktop navigation"]')
       .getByRole('link', { name: /Work/i });
     await expect(firstNavLink).toBeFocused();
 

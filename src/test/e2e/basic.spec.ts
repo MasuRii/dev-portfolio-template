@@ -46,7 +46,9 @@ test('navigation works', async ({ page, isMobile }) => {
   } else {
     // Desktop navigation
     const header = page.locator('#main-header');
-    const aboutLink = header.getByRole('link', { name: 'About' });
+    const aboutLink = header
+      .getByRole('navigation', { name: 'Desktop navigation' })
+      .getByRole('link', { name: 'About' });
     await aboutLink.click();
   }
 

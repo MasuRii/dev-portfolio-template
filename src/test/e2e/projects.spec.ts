@@ -67,13 +67,15 @@ test.describe('Projects Section', () => {
     let viewDetailsButton;
     if (isMobile) {
       // On mobile, the button is outside the hover overlay
-      viewDetailsButton = firstCard.getByRole('button', {
-        name: /View detailed information/i,
-      });
+      viewDetailsButton = firstCard
+        .locator('button[data-project-details]')
+        .last();
     } else {
       // Hover to reveal overlay on desktop
       await firstCard.hover();
-      viewDetailsButton = firstCard.locator('button[data-project-details]');
+      viewDetailsButton = firstCard
+        .locator('button[data-project-details]')
+        .first();
     }
 
     await viewDetailsButton.click();

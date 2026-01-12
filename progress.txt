@@ -50,3 +50,16 @@
 - Files modified: src/test/e2e/theme.spec.ts, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck', 'bun test', 'bun run lint', and 'npx playwright test src/test/e2e/theme.spec.ts' - All passed.
+
+## Iteration 105 - Full Test Suite Execution 2026-01-13T04:00:00.000Z
+- Task: 144. Run full test suite [S, Risk: L]
+- What changed:
+    - Executed all unit tests with Vitest, achieving 88% statement coverage.
+    - Ran the full Playwright E2E test suite.
+    - Fixed strict mode violations in E2E tests by adding specific `aria-label`s to navigation elements and improving locators in `basic.spec.ts`, `keyboard.spec.ts`, and `projects.spec.ts`.
+    - Verified type safety and linting across the entire codebase.
+- Why it changed: To ensure the portfolio is stable, maintainable, and free of regressions before proceeding to final QA and deployment.
+- Research documents consulted: CHOSEN_TECH_STACK.md, DESIGN_GUIDELINES.md
+- Files modified: src/components/common/Header.astro, src/test/e2e/basic.spec.ts, src/test/e2e/keyboard.spec.ts, src/test/e2e/projects.spec.ts, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: 'bun run vitest run' (All 25 unit tests passed), 'bun run typecheck' (Passed), 'bun run lint' (Passed), 'npx playwright test' (Chromium and Firefox passed).
