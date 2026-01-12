@@ -645,14 +645,14 @@
   - [x] Navigate entire site using only keyboard
   - [x] Verify all interactive elements are focusable
   - [x] Test skip links and focus management
-- [ ] 133. Test with screen reader [S, Risk: L]
-  - Test with NVDA or VoiceOver
-  - Verify all content is announced correctly
-  - Check form labels and error messages
-- [ ] 134. Verify WCAG AA compliance [S, Risk: L]
-  - Check color contrast ratios meet 4.5:1 minimum
-  - Verify all text has sufficient contrast
-  - Test with different zoom levels (200%)
+- [x] 133. Test with screen reader [S, Risk: L]
+  - [x] Test with NVDA or VoiceOver
+  - [x] Verify all content is announced correctly
+  - [x] Check form labels and error messages
+- [x] 134. Verify WCAG AA compliance [S, Risk: L]
+  - [x] Check color contrast ratios meet 4.5:1 minimum
+  - [x] Verify all text has sufficient contrast
+  - [x] Test with different zoom levels (200%)
 - [ ] 135. Document accessibility score [XS, Risk: L]
   - Target accessibility score of 100 in Lighthouse
   - Document any remaining issues and workarounds

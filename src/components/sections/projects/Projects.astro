@@ -35,6 +35,9 @@ const categories = getProjectCategories();
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>
 
+    <div id="projects-status" role="status" aria-live="polite" class="sr-only">
+    </div>
+
     <!-- Project Modal (React Component) -->
     <ProjectModal client:idle projects={projects} />
   </Container>
@@ -58,12 +61,14 @@ const categories = getProjectCategories();
   });
 
   function updateProjects(filter: string) {
+    let count = 0;
     projectCards.forEach((card) => {
       if (!(card instanceof HTMLElement)) return;
       const category = card.getAttribute('data-project-category');
 
       if (filter === 'all' || category === filter) {
         card.style.display = 'block';
+        count++;
         setTimeout(() => {
           card.style.opacity = '1';
           card.style.transform = 'scale(1)';
@@ -76,6 +81,12 @@ const categories = getProjectCategories();
         }, 300);
       }
     });
+
+    // Update accessibility status
+    const statusElement = document.getElementById('projects-status');
+    if (statusElement) {
+      statusElement.textContent = `Showing ${count} ${count === 1 ? 'project' : 'projects'} for ${filter === 'all' ? 'all categories' : filter}.`;
+    }
   }
 
   filterButtons.forEach((button) => {

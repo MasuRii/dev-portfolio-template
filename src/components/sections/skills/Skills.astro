@@ -78,6 +78,9 @@ const typedSkillsData = getSkillsData();
     >
       {typedSkillsData.map((category) => <SkillCategory {...category} />)}
     </div>
+
+    <div id="skills-status" role="status" aria-live="polite" class="sr-only">
+    </div>
   </Container>
 </Section>
 
@@ -93,6 +96,7 @@ const typedSkillsData = getSkillsData();
       .querySelector('#skills-filters button[aria-pressed="true"]')
       ?.getAttribute('data-filter');
     const searchTerm = searchInput?.value.toLowerCase() || '';
+    let totalVisible = 0;
 
     skillCategories.forEach((cat) => {
       if (!(cat instanceof HTMLElement)) return;
@@ -129,6 +133,7 @@ const typedSkillsData = getSkillsData();
 
       if (shouldShowCategory) {
         cat.style.display = 'block';
+        totalVisible += visibleSkillsInCategory;
         setTimeout(() => {
           cat.style.opacity = '1';
           cat.style.transform = 'translateY(0)';
@@ -141,6 +146,15 @@ const typedSkillsData = getSkillsData();
         }, 500);
       }
     });
+
+    // Update accessibility status
+    const statusElement = document.getElementById('skills-status');
+    if (statusElement) {
+      const filterText =
+        activeFilter === 'all' ? 'all categories' : activeFilter;
+      const searchText = searchTerm ? ` matching "${searchTerm}"` : '';
+      statusElement.textContent = `Showing ${totalVisible} ${totalVisible === 1 ? 'skill' : 'skills'} in ${filterText}${searchText}.`;
+    }
   }
 
   filterButtons.forEach((button) => {

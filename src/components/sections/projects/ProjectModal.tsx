@@ -109,6 +109,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
               role="dialog"
               aria-modal="true"
               aria-labelledby="modal-title"
+              aria-describedby="modal-description"
             >
               {/* Close Button */}
               <button
@@ -153,7 +154,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
                         <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-3">
                           Overview
                         </h3>
-                        <p className="text-secondary text-lg leading-relaxed">
+                        <p
+                          id="modal-description"
+                          className="text-secondary text-lg leading-relaxed"
+                        >
                           {project.description}
                         </p>
                       </section>

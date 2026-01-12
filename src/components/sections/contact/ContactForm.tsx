@@ -209,6 +209,8 @@ const ContactForm: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               className="flex flex-col items-center justify-center py-12 text-center"
               data-testid="contact-success"
+              role="status"
+              aria-live="polite"
             >
               <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mb-6">
                 <svg
@@ -322,9 +324,10 @@ const ContactForm: React.FC = () => {
                 disabled={status === 'submitting'}
                 type="submit"
                 className="w-full py-4 bg-gradient-to-r from-accent to-accent-alt text-white font-bold rounded-lg shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                aria-busy={status === 'submitting'}
               >
                 {status === 'submitting' ? (
-                  <>
+                  <span role="status" className="flex items-center gap-2">
                     <svg
                       className="animate-spin h-5 w-5 text-white"
                       xmlns="http://www.w3.org/2000/svg"
@@ -346,7 +349,7 @@ const ContactForm: React.FC = () => {
                       />
                     </svg>
                     Sending...
-                  </>
+                  </span>
                 ) : (
                   <>
                     Send Message
