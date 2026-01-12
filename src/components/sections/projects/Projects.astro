@@ -1,0 +1,133 @@
+---
+import Section from '../../common/Section.astro';
+import Container from '../../common/Container.astro';
+import projectsData from '../../../data/projects.json';
+
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  thumbnail: string;
+  tags: string[];
+  summary: string;
+  links: {
+    live: string;
+    github: string;
+  };
+  featured: boolean;
+}
+
+const projects = projectsData as Project[];
+const categories = ['All', ...new Set(projects.map((p) => p.category))];
+---
+
+<Section id="projects" variant="background">
+  <Container>
+    <div class="mb-16 max-w-2xl">
+      <h2 class="font-display text-h2 mb-4 font-bold text-primary">
+        Featured <span class="text-accent">Projects</span>
+      </h2>
+      <p class="text-body leading-relaxed text-secondary">
+        A collection of technical case studies and experiments, focusing on
+        performance, accessibility, and user experience.
+      </p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="flex flex-wrap gap-4 mb-12" id="projects-filters">
+      {
+        categories.map((category) => (
+          <button
+            data-filter={category === 'All' ? 'all' : category}
+            class="px-6 py-2 rounded-full border border-border text-small font-medium transition-all hover:border-accent hover:text-accent aria-pressed:bg-accent aria-pressed:text-white aria-pressed:border-accent"
+            aria-pressed={category === 'All' ? 'true' : 'false'}
+          >
+            {category}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Projects Grid -->
+    <div
+      id="projects-grid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500"
+    >
+      {
+        projects.map((project) => (
+          <div
+            data-project-category={project.category}
+            class="group relative bg-surface border border-border rounded-2xl overflow-hidden transition-all duration-500 hover:border-accent/50 hover:shadow-2xl"
+          >
+            {/* Temporary card content for Task 72 */}
+
+            <div class="aspect-video overflow-hidden">
+              <img
+                src={project.thumbnail}
+                alt={project.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-medium text-accent uppercase tracking-wider">
+                {project.category}
+              </span>
+              <h3 class="text-xl font-bold mt-2 group-hover:text-accent transition-colors">
+                {project.title}
+              </h3>
+              <p class="text-secondary text-sm mt-2 line-clamp-2">
+                {project.summary}
+              </p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                {project.tags.map((tag) => (
+                  <span class="px-2 py-1 bg-background border border-border rounded text-[10px] font-mono text-secondary">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Section>
+
+<script>
+  const filterButtons = document.querySelectorAll('#projects-filters button');
+  const projectCards = document.querySelectorAll('[data-project-category]');
+
+  function updateProjects(filter: string) {
+    projectCards.forEach((card) => {
+      if (!(card instanceof HTMLElement)) return;
+      const category = card.getAttribute('data-project-category');
+
+      if (filter === 'all' || category === filter) {
+        card.style.display = 'block';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        }, 10);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          card.style.display = 'none';
+        }, 300);
+      }
+    });
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      if (!filter) return;
+
+      filterButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
+      button.setAttribute('aria-pressed', 'true');
+
+      updateProjects(filter);
+    });
+  });
+</script>

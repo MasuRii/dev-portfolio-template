@@ -1,31 +1,21 @@
 ---
 import RootLayout from '../layouts/RootLayout.astro';
 import MainLayout from '../layouts/MainLayout.astro';
-import { Hero, About, Skills } from '../components';
+import { Hero, About, Skills, Projects } from '../components';
 ---
 
 <RootLayout title="MasuRii | Full Stack Developer & Creative Technologist">
   <MainLayout>
     <Hero />
-    <About />
+    <Projects />
     <Skills />
-
-    <section
-      id="projects"
-      class="flex min-h-screen flex-col items-center justify-center py-24"
-    >
-      <h2 class="text-4xl font-bold text-primary md:text-6xl">Projects</h2>
-      <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {/* Project placeholders will go here */}
-      </div>
-    </section>
-
     <section
       id="experience"
       class="flex min-h-screen flex-col items-center justify-center py-24"
     >
       <h2 class="text-4xl font-bold text-primary md:text-6xl">Experience</h2>
     </section>
+    <About />
 
     <section
       id="contact"
