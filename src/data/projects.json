@@ -2,7 +2,7 @@
   {
     "id": "project-1",
     "title": "Quantum Flow",
-    "category": "Web Application",
+    "category": "Web",
     "thumbnail": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop",
     "tags": ["Astro", "Tailwind", "Motion"],
     "summary": "A high-performance dashboard for quantum computing visualization.",
@@ -15,7 +15,7 @@
   {
     "id": "project-2",
     "title": "Eco-Trace",
-    "category": "Mobile App",
+    "category": "Mobile",
     "thumbnail": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop",
     "tags": ["React Native", "Firebase", "TypeScript"],
     "summary": "Track your carbon footprint and discover sustainable local businesses.",
@@ -28,7 +28,7 @@
   {
     "id": "project-3",
     "title": "Neural Notes",
-    "category": "Experiment",
+    "category": "AI/Experiment",
     "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
     "tags": ["OpenAI", "Next.js", "Prisma"],
     "summary": "AI-powered note-taking app that automatically organizes and links ideas.",

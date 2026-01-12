@@ -1,6 +1,8 @@
 ---
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
+import ProjectFilters from './ProjectFilters.astro';
+import ProjectCard from './ProjectCard.astro';
 import projectsData from '../../../data/projects.json';
 
 interface Project {
@@ -34,62 +36,14 @@ const categories = ['All', ...new Set(projects.map((p) => p.category))];
     </div>
 
     <!-- Filter Controls -->
-    <div class="flex flex-wrap gap-4 mb-12" id="projects-filters">
-      {
-        categories.map((category) => (
-          <button
-            data-filter={category === 'All' ? 'all' : category}
-            class="px-6 py-2 rounded-full border border-border text-small font-medium transition-all hover:border-accent hover:text-accent aria-pressed:bg-accent aria-pressed:text-white aria-pressed:border-accent"
-            aria-pressed={category === 'All' ? 'true' : 'false'}
-          >
-            {category}
-          </button>
-        ))
-      }
-    </div>
+    <ProjectFilters categories={categories} />
 
     <!-- Projects Grid -->
     <div
       id="projects-grid"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500"
     >
-      {
-        projects.map((project) => (
-          <div
-            data-project-category={project.category}
-            class="group relative bg-surface border border-border rounded-2xl overflow-hidden transition-all duration-500 hover:border-accent/50 hover:shadow-2xl"
-          >
-            {/* Temporary card content for Task 72 */}
-
-            <div class="aspect-video overflow-hidden">
-              <img
-                src={project.thumbnail}
-                alt={project.title}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-6">
-              <span class="text-xs font-medium text-accent uppercase tracking-wider">
-                {project.category}
-              </span>
-              <h3 class="text-xl font-bold mt-2 group-hover:text-accent transition-colors">
-                {project.title}
-              </h3>
-              <p class="text-secondary text-sm mt-2 line-clamp-2">
-                {project.summary}
-              </p>
-              <div class="flex flex-wrap gap-2 mt-4">
-                {project.tags.map((tag) => (
-                  <span class="px-2 py-1 bg-background border border-border rounded text-[10px] font-mono text-secondary">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))
-      }
+      {projects.map((project) => <ProjectCard project={project} />)}
     </div>
   </Container>
 </Section>

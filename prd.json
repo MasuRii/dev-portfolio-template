@@ -2298,50 +2298,67 @@
   {
     "category": "functional",
     "description": "73. Create project filter component [M, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified creation of ProjectFilters.astro component.",
+      "Confirmed filter buttons are dynamically generated from project categories.",
+      "Verified active state styling and keyboard focus indicators."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Build filter buttons (All, Web, Mobile, Open Source, etc.)",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented ProjectFilters component with dynamic category mapping."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement active state styling",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Applied aria-pressed styles using Tailwind 4 variants."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add keyboard navigation support",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified keyboard navigability and added high-visibility focus rings."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "74. Build project card component [M, Risk: M]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created ProjectCard.astro with responsive layout and proper image optimization.",
+      "Implemented hover effects including lift, shadow, and image zoom.",
+      "Added an interactive overlay with links to live site and source code.",
+      "Integrated ProjectCard into Projects.astro and verified layout."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create project card with image, title, description, and tags",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified all data fields from projects.json are rendered correctly."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement hover effects (lift, shadow, zoom)",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified transition effects for card lift, shadow intensity, and image scaling."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add overlay with project details",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Confirmed overlay visibility and functionality on hover."],
+    "passes": true
   },
   {
     "category": "functional",
