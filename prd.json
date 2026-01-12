@@ -4229,26 +4229,32 @@
   {
     "category": "functional",
     "description": "138. Check heading structure [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified H1-H6 hierarchy is correct (no skipped levels).",
+      "Confirmed only one H1 per page (Hero section).",
+      "Verified all section and item headings are descriptive."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Verify H1-H6 hierarchy is correct",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Confirmed H1 -> H2 -> H3 -> H4 progression with no gaps."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Ensure only one H1 per page",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified single H1 in Hero.astro and 404.astro."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Check heading labels are descriptive",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Validated all heading text provides clear context for screen readers and SEO."
+    ],
+    "passes": true
   },
   {
     "category": "functional",

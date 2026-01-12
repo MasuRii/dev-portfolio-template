@@ -667,10 +667,10 @@
   - [x] Verify sitemap.xml is accessible
   - [x] Check robots.txt allows crawling
   - [x] Test with Google Search Console
-- [ ] 138. Check heading structure [S, Risk: L]
-  - Verify H1-H6 hierarchy is correct
-  - Ensure only one H1 per page
-  - Check heading labels are descriptive
+- [x] 138. Check heading structure [S, Risk: L]
+  - [x] Verify H1-H6 hierarchy is correct
+  - [x] Ensure only one H1 per page
+  - [x] Check heading labels are descriptive
 - [ ] 139. Document SEO score [XS, Risk: L]
   - Target SEO score of 100 in Lighthouse
   - Document any improvements needed
