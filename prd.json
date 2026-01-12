@@ -859,32 +859,47 @@
   {
     "category": "functional",
     "description": "28. Configure testing environment [S, Risk: M]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Installed Vitest, React Testing Library, and Playwright.",
+      "Configured vitest.config.ts with jsdom and setupFiles.",
+      "Configured playwright.config.ts for E2E testing.",
+      "Added test scripts to package.json.",
+      "Verified setup with unit and E2E tests."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Set up Vitest or Jest with React Testing Library",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Installed vitest, jsdom, and @testing-library/react.",
+      "Verified with SampleComponent.test.tsx."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Configure test coverage reporting",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Installed @vitest/coverage-v8.",
+      "Configured coverage in vitest.config.ts."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Set up Cypress or Playwright for E2E testing",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Installed @playwright/test.",
+      "Configured playwright.config.ts and verified with basic.spec.ts."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create test utilities and fixtures",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Created src/test/setup.ts and src/test/utils.tsx."],
+    "passes": true
   },
   {
     "category": "functional",

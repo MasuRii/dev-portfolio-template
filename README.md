@@ -29,17 +29,20 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 All commands are run from the root of the project, from a terminal:
 
-| Command               | Action                                           |
-| :-------------------- | :----------------------------------------------- |
-| `bun install`         | Installs dependencies                            |
-| `bun run typecheck`   | Runs type checking using `astro check`           |
-| `bun run lint`        | Runs ESLint for code quality                     |
-| `bun run format`      | Runs Prettier for code formatting                |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+| Command                 | Action                                           |
+| :---------------------- | :----------------------------------------------- |
+| `bun install`           | Installs dependencies                            |
+| `bun run typecheck`     | Runs type checking using `astro check`           |
+| `bun run lint`          | Runs ESLint for code quality                     |
+| `bun run format`        | Runs Prettier for code formatting                |
+| `bun run test`          | Runs unit tests using Vitest                     |
+| `bun run test:e2e`      | Runs E2E tests using Playwright                  |
+| `bun run test:coverage` | Runs test coverage reporting                     |
+| `bun dev`               | Starts local dev server at `localhost:4321`      |
+| `bun build`             | Build your production site to `./dist/`          |
+| `bun preview`           | Preview your build locally, before deploying     |
+| `bun astro ...`         | Run CLI commands like `astro add`, `astro check` |
+| `bun astro -- --help`   | Get help using the Astro CLI                     |
 
 ## 👀 Want to learn more?
 
