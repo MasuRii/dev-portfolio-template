@@ -2059,26 +2059,37 @@
   {
     "category": "functional",
     "description": "65. Verify About section [XS, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified responsive layout (grid columns and gaps) across mobile, tablet, and desktop breakpoints.",
+      "Confirmed Image component accessibility with mandatory alt text and lazy loading.",
+      "Verified typography readability using max-w-prose and leading-relaxed styles.",
+      "Successful production build confirms image optimization and asset bundling."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Test responsiveness and accessibility",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Tested grid and spacing responsiveness; verified aria-labels and semantic HTML for stats and image."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Verify image loading and alt text",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Confirmed Image component uses correct alt text from personal.json and loading='lazy'."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Check typography readability",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified line height (leading-relaxed) and max width (max-w-prose) for bio text."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
