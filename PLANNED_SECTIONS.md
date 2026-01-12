@@ -125,3 +125,84 @@ This document outlines the essential and optional sections for the developer por
 | **About** | Narrative Text | Static | About [Name] \| [Role] & Problem Solver | The story behind the code. Learn about [Name]'s professional philosophy and approach to building the modern web. |
 | **Contact** | Form Validation / API | Serverless Action | Get in Touch \| [Name] | Looking for a [Role]? Contact [Name] for collaborations, job opportunities, or technical consulting. |
 | **Blog** | Markdown / Content Collections | .md files | [Post Title] \| Blog \| [Name] | Technical insights and tutorials by [Name] on [Topic]. Focused on modern web development trends. |
+| **Personal Info** | JSON | personal.json | [Name] - Software Developer Portfolio | Core biographical data and social links for [Name]. |
+
+---
+
+## 5. Data Structures & Content Requirements
+
+To ensure easy updates and consistent rendering, the portfolio will consume data from JSON files and Markdown collections.
+
+### 5.1 Personal Information (`src/data/personal.json`)
+```json
+{
+  "name": "MasuRii",
+  "title": "Full Stack Developer & Creative Technologist",
+  "bio": "Compelling story-driven biography focusing on professional philosophy...",
+  "shortBio": "Punchy 1-2 sentence value proposition for the Hero section.",
+  "avatar": "/assets/images/profile.avif",
+  "location": "Global / Remote",
+  "socials": {
+    "github": "https://github.com/MasuRii",
+    "linkedin": "https://linkedin.com/in/MasuRii",
+    "twitter": "https://twitter.com/MasuRii"
+  },
+  "contact": {
+    "email": "hello@masurii.dev"
+  }
+}
+```
+
+### 5.2 Projects (`src/data/projects.json`)
+```json
+[
+  {
+    "id": "project-slug",
+    "title": "Project Name",
+    "category": "Web / Mobile / Experiment",
+    "thumbnail": "/assets/images/projects/thumb.avif",
+    "tags": ["Astro", "Tailwind", "Motion"],
+    "summary": "Brief 1-sentence hook for the card view.",
+    "links": {
+      "live": "https://demo.com",
+      "github": "https://github.com/repo"
+    },
+    "featured": true
+  }
+]
+```
+*Note: Detailed case studies will use Markdown files in `src/content/projects/`.*
+
+### 5.3 Skills (`src/data/skills.json`)
+```json
+[
+  {
+    "category": "Frontend",
+    "skills": [
+      { "name": "Astro", "icon": "astro", "level": 95 },
+      { "name": "React", "icon": "react", "level": 90 }
+    ]
+  }
+]
+```
+
+### 5.4 Experience (`src/data/experience.json`)
+```json
+[
+  {
+    "company": "Tech Corp",
+    "role": "Senior Developer",
+    "period": "2024 - Present",
+    "description": [
+      "Led migration to Astro 5, improving LCP by 40%.",
+      "Implemented a 'Squishy UI' design system."
+    ],
+    "skills": ["Astro", "Tailwind", "TypeScript"]
+  }
+]
+```
+
+### 5.5 Content Requirements
+*   **Images:** All images must be in `.avif` format. Thumbnails: 800x600px. Profile: 400x400px.
+*   **Typography:** Headlines must use `Space Grotesk`. Body must use `Inter`.
+*   **Accessibility:** Every data entry with an image must include a descriptive `alt` field (not shown in JSON for brevity but required in implementation).
