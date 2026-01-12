@@ -2745,8 +2745,33 @@
   {
     "category": "functional",
     "description": "88. Configure form submission handling [M, Risk: M]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Set up form validation (client-side)",
+      "Implement form submission handler",
+      "Configure placeholder submission (console log or email service)"
+    ],
+    "passes": true
+  },
+  {
+    "category": "functional",
+    "description": "89. Add contact information [S, Risk: L]",
+    "steps": [
+      "Add email address with mailto link",
+      "Add location if appropriate",
+      "Add social media links with icons"
+    ],
+    "passes": true
+  },
+  {
+    "category": "functional",
+    "description": "90. Test Contact section [XS, Risk: L]",
+    "steps": [
+      "Test form validation on all fields",
+      "Verify form submission works",
+      "Test accessibility of form elements",
+      "Check responsive layout"
+    ],
+    "passes": true
   },
   {
     "category": "functional",

@@ -2,9 +2,14 @@
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
 import ContactForm from './ContactForm';
+import Icon from '../../common/Icon.astro';
 import personalData from '../../../data/personal.json';
 
-const { contact } = personalData;
+const data = personalData as any;
+const contact = data.contact;
+const socials = data.socials as Record<string, string>;
+const location = data.location;
+const availability = data.availability;
 ---
 
 <Section id="contact" variant="background" className="border-t border-border">
@@ -17,15 +22,17 @@ const { contact } = personalData;
         Get in Touch
       </h2>
       <p class="text-body text-secondary max-w-2xl mx-auto leading-relaxed">
-        I'm currently {
-          personalData.availability || 'open to new opportunities'
-        }. Whether you have a question or just want to say hi, I'll try my best
-        to get back to you!
+        I'm currently {availability || 'open to new opportunities'}. Whether you
+        have a question or just want to say hi, I'll try my best to get back to
+        you!
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-      {/* Left Column: Contact Info & Socials (To be implemented in Task 89) */}
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start"
+      data-testid="contact-grid"
+    >
+      {/* Left Column: Contact Info & Socials */}
       <div class="space-y-8" data-testid="contact-info">
         <div
           class="p-8 rounded-2xl border border-border bg-surface/50 backdrop-blur-sm relative overflow-hidden group"
@@ -39,31 +46,67 @@ const { contact } = personalData;
             Prefer a direct message? Feel free to reach out through any of these
             channels.
           </p>
-          {/* Placeholder for Task 89 */}
-          <div class="space-y-4">
-            <div class="flex items-center gap-4 text-primary">
-              <span class="p-3 rounded-lg bg-accent/10">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-mail"
-                  ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
-                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
-                >
-              </span>
-              <a
-                href={`mailto:${contact.email}`}
-                class="text-lg font-medium hover:text-accent transition-colors"
+
+          <div class="space-y-6">
+            <div class="flex items-center gap-4 text-primary group/item">
+              <span
+                class="p-3 rounded-lg bg-accent/10 text-accent group-hover/item:bg-accent group-hover/item:text-white transition-all duration-300"
               >
-                {contact.email}
-              </a>
+                <Icon name="mail" class="w-6 h-6" />
+              </span>
+              <div class="flex flex-col">
+                <span
+                  class="text-xs text-secondary font-medium uppercase tracking-wider"
+                  >Email</span
+                >
+                <a
+                  href={`mailto:${contact.email}`}
+                  class="text-lg font-medium hover:text-accent transition-colors"
+                >
+                  {contact.email}
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 text-primary group/item">
+              <span
+                class="p-3 rounded-lg bg-accent/10 text-accent group-hover/item:bg-accent group-hover/item:text-white transition-all duration-300"
+              >
+                <Icon name="map-pin" class="w-6 h-6" />
+              </span>
+              <div class="flex flex-col">
+                <span
+                  class="text-xs text-secondary font-medium uppercase tracking-wider"
+                  >Location</span
+                >
+                <span class="text-lg font-medium">{location}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 pt-12 border-t border-border/50">
+            <h4
+              class="text-sm font-bold text-secondary uppercase tracking-widest mb-6"
+            >
+              Social Profiles
+            </h4>
+            <div class="flex flex-wrap gap-4">
+              {
+                Object.entries(socials).map(([platform, url]) => (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="p-4 rounded-xl border border-border bg-surface hover:border-accent hover:text-accent hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 group/social"
+                    aria-label={`Visit my ${platform} profile`}
+                  >
+                    <Icon
+                      name={platform}
+                      class="w-6 h-6 transition-transform group-hover/social:scale-110"
+                    />
+                  </a>
+                ))
+              }
             </div>
           </div>
         </div>
@@ -75,7 +118,7 @@ const { contact } = personalData;
           class="absolute -inset-4 bg-gradient-to-r from-accent/20 to-accent-alt/20 blur-3xl opacity-20 -z-10"
         >
         </div>
-        <ContactForm client:visible />
+        <ContactForm client:load />
       </div>
     </div>
   </Container>
