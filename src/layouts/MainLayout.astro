@@ -1,5 +1,5 @@
 ---
-import Container from '../components/common/Container.astro';
+import Header from '../components/common/Header.astro';
 
 interface Props {
   class?: string;
@@ -9,7 +9,8 @@ const { class: className } = Astro.props;
 ---
 
 <div class:list={['min-h-screen flex flex-col', className]}>
-  <Container class="flex-grow">
+  <Header />
+  <div class="flex-grow pt-[73px]">
     <slot />
-  </Container>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ThemeScript from '../components/common/ThemeScript.astro';
+import { ThemeProvider } from '../components/common/ThemeProvider';
 
 interface Props {
   title?: string;
@@ -35,6 +36,8 @@ const {
   <body
     class="bg-background text-primary antialiased selection:bg-accent selection:text-white"
   >
-    <slot />
+    <ThemeProvider client:load>
+      <slot />
+    </ThemeProvider>
   </body>
 </html>
