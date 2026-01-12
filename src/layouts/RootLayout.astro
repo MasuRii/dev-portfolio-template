@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import ThemeScript from '../components/common/ThemeScript.astro';
 import { ThemeProvider } from '../components/common/ThemeProvider';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title?: string;
@@ -26,6 +27,9 @@ const {
     <ThemeScript />
 
     <script is:inline>
+      // Add 'js' class to document element to handle JS-dependent styles
+      document.documentElement.classList.add('js');
+
       // Handle scroll restoration manually to prevent jumps
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
@@ -53,10 +57,33 @@ const {
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
   </head>
   <body
     class="bg-background text-primary antialiased selection:bg-accent selection:text-white"
   >
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div
+      id="loader"
+      class="fixed inset-0 z-[100] flex items-center justify-center bg-background transition-opacity duration-500"
+    >
+      <div
+        class="h-12 w-12 rounded-full border-4 border-accent border-t-transparent animate-spin"
+      >
+      </div>
+    </div>
+
+    <script is:inline>
+      // Page Loader
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => loader.remove(), 500);
+        }
+      });
+    </script>
+
     <ThemeProvider client:load>
       <slot />
     </ThemeProvider>

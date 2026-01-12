@@ -9,3 +9,4 @@ export { default as Skills } from './sections/skills/Skills.astro';
 export { default as Projects } from './sections/projects/Projects.astro';
 export { default as Experience } from './sections/experience/Experience.astro';
 export { default as Contact } from './sections/contact/Contact.astro';
+export { default as Blog } from './sections/blog/Blog.astro';

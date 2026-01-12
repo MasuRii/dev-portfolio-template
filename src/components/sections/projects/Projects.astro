@@ -13,7 +13,7 @@ const categories = ['All', ...new Set(projects.map((p) => p.category))];
 
 <Section id="projects" variant="background">
   <Container>
-    <div class="mb-16 max-w-2xl">
+    <div class="mb-16 max-w-2xl animate-item">
       <h2 class="font-display text-h2 mb-4 font-bold text-primary">
         Featured <span class="text-accent">Projects</span>
       </h2>
@@ -24,12 +24,14 @@ const categories = ['All', ...new Set(projects.map((p) => p.category))];
     </div>
 
     <!-- Filter Controls -->
-    <ProjectFilters categories={categories} />
+    <div class="animate-item">
+      <ProjectFilters categories={categories} />
+    </div>
 
     <!-- Projects Grid -->
     <div
       id="projects-grid"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 animate-item"
     >
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>

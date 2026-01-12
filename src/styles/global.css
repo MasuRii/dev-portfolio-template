@@ -138,9 +138,18 @@
   body {
     @apply font-sans text-body text-primary bg-background;
   }
+
+  /* Global Focus Indicators */
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-accent;
+  }
 }
 
 @layer utilities {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[101] focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-md focus:shadow-lg focus:outline-none;
+  }
+
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
   }
@@ -163,5 +172,28 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+
+  /* Entrance Animations Support */
+  .js .reveal-on-scroll,
+  .js .animate-item {
+    opacity: 0;
+  }
+
+  /* Skeleton Loaders */
+  @keyframes skeleton-pulse {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+
+  .skeleton {
+    @apply bg-border animate-[skeleton-pulse_1.5s_infinite_ease-in-out];
   }
 }

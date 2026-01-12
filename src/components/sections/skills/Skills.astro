@@ -21,7 +21,7 @@ const typedSkillsData = skillsData as SkillCategoryData[];
 
 <Section id="skills" variant="background">
   <Container>
-    <div class="mb-16 max-w-2xl">
+    <div class="mb-16 max-w-2xl animate-item">
       <h2 class="font-display text-h2 mb-4 font-bold text-primary">
         Technical <span class="text-accent">Expertise</span>
       </h2>
@@ -33,7 +33,7 @@ const typedSkillsData = skillsData as SkillCategoryData[];
     </div>
 
     <div
-      class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12"
+      class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 animate-item"
     >
       <div class="flex flex-wrap gap-3" id="skills-filters">
         <button
@@ -85,7 +85,7 @@ const typedSkillsData = skillsData as SkillCategoryData[];
 
     <div
       id="skills-grid"
-      class="grid grid-cols-1 gap-px bg-border lg:grid-cols-2 border border-border transition-all duration-500"
+      class="grid grid-cols-1 gap-px bg-border lg:grid-cols-2 border border-border transition-all duration-500 animate-item"
     >
       {typedSkillsData.map((category) => <SkillCategory {...category} />)}
     </div>

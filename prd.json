@@ -2842,194 +2842,229 @@
   {
     "category": "functional",
     "description": "91. Create Blog section container [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created Blog.astro with responsive grid layout.",
+      "Integrated Section and Container components.",
+      "Added heading and introduction text."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Build responsive grid for blog posts",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Implemented 3-column grid for blog cards."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement proper spacing and layout",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Used consistent section spacing and container max-width."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add section heading",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added H2 heading with accent color."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "92. Build blog post card component [M, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created BlogPostCard.astro with image and metadata.",
+      "Implemented hover effects and transitions."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create card with title, excerpt, date, and read time",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Implemented responsive blog card with full metadata support."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add featured image placeholder",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Used Astro Image component with Unsplash placeholders."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement hover effects",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added lift and border color transition on hover."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "93. Create blog post data structure [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created src/data/blog.json with initial post entries.",
+      "Defined BlogPost interface in src/types/blog.ts."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Set up JSON data for blog posts",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Created blog.json with 3 initial posts."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create 3-4 placeholder blog posts",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added 3 high-quality placeholder posts."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement proper date formatting",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Used toLocaleDateString for readable dates."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "94. Test Blog section [XS, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified blog section visibility and heading.",
+      "Confirmed all blog cards from data are rendered with correct metadata.",
+      "Verified responsive layout (1 column on mobile, 3 on desktop).",
+      "Confirmed accessibility of links and semantic structure."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Verify blog cards render correctly",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified via E2E tests: src/test/e2e/blog.spec.ts"],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Test responsive layout",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified via E2E tests for mobile and desktop viewports."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Check accessibility of blog elements",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified semantic structure and link accessibility."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "95. Add section entrance animations [M, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented scroll-based reveal animations in Section.astro using Motion One.",
+      "Added staggered reveal support for child elements via .animate-item class.",
+      "Verified animations respect prefers-reduced-motion media query."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement fade-in or slide-up animations for each section",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Used Motion One inView and animate functions in Section.astro."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add animation delays for staggered element reveals",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented delay function in animate() for elements with .animate-item."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Ensure animations respect prefers-reduced-motion",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added JS and CSS checks for prefers-reduced-motion."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "96. Add micro-interactions [M, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Enhanced hover states for Project cards, Skill cards, and Experience cards.",
+      "Added scale and shadow transitions for interactive elements.",
+      "Verified tactile feedback (Squishy UI) on buttons."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement button hover and click effects",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added active:scale-95 and transition-all to buttons."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add card hover lift and shadow effects",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added hover:-translate-y-1 and hover:shadow-xl to cards."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add icon rotation or scale on hover",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added hover:scale-110 to social icons."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "97. Add scroll-triggered animations [M, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented parallax effects for Hero background glow elements.",
+      "Used Motion One scroll function for performance-optimized animations.",
+      "Verified usage of transform/opacity only for high performance."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement scroll-based reveal animations",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Reused reveal-on-scroll logic for all sections."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add parallax effects where appropriate",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added scroll-triggered y-translation to Hero glows."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Ensure performance is optimized (use transform/opacity only)",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Confirmed animations use hardware-accelerated properties."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "98. Add loading animations [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created .skeleton utility class in global.css for image placeholders.",
+      "Implemented a full-page fade-out loader in RootLayout.astro.",
+      "Added Astro ClientRouter for smooth SPA-like transitions between pages."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create skeleton loaders for image placeholders",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added .skeleton class with pulse animation to global.css."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add initial page load animation",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added a high-z-index overlay loader that removes itself on window load."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement smooth transitions between pages",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Integrated ClientRouter component in RootLayout head."],
+    "passes": true
   },
   {
     "category": "functional",
@@ -3088,50 +3123,58 @@
   {
     "category": "functional",
     "description": "101. Add skip navigation link [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented skip navigation link in RootLayout.astro.",
+      "Added #main-content ID to MainLayout.astro.",
+      "Styled skip-link in global.css for visibility on focus."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement skip to main content link",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified skip link presence in RootLayout.astro."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Make link visible on focus",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified skip-link styles in global.css."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Test with keyboard navigation",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified skip link is focusable and functional."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "102. Add focus management improvements [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented global visible focus indicators using :focus-visible in global.css.",
+      "Added focus trap and initial focus management to ProjectModal.tsx.",
+      "Implemented focus restoration on modal close."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement visible focus indicators",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified :focus-visible styles in global.css."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add focus trap for modals",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Implemented keyboard focus trap logic in ProjectModal.tsx."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Manage focus order for dynamic content",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Ensured initial focus and restoration in ProjectModal.tsx."],
+    "passes": true
   },
   {
     "category": "functional",

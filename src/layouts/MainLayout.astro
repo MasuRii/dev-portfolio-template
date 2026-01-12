@@ -12,9 +12,9 @@ const { class: className } = Astro.props;
 
 <div class:list={['min-h-screen flex flex-col', className]}>
   <Header />
-  <div class="flex-grow pt-[73px]">
+  <main id="main-content" class="flex-grow pt-[73px]">
     <slot />
-  </div>
+  </main>
   <Footer />
   <ScrollToTop client:only="react" />
 </div>

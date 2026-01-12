@@ -1,156 +1,29 @@
-
-## Iteration 46 - Developer Biography Implementation 2026-01-12T15:35:00.000Z
-- Task: 62. Add developer biography [S, Risk: L]
-- What changed: Updated personal.json with an expanded, paragraph-based bio. Modified About.astro to map over these paragraphs and ensured readable typography using max-w-prose and leading-relaxed.
-- Why it changed: To provide a more detailed and engaging professional narrative in the About section.
-- Research documents consulted: PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
-- Files modified: src/data/personal.json, src/components/sections/about/About.astro, prd.json, plan.md, progress.txt
+## Iteration 70 - Animations and Micro-interactions Implementation 2026-01-12T23:30:00.000Z
+- Task: 95. Add section entrance animations [M, Risk: L], 96. Add micro-interactions [M, Risk: L], 97. Add scroll-triggered animations [M, Risk: L], 98. Add loading animations [S, Risk: L]
+- What changed:
+    - Updated `Section.astro` to include global scroll-reveal animations using Motion One (`inView`, `animate`).
+    - Added staggered reveal support for child elements using the `.animate-item` class across all major sections (About, Skills, Projects, Experience, Contact, Blog).
+    - Implemented scroll-based parallax effects for Hero background glows using Motion One `scroll`.
+    - Enhanced micro-interactions: added hover lift/shadow to cards and scale effects to interactive elements.
+    - Added a page loader (fade-out overlay) and integrated Astro's `ClientRouter` for smooth page transitions.
+    - Added a `.skeleton` utility class for loading states and ensured all animations respect `prefers-reduced-motion`.
+- Why it changed: To enhance the visual quality, user engagement, and professional polish of the portfolio, following the 2026 design and motion guidelines.
+- Research documents consulted: CHOSEN_TECH_STACK.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
+- Files modified: src/components/common/Section.astro, src/components/sections/about/About.astro, src/components/sections/skills/Skills.astro, src/components/sections/projects/Projects.astro, src/components/sections/experience/Experience.astro, src/components/sections/contact/Contact.astro, src/components/sections/blog/Blog.astro, src/components/sections/hero/Hero.astro, src/layouts/RootLayout.astro, src/styles/global.css, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' - SUCCESS.
+- [VALIDATION]: Ran 'bun run typecheck', 'bun run build', and all tests (Unit & E2E) - SUCCESS.
 
-## Iteration 47 - Profile Image Implementation 2026-01-12T15:45:00.000Z
-- Task: 63. Create profile image component [S, Risk: L]
-- What changed: Configured astro.config.mjs to allow remote images from Unsplash. Updated personal.json with a placeholder avatar URL. Implemented the Image component in About.astro with optimization, lazy loading, and professional styling (grayscale to color transition, decorative glow, and modular grid border).
-- Why it changed: To complete the About section with a high-quality, optimized profile image that follows the 2026 design guidelines.
-- Research documents consulted: PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
-- Files modified: astro.config.mjs, src/data/personal.json, src/components/sections/about/About.astro, prd.json, plan.md, progress.txt
+## Iteration 71 - Accessibility Enhancements (Skip Link & Focus Management) 2026-01-12T23:45:00.000Z
+- Task: 101. Add skip navigation link [S, Risk: L], 102. Add focus management improvements [S, Risk: L]
+- What changed:
+    - Added a "Skip to main content" link at the beginning of the `<body>` in `RootLayout.astro`.
+    - Added `id="main-content"` to the `<main>` element in `MainLayout.astro`.
+    - Implemented global focus indicators using `:focus-visible` in `global.css` for better keyboard navigability.
+    - Implemented a focus trap in `ProjectModal.tsx` to keep focus within the modal when open.
+    - Added focus management to `ProjectModal.tsx`: focuses the close button on open and restores previous focus on close.
+    - Fixed linting errors related to `any` types in `Section.astro`.
+- Why it changed: To improve accessibility (WCAG 2.2 AA compliance) and keyboard user experience, following the 2026 accessibility standards.
+- Research documents consulted: CHOSEN_TECH_STACK.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
+- Files modified: src/layouts/RootLayout.astro, src/layouts/MainLayout.astro, src/styles/global.css, src/components/sections/projects/ProjectModal.tsx, src/components/common/Section.astro, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS. Remote image optimized during build.
-
-## Iteration 48 - Personal Stats Implementation 2026-01-12T16:00:00.000Z
-- Task: 64. Add personal stats or quick facts [S, Risk: L]
-- What changed: Updated personal.json with a `stats` array. Created a `StatCounter` React component using `framer-motion` for animated counting effects. Integrated `StatCounter` into `About.astro` using `client:visible` for optimized performance and UX.
-- Why it changed: To provide dynamic, animated social proof and professional statistics in the About section, enhancing engagement and credibility.
-- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md, PLANNED_SECTIONS.md
-- Files modified: src/data/personal.json, src/components/sections/about/StatCounter.tsx, src/components/sections/about/About.astro, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run lint' - SUCCESS.
-
-## Iteration 49 - About Section Verification 2026-01-12T16:15:00.000Z
-- Task: 65. Verify About section [XS, Risk: L]
-- What changed: Performed comprehensive verification of the About section, including responsiveness testing, accessibility audit (manual check of alt text and ARIA labels), and typography review.
-- Why it changed: To ensure the About section meets the project's quality bar for performance, accessibility, and visual consistency before moving to the next section.
-- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
-- Files modified: prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run build' - SUCCESS. Production-ready assets generated and verified.
-
-## Iteration 50 - Skills Section Structure Implementation 2026-01-12T16:35:00.000Z
-- Task: 66. Create Skills section structure [S, Risk: L]
-- What changed: Created src/data/skills.json with categorized skill data. Implemented src/components/sections/skills/Skills.astro using a modular grid design with visible borders. Integrated the new section into index.astro.
-- Why it changed: To provide a structured and visually engaging overview of technical expertise, following the 2026 design trends.
-- Research documents consulted: RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md
-- Files modified: src/data/skills.json, src/components/sections/skills/Skills.astro, src/components/index.ts, src/pages/index.astro, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
-
-## Iteration 52 - Skill and Social Icons Implementation 2026-01-12T20:15:00.000Z
-- Task: 69. Add skill icons [M, Risk: L]
-- What changed: Installed `astro-icon` and icon sets. Created a reusable `Icon.astro` component that maps skill and social names to high-quality SVG icons from Simple Icons. Updated `SkillCard.astro` and `Footer.astro` to use the new component. Configured `astro.config.mjs` with the icon integration.
-- Why it changed: To enhance the visual appeal and professional quality of the Skills and Footer sections by providing recognizable, optimized technical and social icons.
-- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md, PLANNED_SECTIONS.md, CHOSEN_TECH_STACK.md
-- Files modified: package.json, bun.lock, astro.config.mjs, src/components/common/Icon.astro, src/components/sections/skills/SkillCard.astro, src/components/common/Footer.astro, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS. SVGs are inlined and optimized.
-
-## Iteration 53 - Skill Filtering and Search Implementation 2026-01-12T20:20:00.000Z
-- Task: 70. Implement skill filtering or search [S, Risk: L]
-- What changed: Added category filter buttons and a search input to Skills.astro. Enhanced SkillCard.astro and SkillCategory.astro with data attributes for filtering. Implemented a robust client-side script that handles both category filtering and keyword searching with smooth CSS-based animations (opacity, scale, translate) and accessibility (aria-pressed).
-- Why it changed: To improve the user experience of the Technical Expertise section, allowing users to quickly find specific skills or explore categories as requested.
-- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md, PLANNED_SECTIONS.md
-- Files modified: src/components/sections/skills/Skills.astro, src/components/sections/skills/SkillCategory.astro, src/components/sections/skills/SkillCard.astro, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
-
-## Iteration 56 - Project Filter Component Implementation 2026-01-12T20:45:00.000Z
-- Task: 73. Create project filter component [M, Risk: L]
-- What changed: Extracted project filters into a standalone `ProjectFilters.astro` component. Updated `projects.json` categories for better clarity. Integrated the new component into `Projects.astro` and enhanced it with "Squishy UI" active states and improved keyboard focus rings.
-- Why it changed: To modularize the Projects section and provide a more accessible and visually consistent filtering experience as planned.
-- Research documents consulted: PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
-- Files modified: src/data/projects.json, src/components/sections/projects/ProjectFilters.astro, src/components/sections/projects/Projects.astro, prd.json, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
-
-## Iteration 58 - Project Images Implementation 2026-01-12T20:38:00.000Z
-- Task: 75. Add project images [S, Risk: L]
-- What changed: Expanded `projects.json` to 5 projects with high-quality Unsplash URLs and descriptive `imageAlt` text. Updated `ProjectCard.astro` and `Projects.astro` interfaces to support `imageAlt`. Explicitly set `loading="lazy"` and `decoding="async"` on the project `Image` component.
-- Why it changed: To provide a visually rich and accessible projects showcase, ensuring fast loading and proper image optimization as required by 2026 standards.
-- Research documents consulted: PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
-- Files modified: src/data/projects.json, src/components/sections/projects/ProjectCard.astro, src/components/sections/projects/Projects.astro, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
-
-## Iteration 59 - Project Links and Actions Implementation 2026-01-12T20:41:00.000Z
-- Task: 76. Implement project links and actions [S, Risk: L]
-- What changed: Enhanced `ProjectCard.astro` by adding explicit 'View Project' and 'Source Code' text labels to the overlay buttons. Improved the hover state with `scale-105` and `shadow-lg`, and implemented 'Squishy UI' feedback with `active:scale-95`.
-- Why it changed: To improve the user experience and accessibility of the project showcase by providing clear, interactive calls to action for each project.
-- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md
-- Files modified: src/components/sections/projects/ProjectCard.astro, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
-
-## Iteration 61 - Projects Section Verification 2026-01-12T20:55:00.000Z
-- Task: 79. Test Projects section [XS, Risk: L]
-- What changed: Created a comprehensive E2E test suite for the Projects section in `src/test/e2e/projects.spec.ts`. Implemented `nanostores` to fix a pre-existing issue where the theme state was not shared between Astro islands (fixing `basic.spec.ts`).
-- Why it changed: To ensure the Projects section is fully functional, accessible, and responsive across all devices, and to maintain a high quality bar for the entire application.
-- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md, PLANNED_SECTIONS.md
-- Files modified: src/test/e2e/projects.spec.ts, src/lib/themeStore.ts, src/components/common/ThemeProvider.tsx, package.json, bun.lock, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran all E2E tests (16/16 passed) - SUCCESS.
-
-## Iteration 62 - Experience Section Implementation 2026-01-12T21:00:00.000Z
-- Task: 80. Create Experience section container [S, Risk: L], 81. Build experience timeline component [M, Risk: L], 82. Create individual experience entries [S, Risk: L], 83. Add experience details [S, Risk: L]
-- What changed: Created `src/data/experience.json` with realistic professional data. Implemented a responsive vertical timeline in `Experience.astro`, `Timeline.astro`, and `ExperienceEntry.astro`. Integrated the new section into `index.astro` and exported it from `src/components/index.ts`. Fixed pre-existing lint errors in `ThemeProvider.tsx` and `ProjectModal.tsx`.
-- Why it changed: To showcase professional work history in a structured, visually engaging, and accessible timeline, following the 2026 design trends.
-- Research documents consulted: RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md
-- Files modified: src/data/experience.json, src/components/sections/experience/Experience.astro, src/components/sections/experience/Timeline.astro, src/components/sections/experience/ExperienceEntry.astro, src/components/index.ts, src/pages/index.astro, src/types/experience.ts, src/components/common/ThemeProvider.tsx, src/components/sections/projects/ProjectModal.tsx, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run lint' - SUCCESS.
-
-## Iteration 63 - Experience Section Testing 2026-01-12T21:05:00.000Z
-- Task: 84. Test Experience section [XS, Risk: L]
-- What changed: Created a comprehensive E2E test suite for the Experience section in `src/test/e2e/experience.spec.ts`. Added `data-testid` attributes to `Timeline.astro` and `ExperienceEntry.astro` for more robust and specific element selection in tests. Verified timeline visibility, responsiveness (desktop vs mobile layout), and accessibility structure.
-- Why it changed: To ensure the Experience section is fully functional, accessible, and responsive across all devices, maintaining the project's quality standards for professional credibility.
-- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md, PLANNED_SECTIONS.md
-- Files modified: src/test/e2e/experience.spec.ts, src/components/sections/experience/Timeline.astro, src/components/sections/experience/ExperienceEntry.astro, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran all E2E tests for the Experience section - SUCCESS (4 passed).
-
-## Iteration 64 - Contact Section Container Implementation 2026-01-12T21:10:00.000Z
-- Task: 85. Create Contact section container [S, Risk: L]
-- What changed: Created `src/components/sections/contact/Contact.astro` with a responsive two-column grid. Integrated it into `index.astro` and exported it from `src/components/index.ts`. Updated `personal.json` with an `availability` status.
-- Why it changed: To initialize the Contact section structure as planned, providing a placeholder for the contact form and information.
-- Research documents consulted: PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
-- Files modified: src/components/sections/contact/Contact.astro, src/components/index.ts, src/pages/index.astro, src/data/personal.json, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
-
-## Iteration 65 - Contact Form Implementation 2026-01-12T21:20:00.000Z
-- Task: 86. Build contact form component [M, Risk: M]
-- What changed: Implemented `ContactForm.tsx` using React and `framer-motion`. Added form fields for name, email, subject, and message with validation. Integrated the form into `Contact.astro` with `client:visible` hydration.
-- Why it changed: To provide a functional and accessible contact form as per the project requirements and 2026 design standards.
-- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md
-- Files modified: src/components/sections/contact/ContactForm.tsx, src/components/sections/contact/Contact.astro, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' - SUCCESS.
-
-## Iteration 66 - Contact Form Styling and Animations 2026-01-12T21:40:00.000Z
-- Task: 87. Add form styling and animations [S, Risk: L]
-- What changed: Refactored `ContactForm.tsx` to include an `InputField` sub-component with floating labels. Implemented focus-triggered animations for labels and bottom border using `framer-motion`. Added a subtle glow effect (shadow) on focus and ensured high-contrast focus states.
-- Why it changed: To enhance the user experience and visual quality of the contact form, following the 2026 "Cyber" and "Squishy UI" trends as specified in the design guidelines.
-- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md
-- Files modified: src/components/sections/contact/ContactForm.tsx, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' and 'bun run lint' - SUCCESS.
-
-## Iteration 67 - Contact Form Logic and Information Implementation 2026-01-12T22:00:00.000Z
-- Task: 88. Configure form submission handling [M, Risk: M], 89. Add contact information [S, Risk: L], 90. Test Contact section [XS, Risk: L]
-- What changed: Enhanced `ContactForm.tsx` with a bot-trap honeypot, robust submission logic (supporting `PUBLIC_FORM_ENDPOINT`), and improved error handling. Updated `Contact.astro` with social links, location, and optimized hydration (`client:load`). Added `mail` and `map-pin` icons to `Icon.astro`. Created comprehensive E2E tests in `src/test/e2e/contact.spec.ts`.
-- Why it changed: To finalize the Contact section with functional submission handling, complete professional information, and verified reliability.
-- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md
-- Files modified: src/components/sections/contact/ContactForm.tsx, src/components/sections/contact/Contact.astro, src/components/common/Icon.astro, src/test/e2e/contact.spec.ts, prd.json, plan.md, progress.txt
-- [STALE RESEARCH]: None.
-- [ENV VAR]: Introduced usage of `PUBLIC_FORM_ENDPOINT` for optional real form submission endpoints.
-- [VALIDATION]: Ran all E2E tests (25/25 passed) - SUCCESS.
-
-
+- [VALIDATION]: Ran 'bun run typecheck', 'bun run lint', and all tests - SUCCESS.

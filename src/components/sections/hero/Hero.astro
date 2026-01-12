@@ -13,6 +13,7 @@ const { id = 'hero', class: className } = Astro.props;
 
 <Section
   id={id}
+  animate={false}
   class:list={[
     'relative flex min-h-[calc(100vh-73px)] items-center justify-center overflow-hidden',
     className,
@@ -21,11 +22,11 @@ const { id = 'hero', class: className } = Astro.props;
   {/* Background glow effects - as per DESIGN_GUIDELINES.md 3.2 */}
   <div class="absolute inset-0 -z-10 overflow-hidden">
     <div
-      class="absolute -top-[10%] -left-[10%] h-[40%] w-[40%] rounded-full bg-accent/10 blur-[120px]"
+      class="hero-glow-1 absolute -top-[10%] -left-[10%] h-[40%] w-[40%] rounded-full bg-accent/10 blur-[120px]"
     >
     </div>
     <div
-      class="absolute -bottom-[10%] -right-[10%] h-[40%] w-[40%] rounded-full bg-accent-alt/10 blur-[120px]"
+      class="hero-glow-2 absolute -bottom-[10%] -right-[10%] h-[40%] w-[40%] rounded-full bg-accent-alt/10 blur-[120px]"
     >
     </div>
   </div>
@@ -125,3 +126,32 @@ const { id = 'hero', class: className } = Astro.props;
     }
   }
 </style>
+
+<script>
+  import { scroll, animate } from 'motion';
+
+  // Parallax effects for hero background glows
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const glow1 = document.querySelector('.hero-glow-1');
+    const glow2 = document.querySelector('.hero-glow-2');
+
+    if (glow1 instanceof HTMLElement) {
+      scroll(
+        animate(
+          glow1,
+          { transform: ['translateY(0)', 'translateY(200px)'] },
+          { ease: 'linear' }
+        )
+      );
+    }
+    if (glow2 instanceof HTMLElement) {
+      scroll(
+        animate(
+          glow2,
+          { transform: ['translateY(0)', 'translateY(-200px)'] },
+          { ease: 'linear' }
+        )
+      );
+    }
+  }
+</script>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '../../../types/project';
 
@@ -11,15 +11,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
     null
   );
   const project = projects.find((p) => p.id === selectedProjectId);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousFocus = useRef<HTMLElement | null>(null);
 
   const closeModal = useCallback(() => {
     setSelectedProjectId(null);
     document.body.style.overflow = 'auto';
+    // Restore focus to the element that was focused before opening the modal
+    if (previousFocus.current) {
+      previousFocus.current.focus();
+    }
   }, []);
 
   useEffect(() => {
     const handleOpen = (e: Event) => {
       const customEvent = e as CustomEvent<string>;
+      // Save current focus
+      previousFocus.current = document.activeElement as HTMLElement;
       setSelectedProjectId(customEvent.detail);
       document.body.style.overflow = 'hidden';
     };
@@ -31,8 +39,42 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
   }, []);
 
   useEffect(() => {
+    if (selectedProjectId && modalRef.current) {
+      // Focus the first focusable element (the close button)
+      const focusableElements = modalRef.current.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusableElements.length > 0) {
+        (focusableElements[0] as HTMLElement).focus();
+      }
+    }
+  }, [selectedProjectId]);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeModal();
+
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusableElements = modalRef.current.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0] as HTMLElement;
+        const lastElement = focusableElements[
+          focusableElements.length - 1
+        ] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      }
     };
 
     if (selectedProjectId) {
@@ -57,6 +99,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
 
           {/* Modal Content */}
           <motion.div
+            ref={modalRef}
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}

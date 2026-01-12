@@ -3,7 +3,9 @@ interface Props {
   id?: string;
   class?: string;
   variant?: 'primary' | 'surface' | 'background';
-  as?: any;
+  as?: string | any;
+  animate?: boolean;
+  [key: string]: any;
 }
 
 const {
@@ -11,7 +13,9 @@ const {
   class: className,
   variant = 'background',
   as: Tag = 'section',
-} = Astro.props;
+  animate = true,
+  ...rest
+} = Astro.props as Props;
 
 const variantClasses = {
   primary: 'bg-primary text-background',
@@ -25,8 +29,38 @@ const variantClasses = {
   class:list={[
     'py-24 md:py-32 border-b border-border',
     variantClasses[variant as keyof typeof variantClasses],
+    animate && 'reveal-on-scroll',
     className,
   ]}
+  {...rest}
 >
   <slot />
 </Tag>
+
+<script>
+  import { inView, animate } from 'motion';
+
+  // Initialize animations for elements with reveal-on-scroll class
+  inView('.reveal-on-scroll', (target) => {
+    // Reveal the section itself
+    animate(
+      target,
+      { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
+      { duration: 0.8, ease: [0.17, 0.55, 0.55, 1] }
+    );
+
+    // Staggered reveal for children if they have animate-item class
+    const items = target.querySelectorAll('.animate-item');
+    if (items.length > 0) {
+      animate(
+        items,
+        { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
+        {
+          delay: (i) => 0.2 + i * 0.1,
+          duration: 0.6,
+          ease: [0.17, 0.55, 0.55, 1],
+        }
+      );
+    }
+  });
+</script>
