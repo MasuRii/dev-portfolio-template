@@ -38,22 +38,22 @@
 
 ### 1.3 Technical Stack Evaluation
 
-- [ ] 8. Evaluate modern frontend frameworks for portfolio development [M, Risk: M]
-  - Research Next.js 15, Astro 5, Remix, SolidStart, and SvelteKit current versions
-  - Compare performance, developer experience, and deployment options
-  - Document pros/cons matrix in CHOSEN_TECH_STACK.md
-- [ ] 9. Evaluate CSS frameworks and styling solutions [S, Risk: M]
-  - Research Tailwind CSS 4.x, CSS Modules, styled-components, and vanilla Extract
-  - Compare build performance, bundle size, and customization capabilities
-  - Document decision rationale for theme system and dark mode support
-- [ ] 10. Evaluate animation libraries for 2026 [S, Risk: L]
-  - Research Framer Motion, GSAP 4, Motion One, and CSS-only animations
-  - Compare performance impact, bundle size, and accessibility considerations
-  - Document chosen solution and justification
-- [ ] 11. Evaluate hosting and deployment platforms [S, Risk: L]
-  - Research Vercel, Netlify, Cloudflare Pages, Railway, and Fly.io current offerings
-  - Compare free tier limits, CI/CD integration, and custom domain support
-  - Document deployment recommendations in CHOSEN_TECH_STACK.md
+- [x] 8. Evaluate modern frontend frameworks for portfolio development [M, Risk: M]
+  - [x] Research Next.js 15, Astro 5, Remix, SolidStart, and SvelteKit current versions
+  - [x] Compare performance, developer experience, and deployment options
+  - [x] Document pros/cons matrix in CHOSEN_TECH_STACK.md
+- [x] 9. Evaluate CSS frameworks and styling solutions [S, Risk: M]
+  - [x] Research Tailwind CSS 4.x, CSS Modules, styled-components, and vanilla Extract
+  - [x] Compare build performance, bundle size, and customization capabilities
+  - [x] Document decision rationale for theme system and dark mode support
+- [x] 10. Evaluate animation libraries for 2026 [S, Risk: L]
+  - [x] Research Framer Motion, GSAP 4, Motion One, and CSS-only animations
+  - [x] Compare performance impact, bundle size, and accessibility considerations
+  - [x] Document chosen solution and justification
+- [x] 11. Evaluate hosting and deployment platforms [S, Risk: L]
+  - [x] Research Vercel, Netlify, Cloudflare Pages, Railway, and Fly.io current offerings
+  - [x] Compare free tier limits, CI/CD integration, and custom domain support
+  - [x] Document deployment recommendations in CHOSEN_TECH_STACK.md
 
 ### 1.4 Content Strategy and Structure Planning
 
