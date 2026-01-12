@@ -573,65 +573,65 @@
     "category": "functional",
     "description": "Create DESIGN_GUIDELINES.md with complete visual specifications",
     "steps": [
-      "Add verification steps for this item."
+      "Verified DESIGN_GUIDELINES.md exists and contains Sections 1-4."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Document button styles, form inputs, card designs, and navigation patterns",
     "steps": [
-      "Add verification steps for this item."
+      "Verified Section 6 of DESIGN_GUIDELINES.md contains these specifications."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Include accessibility requirements for each component",
     "steps": [
-      "Add verification steps for this item."
+      "Verified Section 7 of DESIGN_GUIDELINES.md contains accessibility requirements."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add spacing system and layout grid specifications",
     "steps": [
-      "Add verification steps for this item."
+      "Verified Section 5 of DESIGN_GUIDELINES.md contains spacing and grid specs."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "19. Compile final tech stack recommendation document [S, Risk: L]",
     "steps": [
-      "Add verification steps for this item."
+      "Verified CHOSEN_TECH_STACK.md exists and includes sections for Framework, Styling, Animation, Hosting, and Tooling."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Consolidate all research into single CHOSEN_TECH_STACK.md",
     "steps": [
-      "Add verification steps for this item."
+      "Verified research from all Phase 1 sources is reflected in CHOSEN_TECH_STACK.md."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Include framework, styling, animation, hosting, and tooling decisions",
     "steps": [
-      "Add verification steps for this item."
+      "Framework (Astro), Styling (Tailwind), Animation (Motion), Hosting (Vercel), and Tooling (Bun/TS) are documented."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Provide justification for each choice with alternatives considered",
     "steps": [
-      "Add verification steps for this item."
+      "Each major decision includes a rationale and list of alternatives considered."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",

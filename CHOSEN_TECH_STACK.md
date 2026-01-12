@@ -59,6 +59,18 @@ This document evaluates modern frontend frameworks, styling solutions, animation
 
 ---
 
+## 5. Development Tooling
+
+| Tool | Decision | Rationale | Alternatives Considered |
+| :--- | :--- | :--- | :--- |
+| **Package Manager** | **Bun** | Exceptional speed for dependency installation and script execution, aligned with 2026 performance-first goals. | pnpm, npm, yarn |
+| **Language** | **TypeScript** | Mandatory for type safety, self-documenting code, and improved DX in 2026. | JavaScript (JSDoc) |
+| **Linter** | **ESLint** | Industry standard for maintaining code quality and enforcing consistent patterns. | Biome |
+| **Formatter** | **Prettier** | Ensuring consistent code formatting across the entire project. | Biome |
+| **CI/CD** | **GitHub Actions**| Robust, integrated automation for linting, type-checking, and testing. | Vercel CI, CircleCI |
+
+---
+
 ## Summary Recommendation
 
 *   **Framework:** Astro 5 (using React components for interactivity)
