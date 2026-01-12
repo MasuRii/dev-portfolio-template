@@ -66,3 +66,50 @@ The portfolio is designed with a **Dark Mode First** mentality. The default expe
 ### 3.3 Modular Grid
 - Consistent border usage (`1px solid`) between sections to create a structured, "blueprint" feel.
 - Visible grid lines in the background (subtle) to emphasize the technical nature of the portfolio.
+
+---
+
+## 4. Typography System (2026)
+
+The typography system prioritizes high legibility, technical character, and performance through Variable Fonts.
+
+### 4.1 Font Selections
+
+| Role | Font Family | Variable Axes | Fallback | Rationale |
+| :--- | :--- | :--- | :--- | :--- |
+| **Headlines** | **Space Grotesk** | `wght` (300-700) | Sans-serif | Distinctive technical character with modern geometric forms. |
+| **Body Text** | **Inter** | `wght` (100-900) | Sans-serif | Industry standard for screen legibility and UI clarity. |
+| **Monospace** | **JetBrains Mono** | `wght`, `ital` | Monospace | Exceptional readability for code snippets and technical data. |
+
+### 4.2 Fluid Typography Scale
+
+We use a fluid scaling system based on the `clamp()` function to ensure seamless transitions across all screen sizes without media query bloat.
+
+| Level | CSS Fluid Formula | Desktop (Approx) | Mobile (Approx) |
+| :--- | :--- | :--- | :--- |
+| **Display** | `clamp(2.5rem, 8vw, 6rem)` | 96px | 40px |
+| **H1** | `clamp(2rem, 6vw, 4rem)` | 64px | 32px |
+| **H2** | `clamp(1.5rem, 4vw, 2.5rem)` | 40px | 24px |
+| **H3** | `clamp(1.25rem, 3vw, 1.75rem)` | 28px | 20px |
+| **Body** | `clamp(1rem, 1vw + 0.5rem, 1.125rem)` | 18px | 16px |
+| **Small** | `clamp(0.875rem, 0.5vw + 0.75rem, 1rem)` | 16px | 14px |
+
+### 4.3 Typographic Tokens
+
+- **Line Height:** 
+  - Headlines: `1.1` to `1.2`
+  - Body: `1.5` to `1.6`
+- **Letter Spacing:**
+  - Headlines: `-0.02em` (Tightened for impact)
+  - Body: `normal`
+- **Font Weight Tokens:**
+  - Light: `300`
+  - Regular: `400`
+  - Medium: `500`
+  - SemiBold: `600`
+  - Bold: `700`
+
+### 4.4 Kinetic Typography (Motion)
+
+- **Hover States:** Headlines should support subtle "stretch" or "weight" transitions using `font-variation-settings`.
+- **Scroll Reveals:** Text elements should use "staggered fade-in" or "word-by-word" reveal animations using Motion One.

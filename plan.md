@@ -81,10 +81,10 @@
   - [x] Document primary, secondary, accent, and semantic colors
   - [x] Plan dark/light mode color schemes with sufficient contrast
   - [x] Save to DESIGN_GUIDELINES.md
-- [ ] 17. Define typography system and font choices [S, Risk: L]
-  - Research best font pairings for developer portfolios in 2026
-  - Document heading and body font selections with fallbacks
-  - Plan responsive typography scale and fluid typography
+- [x] 17. Define typography system and font choices [S, Risk: L]
+  - [x] Research best font pairings for developer portfolios in 2026
+  - [x] Document heading and body font selections with fallbacks
+  - [x] Plan responsive typography scale and fluid typography
 - [ ] 18. Document design guidelines and component specifications [M, Risk: L]
   - Create DESIGN_GUIDELINES.md with complete visual specifications
   - Document button styles, form inputs, card designs, and navigation patterns
