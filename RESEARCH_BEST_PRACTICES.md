@@ -81,3 +81,26 @@ This document summarizes current (2026) trends, best practices, and technical ev
 *   **AI Integration:** Use of tools like **v0** or **Lovable** for rapid UI prototyping.
 *   **Observability:** Tools like **Faro** for frontend monitoring with privacy focus.
 *   **Configuration:** **Pkl** for safe and scalable configuration management.
+
+## 7. SEO & Meta Strategy (2026)
+
+### AEO (Answer Engine Optimization) & AI Visibility
+*   **Modular Content:** Structuring content in clear, semantic blocks that AI agents can easily parse and cite.
+*   **Answer-Ready Snippets:** Including concise "TL;DR" summaries for complex sections to feed conversational AI queries.
+*   **E-E-A-T Focus:** Demonstrating Experience, Expertise, Authoritativeness, and Trust through verified project links, testimonials, and detailed case studies.
+
+### Schema Markup & Structured Data
+*   **Person Schema:** Mandatory for personal branding. Should include `name`, `jobTitle`, `url`, `sameAs` (social links), and `knowsAbout` (technical skills).
+*   **SoftwareApplication / CreativeWork:** Using specific schema for projects to enable rich snippets in search results.
+*   **FAQ Schema:** Implementing for common questions (availability, tech stack, process) to capture more SERP real estate.
+*   **BreadcrumbList:** Enhancing site structure visibility for both humans and crawlers.
+
+### Modern Meta Tags & Social Features
+*   **Open Graph (OG) 2026:** Beyond standard tags, ensuring high-quality `og:image` (1200x630) and `og:type="profile"`.
+*   **Twitter/X Cards:** Using `summary_large_image` for maximum engagement.
+*   **Theme Color:** Utilizing `theme-color` meta tag that syncs with the user's system preference or site's dark/light mode.
+*   **Robots & Crawlability:** Clear `robots.txt` and `sitemap.xml` are prerequisite, with a focus on fast indexing of new projects.
+
+### Predictive & Contextual SEO
+*   **Semantic Search:** Focusing on topics and entities rather than just keywords.
+*   **Performance as SEO:** Core Web Vitals (especially INP < 200ms) are now a direct ranking factor for AI-driven overview features.
