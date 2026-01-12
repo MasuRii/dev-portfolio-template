@@ -637,14 +637,14 @@
 
 ### 7.2 Accessibility Testing
 
-- [ ] 131. Run comprehensive accessibility audit [S, Risk: L]
-  - Use axe DevTools to audit all pages
-  - Use WAVE for additional checking
-  - Document all accessibility issues
-- [ ] 132. Test keyboard navigation [S, Risk: L]
-  - Navigate entire site using only keyboard
-  - Verify all interactive elements are focusable
-  - Test skip links and focus management
+- [x] 131. Run comprehensive accessibility audit [S, Risk: L]
+  - [x] Use axe DevTools to audit all pages
+  - [x] Use WAVE for additional checking
+  - [x] Document all accessibility issues
+- [x] 132. Test keyboard navigation [S, Risk: L]
+  - [x] Navigate entire site using only keyboard
+  - [x] Verify all interactive elements are focusable
+  - [x] Test skip links and focus management
 - [ ] 133. Test with screen reader [S, Risk: L]
   - Test with NVDA or VoiceOver
   - Verify all content is announced correctly

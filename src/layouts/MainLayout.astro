@@ -16,5 +16,5 @@ const { class: className } = Astro.props;
     <slot />
   </main>
   <Footer />
-  <ScrollToTop client:only="react" />
+  <ScrollToTop client:idle />
 </div>

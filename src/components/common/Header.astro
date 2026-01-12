@@ -126,6 +126,27 @@ import navLinks from '../../data/navigation.json';
     toggle.setAttribute('aria-expanded', newState.toString());
     menu?.classList.toggle('hidden');
     document.body.classList.toggle('overflow-hidden');
+
+    // Handle inert for accessibility
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+    const skipLink = document.querySelector('.skip-link');
+
+    if (newState) {
+      main?.setAttribute('inert', '');
+      footer?.setAttribute('inert', '');
+      skipLink?.setAttribute('inert', '');
+      // Focus the first link in the mobile menu after a short delay for transition
+      setTimeout(() => {
+        (menu?.querySelector('.mobile-nav-link') as HTMLElement)?.focus();
+      }, 100);
+    } else {
+      main?.removeAttribute('inert');
+      footer?.removeAttribute('inert');
+      skipLink?.removeAttribute('inert');
+      // Return focus to toggle
+      toggle?.focus();
+    }
   });
 
   // Close menu on link click
@@ -134,6 +155,11 @@ import navLinks from '../../data/navigation.json';
       menu?.classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
       toggle?.setAttribute('aria-expanded', 'false');
+
+      // Remove inert
+      document.querySelector('main')?.removeAttribute('inert');
+      document.querySelector('footer')?.removeAttribute('inert');
+      document.querySelector('.skip-link')?.removeAttribute('inert');
     });
   });
 

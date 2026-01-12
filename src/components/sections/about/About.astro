@@ -59,7 +59,7 @@ type Stat = PersonalData['stats'][number];
           </div>
           <Image
             src={info.avatar}
-            alt={info.name}
+            alt={`Professional portrait of ${info.name}`}
             width={800}
             height={800}
             format="avif"
@@ -67,6 +67,7 @@ type Stat = PersonalData['stats'][number];
             sizes="(max-width: 768px) 400px, 800px"
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
             loading="lazy"
+            decoding="async"
           />
         </div>
 

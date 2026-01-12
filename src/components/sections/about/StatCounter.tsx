@@ -55,9 +55,16 @@ export const StatCounter: React.FC<StatCounterProps> = ({
         transition={{ duration: 0.5 }}
         className="p-4 rounded-xl bg-background border border-border group hover:border-accent transition-colors duration-300"
       >
-        <div className="stat-value text-h3 font-bold text-primary group-hover:text-accent transition-colors duration-300">
+        <div
+          className="stat-value text-h3 font-bold text-primary group-hover:text-accent transition-colors duration-300"
+          aria-hidden="true"
+        >
           0{suffix}
         </div>
+        <span className="sr-only">
+          {value}
+          {suffix}
+        </span>
         <div className="text-small text-secondary group-hover:text-primary transition-colors duration-300">
           {label}
         </div>
