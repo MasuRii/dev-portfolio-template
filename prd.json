@@ -2244,26 +2244,30 @@
   {
     "category": "functional",
     "description": "71. Test Skills section [XS, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified all skills display correctly",
+      "Tested filtering functionality",
+      "Checked responsive layout on mobile"
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Verify all skills display correctly",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified section visibility and heading in E2E tests."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Test filtering functionality",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified category filtering and search in E2E tests."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Check responsive layout on mobile",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified responsive grid layout in E2E tests."],
+    "passes": true
   },
   {
     "category": "functional",
