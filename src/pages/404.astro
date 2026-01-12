@@ -1,0 +1,42 @@
+---
+import RootLayout from '../layouts/RootLayout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import Section from '../components/common/Section.astro';
+import Container from '../components/common/Container.astro';
+
+const title = '404: Page Not Found | MasuRii';
+const description = 'The page you are looking for does not exist.';
+---
+
+<RootLayout title={title} description={description}>
+  <MainLayout>
+    <Section class="flex items-center justify-center min-h-[calc(100vh-200px)]">
+      <Container>
+        <div class="text-center space-y-8 max-w-2xl mx-auto animate-item">
+          <h1
+            class="text-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-alt"
+          >
+            404
+          </h1>
+          <div class="space-y-4">
+            <h2 class="text-h2 font-bold text-primary">
+              Lost in the Cyber Void?
+            </h2>
+            <p class="text-body text-secondary max-w-md mx-auto">
+              The neural link to this page has been severed. It seems you've
+              wandered into an unmapped sector of my portfolio.
+            </p>
+          </div>
+          <div class="pt-4">
+            <a
+              href="/"
+              class="inline-flex items-center justify-center px-8 py-4 text-white bg-gradient-to-r from-accent to-accent-alt rounded-lg font-bold transition-transform hover:scale-105 active:scale-95"
+            >
+              Return to Base
+            </a>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  </MainLayout>
+</RootLayout>

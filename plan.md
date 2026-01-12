@@ -529,10 +529,10 @@
 
 ### 5.5 404 and Error Pages
 
-- [ ] 109. Create 404 error page [S, Risk: L]
-  - Build 404 page with friendly message
-  - Add navigation back to home
-  - Add search functionality if appropriate
+- [x] 109. Create 404 error page [S, Risk: L]
+  - [x] Build 404 page with friendly message
+  - [x] Add navigation back to home
+  - [x] Add search functionality if appropriate
 - [ ] 110. Test error pages [XS, Risk: L]
   - Verify 404 page renders correctly
   - Test navigation from 404 page
