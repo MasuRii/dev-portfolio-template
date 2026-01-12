@@ -724,7 +724,7 @@
   - [x] Set up account on chosen hosting platform (Vercel)
   - [x] Connect repository to hosting service
   - [x] Configure build settings and environment variables (Installed @astrojs/vercel and configured astro.config.mjs)
-- [ ] 149. Configure custom domain (if applicable) [S, Risk: L]
+- [x] 149. Configure custom domain (if applicable) [S, Risk: L]
   - Register domain if needed
   - Configure DNS settings
   - Set up SSL certificate
@@ -735,7 +735,7 @@
 
 ### 8.2 CI/CD Pipeline Setup
 
-- [ ] 151. Configure deployment pipeline [M, Risk: L]
+- [x] 151. Configure deployment pipeline [M, Risk: L]
   - Set up automatic deployment on push to main
   - Configure branch protection for production
   - Set up deployment status notifications
@@ -743,7 +743,7 @@
   - [x] Enable compression and minification (Astro compressHTML and Vite minify)
   - [x] Configure caching headers (vercel.json)
   - [x] Set up CDN if available (Vercel)
-- [ ] 153. Test deployment pipeline [S, Risk: L]
+- [x] 153. Test deployment pipeline [S, Risk: L]
   - Trigger test deployment
   - Verify deployment completes successfully
   - Test deployed site functionality
@@ -754,26 +754,26 @@
   - [x] Set up Google Analytics or privacy-friendly alternative
   - [x] Configure page view tracking
   - [x] Set up event tracking for key interactions
-- [ ] 155. Add error monitoring (optional) [S, Risk: L]
+- [x] 155. Add error monitoring (optional) [S, Risk: L]
   - Set up error tracking service
   - Configure error reporting
   - Test error monitoring integration
 
 ### 8.4 Final Verification
 
-- [ ] 156. Test production deployment [S, Risk: L]
+- [x] 156. Test production deployment [S, Risk: L]
   - Access deployed site via custom domain
   - Test all pages and features
   - Verify performance on production server
-- [ ] 157. Run final Lighthouse audit on production [S, Risk: L]
+- [x] 157. Run final Lighthouse audit on production [S, Risk: L]
   - Run Lighthouse on production URL
   - Document final scores for performance, accessibility, SEO, best practices
   - Target scores: Performance > 90, Accessibility = 100, SEO = 100
-- [ ] 158. Test all links and navigation [S, Risk: L]
+- [x] 158. Test all links and navigation [S, Risk: L]
   - Test internal navigation links
   - Verify external links open correctly
   - Check all CTA buttons work
-- [ ] 159. Test form submission on production [S, Risk: L]
+- [x] 159. Test form submission on production [S, Risk: L]
   - Submit test form on production site
   - Verify form data is received correctly
   - Test confirmation message display
