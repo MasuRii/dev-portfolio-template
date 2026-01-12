@@ -1,33 +1,43 @@
 ---
 import RootLayout from '../layouts/RootLayout.astro';
 import MainLayout from '../layouts/MainLayout.astro';
+import { Hero, About } from '../components';
 ---
 
 <RootLayout title="MasuRii | Full Stack Developer & Creative Technologist">
   <MainLayout>
-    <main class="flex min-h-[80vh] flex-col items-center justify-center py-24">
-      <h1
-        class="bg-linear-to-r from-accent to-accent-alt bg-clip-text text-6xl font-bold text-transparent md:text-8xl"
-      >
-        MasuRii
-      </h1>
-      <p class="mt-6 text-xl text-secondary md:text-2xl">
-        Full Stack Developer & Creative Technologist
-      </p>
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a
-          href="#projects"
-          class="rounded-lg bg-accent px-8 py-4 font-medium text-white transition-transform active:scale-95"
-        >
-          View Projects
-        </a>
-        <a
-          href="#contact"
-          class="rounded-lg border border-border px-8 py-4 font-medium text-primary transition-colors hover:bg-surface"
-        >
-          Contact Me
-        </a>
+    <Hero />
+    <About />
+
+    <section
+      id="projects"
+      class="flex min-h-screen flex-col items-center justify-center py-24"
+    >
+      <h2 class="text-4xl font-bold text-primary md:text-6xl">Projects</h2>
+      <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Project placeholders will go here */}
       </div>
-    </main>
+    </section>
+
+    <section
+      id="skills"
+      class="flex min-h-screen flex-col items-center justify-center bg-surface py-24"
+    >
+      <h2 class="text-4xl font-bold text-primary md:text-6xl">Skills</h2>
+    </section>
+
+    <section
+      id="experience"
+      class="flex min-h-screen flex-col items-center justify-center py-24"
+    >
+      <h2 class="text-4xl font-bold text-primary md:text-6xl">Experience</h2>
+    </section>
+
+    <section
+      id="contact"
+      class="flex min-h-screen flex-col items-center justify-center bg-surface py-24"
+    >
+      <h2 class="text-4xl font-bold text-primary md:text-6xl">Contact</h2>
+    </section>
   </MainLayout>
 </RootLayout>

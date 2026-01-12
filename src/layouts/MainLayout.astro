@@ -1,6 +1,7 @@
 ---
 import Header from '../components/common/Header.astro';
 import Footer from '../components/common/Footer.astro';
+import { ScrollToTop } from '../components';
 
 interface Props {
   class?: string;
@@ -15,4 +16,5 @@ const { class: className } = Astro.props;
     <slot />
   </div>
   <Footer />
+  <ScrollToTop client:only="react" />
 </div>

@@ -1,0 +1,20 @@
+{
+  "name": "MasuRii",
+  "title": "Full Stack Developer & Creative Technologist",
+  "bio": [
+    "I am a passionate Full Stack Developer and Creative Technologist specialized in building high-performance, accessible, and visually stunning web experiences. My journey in tech started with a curiosity for how things work under the hood, which evolved into a career dedicated to crafting seamless digital products.",
+    "With deep expertise in React, Astro, and modern animation libraries like Motion, I bridge the gap between complex engineering and intuitive design. I believe that performance and accessibility are not just 'features' but fundamental pillars of a successful web application.",
+    "When I'm not coding, I'm usually exploring new design trends, contributing to open-source projects, or experimenting with creative coding and 3D graphics to push the boundaries of what's possible on the web."
+  ],
+  "shortBio": "Building high-performance, accessible, and visually stunning web experiences with modern technology.",
+  "avatar": "/assets/images/profile.avif",
+  "location": "Global / Remote",
+  "socials": {
+    "github": "https://github.com/MasuRii",
+    "linkedin": "https://linkedin.com/in/MasuRii",
+    "twitter": "https://twitter.com/MasuRii"
+  },
+  "contact": {
+    "email": "hello@masurii.dev"
+  }
+}
