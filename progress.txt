@@ -1,0 +1,5 @@
+# Ralph Progress
+
+## Iteration 0 - Initialized 2026-01-12T04:10:53.035Z
+- Plan: prd.json
+- Notes: Initialized via ralph init.
