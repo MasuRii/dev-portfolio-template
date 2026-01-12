@@ -612,16 +612,16 @@
   - [x] Run Lighthouse on local development server
   - [x] Document performance score and metrics
   - [x] Identify optimization opportunities
-- [ ] 126. Optimize images [M, Risk: L]
-  - Compress all project and profile images
-  - Convert to WebP or AVIF format where supported
-  - Implement responsive images with srcset
-  - Add proper lazy loading to below-fold images
-- [ ] 127. Optimize bundle size [M, Risk: M]
-  - Analyze bundle size with bundle analyzer
-  - Remove unused dependencies
-  - Implement code splitting where appropriate
-  - Configure tree shaking for production build
+- [x] 126. Optimize images [M, Risk: L]
+  - [x] Compress all project and profile images
+  - [x] Convert to WebP or AVIF format where supported
+  - [x] Implement responsive images with srcset
+  - [x] Add proper lazy loading to below-fold images
+- [x] 127. Optimize bundle size [M, Risk: M]
+  - [x] Analyze bundle size with bundle analyzer
+  - [x] Remove unused dependencies
+  - [x] Implement code splitting where appropriate
+  - [x] Configure tree shaking for production build
 - [ ] 128. Optimize fonts [S, Risk: L]
   - Implement font subsetting if using custom fonts
   - Add font-display: swap for faster text display

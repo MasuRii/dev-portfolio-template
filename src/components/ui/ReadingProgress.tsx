@@ -1,5 +1,11 @@
 import React from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import {
+  m,
+  useScroll,
+  useSpring,
+  LazyMotion,
+  domAnimation,
+} from 'motion/react';
 
 /**
  * ReadingProgress component
@@ -15,12 +21,14 @@ export const ReadingProgress: React.FC = () => {
   });
 
   return (
-    <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-[110]"
-      style={{ scaleX }}
-      aria-hidden="true"
-      data-testid="reading-progress"
-    />
+    <LazyMotion features={domAnimation} strict>
+      <m.div
+        className="fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-[110]"
+        style={{ scaleX }}
+        aria-hidden="true"
+        data-testid="reading-progress"
+      />
+    </LazyMotion>
   );
 };
 

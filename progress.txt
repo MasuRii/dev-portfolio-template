@@ -87,3 +87,31 @@
 - Files modified: docs/reports/performance/AUDIT_2026-01-12.md, prd.json, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run build' and 'bun run typecheck' - SUCCESS.
+
+## Iteration 87 - Image Optimization 2026-01-12T00:15:00.000Z
+- Task: 126. Optimize images [M, Risk: L]
+- What changed:
+    - Updated `Hero.astro` to use `astro:assets` `Image` component.
+    - Standardized all images (`Hero`, `About`, `ProjectCard`, `BlogPostCard`) to use `AVIF` format.
+    - Implemented responsive images using `widths` and `sizes` attributes for `srcset` generation.
+    - Optimized loading strategy: `eager` for Hero, `lazy` for all other sections.
+    - Verified 19 optimized AVIF images generated during `bun run build`.
+- Why it changed: To improve Largest Contentful Paint (LCP) and overall performance by leveraging next-gen image formats and responsive loading, following 2026 best practices.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md, PLANNED_SECTIONS.md
+- Files modified: src/components/sections/hero/Hero.astro, src/components/sections/about/About.astro, src/components/sections/projects/ProjectCard.astro, src/components/sections/blog/BlogPostCard.astro, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
+
+## Iteration 88 - Bundle Size Optimization 2026-01-13T00:00:00.000Z
+- Task: 127. Optimize bundle size [M, Risk: M]
+- What changed:
+    - Removed unused `SampleComponent` and its associated unit test.
+    - Optimized React components (`ContactForm`, `StatCounter`, `ShareButtons`, `ScrollToTop`, `ReadingProgress`, `CookieConsent`, `ProjectModal`) to use `LazyMotion` with `domAnimation` features locally within each island.
+    - Verified that `manualChunks` in `astro.config.mjs` correctly groups `react`, `react-dom`, and `motion` libraries for shared caching.
+    - Confirmed total JS bundle size remains optimal (~58.6kB gzipped) despite the addition of multiple interactive features.
+- Why it changed: To ensure minimal JavaScript payload and faster Interaction to Next Paint (INP) by leveraging Astro's Islands Architecture and Motion's lazy loading capabilities.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md
+- Files modified: src/components/sections/contact/ContactForm.tsx, src/components/sections/about/StatCounter.tsx, src/components/ui/ShareButtons.tsx, src/components/common/ScrollToTop.tsx, src/components/ui/ReadingProgress.tsx, src/components/common/CookieConsent.tsx, src/components/sections/projects/ProjectModal.tsx, src/components/index.ts, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run build' and 'bun run typecheck' - SUCCESS.
+

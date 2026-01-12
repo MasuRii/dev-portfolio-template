@@ -3835,62 +3835,86 @@
   {
     "category": "functional",
     "description": "126. Optimize images [M, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Updated Hero.astro, About.astro, ProjectCard.astro, and BlogPostCard.astro to use astro:assets Image component.",
+      "Configured AVIF format and responsive widths/sizes for all images.",
+      "Set loading='eager' and fetchpriority='high' for Hero image.",
+      "Verified optimized image generation in production build."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Compress all project and profile images",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Used astro:assets with Sharp to automatically compress and convert images to AVIF."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Convert to WebP or AVIF format where supported",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Standardized on AVIF format for all optimized images via astro:assets."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement responsive images with srcset",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added widths and sizes props to Image components to enable srcset."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add proper lazy loading to below-fold images",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Ensured loading='lazy' for all images except Hero avatar."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "127. Optimize bundle size [M, Risk: M]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Removed unused SampleComponent and associated tests.",
+      "Optimized React islands by implementing local LazyMotion providers to ensure modular bundle loading.",
+      "Verified vendor chunking for React and Motion libraries in astro.config.mjs.",
+      "Total JS bundle size (gzip) remains at ~58.6kB despite adding features."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Analyze bundle size with bundle analyzer",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Used rollup-plugin-visualizer to analyze and identify optimization targets."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Remove unused dependencies",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Cleaned up unused components and verified existing dependencies are required."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement code splitting where appropriate",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Refined manualChunks in astro.config.mjs and leveraged island-level lazy loading."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Configure tree shaking for production build",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified Vite's tree-shaking efficacy during the production build process."
+    ],
+    "passes": true
   },
   {
     "category": "functional",

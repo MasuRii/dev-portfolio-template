@@ -125,9 +125,9 @@ const canonicalURL = new URL(
     </script>
 
     <ThemeProvider client:load>
-      {showReadingProgress && <ReadingProgress client:load />}
+      {showReadingProgress && <ReadingProgress client:idle />}
       <slot />
-      <CookieConsent client:load />
+      <CookieConsent client:idle />
     </ThemeProvider>
   </body>
 </html>

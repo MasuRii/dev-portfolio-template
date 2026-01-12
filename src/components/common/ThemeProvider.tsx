@@ -1,5 +1,6 @@
 import React, { createContext, useEffect } from 'react';
 import { useStore } from '@nanostores/react';
+import { LazyMotion, domAnimation } from 'motion/react';
 import {
   themeStore,
   setTheme,
@@ -26,7 +27,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
-      {children}
+      <LazyMotion features={domAnimation} strict>
+        {children}
+      </LazyMotion>
     </ThemeContext.Provider>
   );
 }

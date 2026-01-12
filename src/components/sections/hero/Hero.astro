@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
 import { getPersonalData } from '../../../lib/data';
@@ -44,11 +45,16 @@ const { id = 'hero', class: className } = Astro.props;
         <div
           class="relative h-full w-full overflow-hidden rounded-full border-2 border-accent/20 bg-surface shadow-inner transition-transform duration-500 hover:scale-105 active:scale-95"
         >
-          <img
+          <Image
             src={personal.avatar}
             alt={personal.name}
+            width={160}
+            height={160}
+            format="avif"
+            widths={[160, 320]}
+            sizes="(max-width: 768px) 128px, 160px"
             class="h-full w-full object-cover"
-            loading="lazy"
+            loading="eager"
           />
         </div>
       </div>

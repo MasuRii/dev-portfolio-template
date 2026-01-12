@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
 
 interface InputFieldProps {
   id: string;
@@ -36,7 +36,7 @@ const InputField: React.FC<InputFieldProps> = ({
 
   return (
     <div className="relative group pt-4">
-      <motion.label
+      <m.label
         htmlFor={id}
         initial={false}
         animate={{
@@ -48,7 +48,7 @@ const InputField: React.FC<InputFieldProps> = ({
         className="absolute left-0 top-3 pointer-events-none origin-left text-secondary/70"
       >
         {label}
-      </motion.label>
+      </m.label>
       {isTextArea ? (
         <textarea
           id={id}
@@ -78,7 +78,7 @@ const InputField: React.FC<InputFieldProps> = ({
           aria-describedby={error ? `${id}-error` : undefined}
         />
       )}
-      <motion.div
+      <m.div
         initial={false}
         animate={{
           scaleX: isActive ? 1 : 0,
@@ -88,14 +88,14 @@ const InputField: React.FC<InputFieldProps> = ({
         className="absolute bottom-0 left-0 w-full h-0.5 origin-left"
       />
       {error && (
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
           id={`${id}-error`}
           className="text-xs text-error mt-1"
         >
           {error}
-        </motion.p>
+        </m.p>
       )}
     </div>
   );
@@ -198,157 +198,105 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="p-8 rounded-2xl border border-border bg-surface shadow-xl relative overflow-hidden">
-      <AnimatePresence mode="wait">
-        {status === 'success' ? (
-          <motion.div
-            key="success"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="flex flex-col items-center justify-center py-12 text-center"
-            data-testid="contact-success"
-          >
-            <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mb-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-success"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
-            <p className="text-secondary">
-              Thanks for reaching out. I'll get back to you soon.
-            </p>
-          </motion.div>
-        ) : (
-          <form
-            key="form"
-            onSubmit={handleSubmit}
-            className="space-y-8"
-            noValidate
-            data-testid="contact-form"
-          >
-            {/* Honeypot Field */}
-            <div className="hidden" aria-hidden="true">
-              <input
-                type="text"
-                name="_honeypot"
-                tabIndex={-1}
-                autoComplete="off"
-                value={formData._honeypot}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <InputField
-                id="name"
-                label="Name"
-                placeholder="John Doe"
-                value={formData.name}
-                onChange={handleChange}
-                error={errors.name}
-              />
-              <InputField
-                id="email"
-                label="Email"
-                type="email"
-                placeholder="john@example.com"
-                value={formData.email}
-                onChange={handleChange}
-                error={errors.email}
-              />
-            </div>
-
-            <InputField
-              id="subject"
-              label="Subject"
-              placeholder="Project Inquiry"
-              value={formData.subject}
-              onChange={handleChange}
-              error={errors.subject}
-            />
-
-            <InputField
-              id="message"
-              label="Message"
-              isTextArea
-              placeholder="Tell me about your project..."
-              value={formData.message}
-              onChange={handleChange}
-              error={errors.message}
-            />
-
-            {status === 'error' && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="p-4 bg-error/10 border border-error/20 rounded-lg text-error text-sm flex items-center gap-3"
-                data-testid="contact-error"
-              >
+    <LazyMotion features={domAnimation} strict>
+      <div className="p-8 rounded-2xl border border-border bg-surface shadow-xl relative overflow-hidden">
+        <AnimatePresence mode="wait">
+          {status === 'success' ? (
+            <m.div
+              key="success"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="flex flex-col items-center justify-center py-12 text-center"
+              data-testid="contact-success"
+            >
+              <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mb-6">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
+                  width="32"
+                  height="32"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className="text-success"
                 >
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                  <polyline points="20 6 9 17 4 12" />
                 </svg>
-                {errorMessage}
-              </motion.div>
-            )}
-
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              disabled={status === 'submitting'}
-              type="submit"
-              className="w-full py-4 bg-gradient-to-r from-accent to-accent-alt text-white font-bold rounded-lg shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
+              <p className="text-secondary">
+                Thanks for reaching out. I'll get back to you soon.
+              </p>
+            </m.div>
+          ) : (
+            <form
+              key="form"
+              onSubmit={handleSubmit}
+              className="space-y-8"
+              noValidate
+              data-testid="contact-form"
             >
-              {status === 'submitting' ? (
-                <>
-                  <svg
-                    className="animate-spin h-5 w-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    />
-                  </svg>
-                  Sending...
-                </>
-              ) : (
-                <>
-                  Send Message
+              {/* Honeypot Field */}
+              <div className="hidden" aria-hidden="true">
+                <input
+                  type="text"
+                  name="_honeypot"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData._honeypot}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <InputField
+                  id="name"
+                  label="Name"
+                  placeholder="John Doe"
+                  value={formData.name}
+                  onChange={handleChange}
+                  error={errors.name}
+                />
+                <InputField
+                  id="email"
+                  label="Email"
+                  type="email"
+                  placeholder="john@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  error={errors.email}
+                />
+              </div>
+
+              <InputField
+                id="subject"
+                label="Subject"
+                placeholder="Project Inquiry"
+                value={formData.subject}
+                onChange={handleChange}
+                error={errors.subject}
+              />
+
+              <InputField
+                id="message"
+                label="Message"
+                isTextArea
+                placeholder="Tell me about your project..."
+                value={formData.message}
+                onChange={handleChange}
+                error={errors.message}
+              />
+
+              {status === 'error' && (
+                <m.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-error/10 border border-error/20 rounded-lg text-error text-sm flex items-center gap-3"
+                  data-testid="contact-error"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -359,18 +307,72 @@ const ContactForm: React.FC = () => {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="lucide lucide-send"
                   >
-                    <path d="m22 2-7 20-4-9-9-4Z" />
-                    <path d="M22 2 11 13" />
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
                   </svg>
-                </>
+                  {errorMessage}
+                </m.div>
               )}
-            </motion.button>
-          </form>
-        )}
-      </AnimatePresence>
-    </div>
+
+              <m.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                disabled={status === 'submitting'}
+                type="submit"
+                className="w-full py-4 bg-gradient-to-r from-accent to-accent-alt text-white font-bold rounded-lg shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {status === 'submitting' ? (
+                  <>
+                    <svg
+                      className="animate-spin h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-send"
+                    >
+                      <path d="m22 2-7 20-4-9-9-4Z" />
+                      <path d="M22 2 11 13" />
+                    </svg>
+                  </>
+                )}
+              </m.button>
+            </form>
+          )}
+        </AnimatePresence>
+      </div>
+    </LazyMotion>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
 
 interface ShareButtonsProps {
   title: string;
@@ -99,96 +99,98 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
   ];
 
   return (
-    <div className="relative inline-flex items-center gap-2">
-      {/* Native Share / Toggle Options */}
-      <motion.button
-        onClick={handleNativeShare}
-        className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
-        aria-label="Share this post"
-        whileTap={{ scale: 0.9 }}
-        whileHover={{ scale: 1.1 }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+    <LazyMotion features={domAnimation} strict>
+      <div className="relative inline-flex items-center gap-2">
+        {/* Native Share / Toggle Options */}
+        <m.button
+          onClick={handleNativeShare}
+          className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+          aria-label="Share this post"
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.1 }}
         >
-          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-          <polyline points="16 6 12 2 8 6" />
-          <line x1="12" x2="12" y1="2" y2="15" />
-        </svg>
-      </motion.button>
-
-      <AnimatePresence>
-        {(showOptions || !canShare) && (
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -10 }}
-            className="flex items-center gap-2"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            {shareLinks.map((link) => (
-              <motion.a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
-                aria-label={`Share on ${link.name}`}
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+            <polyline points="16 6 12 2 8 6" />
+            <line x1="12" x2="12" y1="2" y2="15" />
+          </svg>
+        </m.button>
+
+        <AnimatePresence>
+          {(showOptions || !canShare) && (
+            <m.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              className="flex items-center gap-2"
+            >
+              {shareLinks.map((link) => (
+                <m.a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+                  aria-label={`Share on ${link.name}`}
+                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {link.icon}
+                </m.a>
+              ))}
+
+              <m.button
+                onClick={copyToClipboard}
+                className={`flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface transition-colors focus:outline-none focus:ring-2 focus:ring-accent ${isCopied ? 'border-success text-success' : 'text-secondary hover:border-accent hover:text-accent'}`}
+                aria-label="Copy link to clipboard"
                 whileTap={{ scale: 0.9 }}
                 whileHover={{ scale: 1.1 }}
               >
-                {link.icon}
-              </motion.a>
-            ))}
-
-            <motion.button
-              onClick={copyToClipboard}
-              className={`flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface transition-colors focus:outline-none focus:ring-2 focus:ring-accent ${isCopied ? 'border-success text-success' : 'text-secondary hover:border-accent hover:text-accent'}`}
-              aria-label="Copy link to clipboard"
-              whileTap={{ scale: 0.9 }}
-              whileHover={{ scale: 1.1 }}
-            >
-              {isCopied ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-                </svg>
-              )}
-            </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+                {isCopied ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                  </svg>
+                )}
+              </m.button>
+            </m.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </LazyMotion>
   );
 };
