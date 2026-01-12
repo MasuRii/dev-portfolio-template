@@ -1341,20 +1341,22 @@
   {
     "category": "functional",
     "description": "Set up base styles for typography",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified @layer base in global.css includes typography."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Configure global CSS reset and normalization",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified Tailwind 4 import provides reset."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Apply theme colors to native HTML elements",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified @layer base in global.css applies theme colors to html/body."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
@@ -1389,8 +1391,12 @@
   {
     "category": "functional",
     "description": "46. Implement navigation links [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created navigation.json with section anchors.",
+      "Implemented Intersection Observer for active state detection.",
+      "Added manual smooth scroll with header offset in Header.astro."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
@@ -1480,26 +1486,32 @@
   {
     "category": "functional",
     "description": "46. Implement navigation links [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created navigation.json with section anchors.",
+      "Implemented Intersection Observer for active state detection.",
+      "Added manual smooth scroll with header offset in Header.astro."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create navigation items for each section",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified navigation.json contains all planned sections."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add active state indication for current section",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented Intersection Observer to toggle aria-current='page'."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement smooth scroll behavior",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added JS-based smooth scroll with header offset compensation."],
+    "passes": true
   },
   {
     "category": "functional",

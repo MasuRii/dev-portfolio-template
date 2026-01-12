@@ -20,7 +20,7 @@ import navLinks from '../../data/navigation.json';
             <li>
               <a
                 href={link.href}
-                class="text-sm font-medium text-secondary transition-colors hover:text-accent"
+                class="nav-link text-sm font-medium text-secondary transition-all hover:text-accent aria-[current=page]:text-accent aria-[current=page]:after:scale-x-100 relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-right after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
               >
                 {link.name}
               </a>
@@ -86,7 +86,7 @@ import navLinks from '../../data/navigation.json';
               <li>
                 <a
                   href={link.href}
-                  class="mobile-nav-link text-3xl font-bold text-primary transition-colors hover:text-accent"
+                  class="mobile-nav-link text-3xl font-bold text-primary transition-colors hover:text-accent aria-[current=page]:text-accent"
                 >
                   {link.name}
                 </a>
@@ -103,7 +103,8 @@ import navLinks from '../../data/navigation.json';
   const header = document.getElementById('main-header');
   const toggle = document.getElementById('mobile-menu-toggle');
   const menu = document.getElementById('mobile-menu');
-  const links = document.querySelectorAll('.mobile-nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const navLinks = document.querySelectorAll('.nav-link');
 
   // Sticky header scroll effect
   window.addEventListener('scroll', () => {
@@ -127,11 +128,70 @@ import navLinks from '../../data/navigation.json';
   });
 
   // Close menu on link click
-  links.forEach((link) => {
+  mobileLinks.forEach((link) => {
     link.addEventListener('click', () => {
       menu?.classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
       toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Active section detection via Intersection Observer
+  const sections = document.querySelectorAll('section[id]');
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0,
+  };
+
+  const observerCallback = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        updateActiveLink(`#${id}`);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+  sections.forEach((section) => observer.observe(section));
+
+  function updateActiveLink(href: string) {
+    const allLinks = [...Array.from(navLinks), ...Array.from(mobileLinks)];
+    allLinks.forEach((link) => {
+      if (link.getAttribute('href') === href) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  // Handle smooth scroll manually if needed (optional since we have CSS scroll-behavior: smooth)
+  // But useful for fine-tuning offsets
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const targetAnchor = e.currentTarget as HTMLAnchorElement;
+      const href = targetAnchor.getAttribute('href');
+      if (!href || href === '#') return;
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const headerHeight = header?.offsetHeight || 0;
+        const targetPosition =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth',
+        });
+
+        // Update URL hash without jumping
+        history.pushState(null, '', href);
+      }
     });
   });
 </script>

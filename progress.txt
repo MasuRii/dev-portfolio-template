@@ -227,3 +227,12 @@
 - Files modified: src/components/common/Header.astro, src/layouts/MainLayout.astro, src/layouts/RootLayout.astro, src/data/navigation.json, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS. Verified React Context error resolution via 'client:only' and 'ThemeProvider' placement.
+
+## Iteration 40 - Navigation Links and Active State 2026-01-12T14:05:00.000Z
+- Task: 44. Apply global theme styles [S, Risk: L], 46. Implement navigation links [S, Risk: L]
+- What changed: Implemented Intersection Observer in Header.astro for active section detection and smooth scrolling with header offset. Marked Task 44 as complete (typography, reset, theme colors). Updated E2E test to match the new page title.
+- Why it changed: To finalize the navigation system's interactivity and ensure the global styles are correctly applied as per design guidelines.
+- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md
+- Files modified: src/components/common/Header.astro, src/test/e2e/basic.spec.ts, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck', 'bun run test run', and 'bun run test:e2e' - SUCCESS.
