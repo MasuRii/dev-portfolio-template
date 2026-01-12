@@ -2,10 +2,9 @@
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
 import BlogPostCard from './BlogPostCard.astro';
-import blogData from '../../../data/blog.json';
-import type { BlogPost } from '../../../types/blog';
+import { getBlogPostsSorted } from '../../../lib/data';
 
-const posts = blogData as BlogPost[];
+const posts = getBlogPostsSorted();
 ---
 
 <Section id="blog" variant="surface" data-testid="blog-section">

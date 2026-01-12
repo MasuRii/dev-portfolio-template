@@ -4,11 +4,10 @@ import Container from '../../common/Container.astro';
 import ProjectFilters from './ProjectFilters.astro';
 import ProjectCard from './ProjectCard.astro';
 import { ProjectModal } from './ProjectModal';
-import projectsData from '../../../data/projects.json';
-import type { Project } from '../../../types/project';
+import { getProjectsData, getProjectCategories } from '../../../lib/data';
 
-const projects = projectsData as Project[];
-const categories = ['All', ...new Set(projects.map((p) => p.category))];
+const projects = getProjectsData();
+const categories = getProjectCategories();
 ---
 
 <Section id="projects" variant="background">

@@ -2,16 +2,9 @@
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
 import Timeline from './Timeline.astro';
-import experienceData from '../../../data/experience.json';
-import type { Experience as ExperienceType } from '../../../types/experience';
+import { getExperienceSorted } from '../../../lib/data';
 
-const experiences = experienceData as ExperienceType[];
-
-/**
- * Task 80: Create Experience section container
- * Task 81: Build experience timeline component
- * Task 82: Create individual experience entries
- */
+const experiences = getExperienceSorted();
 ---
 
 <Section id="experience" variant="background">

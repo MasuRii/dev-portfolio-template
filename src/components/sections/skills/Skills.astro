@@ -2,21 +2,9 @@
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
 import SkillCategory from './SkillCategory.astro';
-import skillsData from '../../../data/skills.json';
+import { getSkillsData } from '../../../lib/data';
 
-interface Skill {
-  name: string;
-  icon: string;
-  level: number;
-}
-
-interface SkillCategoryData {
-  category: string;
-  description: string;
-  skills: Skill[];
-}
-
-const typedSkillsData = skillsData as SkillCategoryData[];
+const typedSkillsData = getSkillsData();
 ---
 
 <Section id="skills" variant="background">
