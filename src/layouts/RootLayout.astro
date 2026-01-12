@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ThemeScript from '../components/common/ThemeScript.astro';
+import Schema from '../components/common/Schema.astro';
 import { ThemeProvider } from '../components/common/ThemeProvider';
 import { ClientRouter } from 'astro:transitions';
 
@@ -54,6 +55,7 @@ const canonicalURL = new URL(
     <meta name="theme-color" content="#000000" />
 
     <ThemeScript />
+    <Schema />
 
     <script is:inline>
       // Add 'js' class to document element to handle JS-dependent styles

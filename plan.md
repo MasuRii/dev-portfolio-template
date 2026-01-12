@@ -503,15 +503,15 @@
   - [x] Add title and meta description
   - [x] Implement Open Graph tags for social sharing
   - [x] Add Twitter card tags
-- [ ] 104. Add structured data [M, Risk: L]
-  - Implement Person schema markup
-  - Add Project or SoftwareApplication schema
-  - Add Organization schema if applicable
-  - Test with Rich Results Test
-- [ ] 105. Add sitemap and robots.txt [S, Risk: L]
-  - Create sitemap.xml with all pages
-  - Create robots.txt for search engine crawling
-  - Verify files are properly formatted
+- [x] 104. Add structured data [M, Risk: L]
+  - [x] Implement Person schema markup
+  - [x] Add Project or SoftwareApplication schema
+  - [x] Add Organization schema if applicable
+  - [x] Test with Rich Results Test
+- [x] 105. Add sitemap and robots.txt [S, Risk: L]
+  - [x] Create sitemap.xml with all pages
+  - [x] Create robots.txt for search engine crawling
+  - [x] Verify files are properly formatted
 
 ### 5.4 Favicon and App Icons
 

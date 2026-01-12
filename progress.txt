@@ -66,3 +66,29 @@
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck' and all E2E tests - SUCCESS. Verified meta tags presence in head.
 
+## Iteration 75 - SEO Structured Data Implementation 2026-01-13T00:40:00.000Z
+- Task: 104. Add structured data [M, Risk: L]
+- What changed:
+    - Created `Schema.astro` component to generate comprehensive JSON-LD structured data.
+    - Implemented Person schema using data from `personal.json`, including name, title, socials, and technical skills.
+    - Implemented Organization schema linked to the Person as the founder, providing professional context.
+    - Implemented SoftwareApplication schemas for all projects listed in `projects.json`, enabling rich snippets for technical work.
+    - Integrated the `Schema.astro` component into `RootLayout.astro` for global availability across the site.
+- Why it changed: To enhance SEO and AI visibility (AEO) by providing machine-readable metadata about the developer and their work, following 2026 structured data trends.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md
+- Files modified: src/components/common/Schema.astro, src/layouts/RootLayout.astro, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS. Verified JSON-LD generation.
+
+## Iteration 76 - SEO Sitemap and Robots.txt Implementation 2026-01-13T00:55:00.000Z
+- Task: 105. Add sitemap and robots.txt [S, Risk: L]
+- What changed:
+    - Installed `@astrojs/sitemap` integration to automate sitemap generation during build.
+    - Updated `astro.config.mjs` to include the `site` URL (`https://masurii.dev`) and the `sitemap()` integration.
+    - Created `public/robots.txt` with standard rules and a reference to the generated sitemap index.
+    - Verified successful generation of `sitemap-index.xml` in the build output.
+- Why it changed: To improve search engine crawlability and indexing, following 2026 SEO best practices.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md
+- Files modified: astro.config.mjs, package.json, public/robots.txt, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS. Verified sitemap-index.xml creation.
