@@ -515,17 +515,17 @@
 
 ### 5.4 Favicon and App Icons
 
-- [ ] 106. Create and add favicon [S, Risk: L]
-  - Generate favicon from design assets
-  - Add favicon.ico, favicon.svg
-  - Configure favicon in HTML
-- [ ] 107. Add Apple touch icon [S, Risk: L]
-  - Create Apple touch icon
-  - Add to public folder and HTML
-- [ ] 108. Add manifest file for PWA [S, Risk: L]
-  - Create manifest.json
-  - Configure theme colors and display mode
-  - Add to HTML
+- [x] 106. Create and add favicon [S, Risk: L]
+  - [x] Generate favicon from design assets
+  - [x] Add favicon.ico, favicon.svg
+  - [x] Configure favicon in HTML
+- [x] 107. Add Apple touch icon [S, Risk: L]
+  - [x] Create Apple touch icon
+  - [x] Add to public folder and HTML
+- [x] 108. Add manifest file for PWA [S, Risk: L]
+  - [x] Create manifest.json
+  - [x] Configure theme colors and display mode
+  - [x] Add to HTML
 
 ### 5.5 404 and Error Pages
 
