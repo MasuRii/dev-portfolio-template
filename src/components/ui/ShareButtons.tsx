@@ -104,7 +104,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         {/* Native Share / Toggle Options */}
         <m.button
           onClick={handleNativeShare}
-          className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
           aria-label="Share this post"
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.1 }}
@@ -140,7 +140,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
                   aria-label={`Share on ${link.name}`}
                   whileTap={{ scale: 0.9 }}
                   whileHover={{ scale: 1.1 }}
@@ -151,7 +151,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
 
               <m.button
                 onClick={copyToClipboard}
-                className={`flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface transition-colors focus:outline-none focus:ring-2 focus:ring-accent ${isCopied ? 'border-success text-success' : 'text-secondary hover:border-accent hover:text-accent'}`}
+                className={`flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface transition-colors focus:outline-none focus:ring-2 focus:ring-accent ${isCopied ? 'border-success text-success' : 'text-secondary hover:border-accent hover:text-accent'}`}
                 aria-label="Copy link to clipboard"
                 whileTap={{ scale: 0.9 }}
                 whileHover={{ scale: 1.1 }}

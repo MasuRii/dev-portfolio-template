@@ -26,7 +26,7 @@ const typedSkillsData = getSkillsData();
       <div class="flex flex-wrap gap-3" id="skills-filters">
         <button
           data-filter="all"
-          class="px-6 py-2 rounded-full border border-border text-small font-medium transition-all hover:border-accent hover:text-accent aria-pressed:bg-accent aria-pressed:text-white aria-pressed:border-accent"
+          class="px-6 py-3 rounded-full border border-border text-small font-medium transition-all hover:border-accent hover:text-accent aria-pressed:bg-accent aria-pressed:text-white aria-pressed:border-accent"
           aria-pressed="true"
         >
           All
@@ -35,7 +35,7 @@ const typedSkillsData = getSkillsData();
           typedSkillsData.map((category) => (
             <button
               data-filter={category.category}
-              class="px-6 py-2 rounded-full border border-border text-small font-medium transition-all hover:border-accent hover:text-accent aria-pressed:bg-accent aria-pressed:text-white aria-pressed:border-accent"
+              class="px-6 py-3 rounded-full border border-border text-small font-medium transition-all hover:border-accent hover:text-accent aria-pressed:bg-accent aria-pressed:text-white aria-pressed:border-accent"
               aria-pressed="false"
             >
               {category.category}
@@ -49,7 +49,7 @@ const typedSkillsData = getSkillsData();
           type="text"
           id="skills-search"
           placeholder="Search skills..."
-          class="w-full pl-10 pr-4 py-2 rounded-full border border-border bg-surface text-small focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
+          class="w-full pl-10 pr-4 py-3 rounded-full border border-border bg-surface text-small focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
           aria-label="Search skills"
         />
         <div class="absolute left-3 top-1/2 -translate-y-1/2 text-secondary">

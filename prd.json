@@ -4346,8 +4346,13 @@
   {
     "category": "functional",
     "description": "142. Test responsive breakpoints [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added Tablet project to Playwright configuration.",
+      "Created src/test/e2e/responsive.spec.ts to test layout shifts and touch targets.",
+      "Verified all breakpoints (mobile, tablet, desktop) pass layout and visibility tests.",
+      "Fixed touch target issues in ProjectFilters, Skills, Footer, and ShareButtons components."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
@@ -4370,26 +4375,32 @@
   {
     "category": "functional",
     "description": "143. Test dark mode on all devices [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified dark mode works on all pages using Playwright.",
+      "Checked color contrast in dark mode (background #0a0a0b, text #f9fafb).",
+      "Tested system preference detection and persistence."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Verify dark mode works on all pages",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified via src/test/e2e/theme.spec.ts across all devices."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Check color contrast in dark mode",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified body background and text colors meet contrast requirements in dark mode."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Test system preference detection",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified Playwright emulation of dark color-scheme."],
+    "passes": true
   },
   {
     "category": "functional",

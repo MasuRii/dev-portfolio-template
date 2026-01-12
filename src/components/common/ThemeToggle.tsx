@@ -9,7 +9,7 @@ export const ThemeToggle: React.FC = () => {
     <LazyMotion features={domAnimation} strict>
       <m.button
         onClick={toggleTheme}
-        className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface text-primary transition-colors hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent"
+        className="relative flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-surface text-primary transition-colors hover:border-accent focus:outline-none focus:ring-2 focus:ring-accent"
         aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         aria-pressed={theme === 'dark'}
         whileTap={{ scale: 0.95 }}

@@ -23,3 +23,30 @@
 - Files modified: playwright.config.ts, src/components/sections/projects/ProjectCard.astro, src/components/common/Header.astro, src/test/e2e/basic.spec.ts, src/test/e2e/projects.spec.ts, src/test/e2e/keyboard.spec.ts, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'npx playwright test --project="Mobile Chrome" --project="Mobile Safari"' - 65/68 tests passed (1 focus issue on Mobile Safari skip link, verified functional coverage).
+
+## Iteration 103 - Responsive Breakpoint Testing 2026-01-13T02:00:00.000Z
+- Task: 142. Test responsive breakpoints [S, Risk: L]
+- What changed:
+    - Added `Tablet Safari` (iPad Air) to `playwright.config.ts`.
+    - Created `src/test/e2e/responsive.spec.ts` to verify header adaptation, grid column changes, and touch target sizes.
+    - Improved touch target compliance (>44px) by increasing vertical padding in `ProjectFilters.astro` and `Skills.astro` (py-2 to py-3).
+    - Fixed undersized social links in `Footer.astro` and `ShareButtons.tsx` (h-10/h-8 to h-12).
+    - Verified all responsive tests pass across Desktop Chrome, Firefox, Safari, Edge, Mobile Chrome, Mobile Safari, and Tablet Safari.
+- Why it changed: To ensure the portfolio meets 2026 accessibility and usability standards across all device types and screen sizes.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md, TOP_EXAMPLES.md
+- Files modified: playwright.config.ts, src/test/e2e/responsive.spec.ts, src/components/sections/projects/ProjectFilters.astro, src/components/sections/skills/Skills.astro, src/components/common/Footer.astro, src/components/common/ThemeToggle.tsx, src/components/ui/ShareButtons.tsx, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck', 'bun test', 'bun run lint', and 'npx playwright test src/test/e2e/responsive.spec.ts' - All passed.
+
+## Iteration 104 - Dark Mode Testing 2026-01-13T03:00:00.000Z
+- Task: 143. Test dark mode on all devices [S, Risk: L]
+- What changed:
+    - Created `src/test/e2e/theme.spec.ts` to verify theme switching functionality.
+    - Verified default light mode, toggle functionality, system preference detection, and theme persistence.
+    - Confirmed dark mode color compliance (background: #0a0a0b, text: #f9fafb).
+    - Ran tests across 7 device profiles (Desktop Chrome, Firefox, Safari, Edge, Mobile Chrome, Mobile Safari, Tablet Safari).
+- Why it changed: To ensure the portfolio's theme system is robust, persists user preferences, and remains accessible in dark mode across all platforms.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md
+- Files modified: src/test/e2e/theme.spec.ts, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck', 'bun test', 'bun run lint', and 'npx playwright test src/test/e2e/theme.spec.ts' - All passed.

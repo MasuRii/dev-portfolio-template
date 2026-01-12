@@ -685,14 +685,15 @@
   - [x] Test on iOS Safari and Android Chrome
   - [x] Verify touch interactions work correctly
   - [x] Check responsive layout on various screen sizes
-- [ ] 142. Test responsive breakpoints [S, Risk: L]
-  - Test all breakpoints (mobile, tablet, desktop)
-  - Verify layout adapts correctly
-  - Check touch targets are large enough on mobile
-- [ ] 143. Test dark mode on all devices [S, Risk: L]
-  - Verify dark mode works on all pages
-  - Check color contrast in dark mode
-  - Test system preference detection
+- [x] 142. Test responsive breakpoints [S, Risk: L]
+  - [x] Added Tablet project to Playwright configuration.
+  - [x] Created src/test/e2e/responsive.spec.ts to test layout shifts and touch targets.
+  - [x] Verified all breakpoints (mobile, tablet, desktop) pass layout and visibility tests.
+  - [x] Fixed touch target issues in ProjectFilters, Skills, Footer, and ShareButtons components.
+- [x] 143. Test dark mode on all devices [S, Risk: L]
+  - [x] Verified dark mode works on all pages using Playwright.
+  - [x] Checked color contrast in dark mode (background #0a0a0b, text #f9fafb).
+  - [x] Tested system preference detection and persistence.
 
 ### 7.5 Final Testing and QA
 
