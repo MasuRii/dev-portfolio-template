@@ -1,7 +1,9 @@
 ---
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
-import personal from '../../../data/personal.json';
+import { getPersonalData } from '../../../lib/data';
+
+const personal = getPersonalData();
 
 interface Props {
   id?: string;

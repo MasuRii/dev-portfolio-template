@@ -176,6 +176,29 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
                       </section>
                     </div>
 
+                    {project.metrics && project.metrics.length > 0 && (
+                      <section>
+                        <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-3">
+                          Project Metrics
+                        </h3>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          {project.metrics.map((metric) => (
+                            <div
+                              key={metric.label}
+                              className="p-4 bg-background border border-border rounded-2xl flex flex-col"
+                            >
+                              <span className="text-accent font-display text-2xl font-bold mb-1">
+                                {metric.value}
+                              </span>
+                              <span className="text-muted text-xs uppercase tracking-wider">
+                                {metric.label}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+                    )}
+
                     <section>
                       <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-3">
                         Stack & Tools

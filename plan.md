@@ -556,21 +556,21 @@
 
 ### 6.1 Personal Information Data
 
-- [ ] 114. Create personal info data file [S, Risk: L]
-  - Create JSON file with name, title, bio, contact info
-  - Add social media links and profiles
-  - Include profile image path
-- [ ] 115. Create component to consume personal data [S, Risk: L]
-  - Build data loader/hook for personal information
-  - Integrate data into relevant components
-  - Verify data displays correctly
+- [x] 114. Create personal info data file [S, Risk: L]
+  - [x] Create JSON file with name, title, bio, contact info
+  - [x] Add social media links and profiles
+  - [x] Include profile image path
+- [x] 115. Create component to consume personal data [S, Risk: L]
+  - [x] Build data loader/hook for personal information
+  - [x] Integrate data into relevant components
+  - [x] Verify data displays correctly
 
 ### 6.2 Projects Data
 
-- [ ] 116. Create projects data file [S, Risk: L]
-  - Create JSON file with 4-6 project entries
-  - Include project details (title, description, image, tags, links)
-  - Add realistic project metrics (users, downloads, etc.)
+- [x] 116. Create projects data file [S, Risk: L]
+  - [x] Create JSON file with 4-6 project entries
+  - [x] Include project details (title, description, image, tags, links)
+  - [x] Add realistic project metrics (users, downloads, etc.)
 - [ ] 117. Create project data loader [S, Risk: L]
   - Build data access layer for projects
   - Implement filtering and sorting functions

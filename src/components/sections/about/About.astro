@@ -3,33 +3,10 @@ import { Image } from 'astro:assets';
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
 import { StatCounter } from './StatCounter';
-import personal from '../../../data/personal.json';
+import { getPersonalData, type PersonalData } from '../../../lib/data';
 
-interface Stat {
-  label: string;
-  value: number;
-  suffix: string;
-}
-
-interface PersonalInfo {
-  name: string;
-  title: string;
-  bio: string | string[];
-  shortBio: string;
-  avatar: string;
-  location: string;
-  socials: {
-    github: string;
-    linkedin: string;
-    twitter: string;
-  };
-  contact: {
-    email: string;
-  };
-  stats: Stat[];
-}
-
-const info = personal as PersonalInfo;
+const info = getPersonalData();
+type Stat = PersonalData['stats'][number];
 ---
 
 <Section id="about" variant="surface">

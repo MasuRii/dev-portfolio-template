@@ -21,6 +21,12 @@
       "live": "https://example.com",
       "github": "https://github.com/example/project"
     },
+    "metrics": [
+      { "label": "LCP Improvement", "value": "40%" },
+      { "label": "Data Throttling", "value": "60fps" },
+      { "label": "Active Users", "value": "1.2k" },
+      { "label": "Open Source Stars", "value": "450+" }
+    ],
     "featured": true
   },
   {
@@ -45,6 +51,12 @@
       "live": "https://example.com",
       "github": "https://github.com/example/project"
     },
+    "metrics": [
+      { "label": "Total Downloads", "value": "50k+" },
+      { "label": "CO2 Tracked", "value": "120 Tons" },
+      { "label": "User Retention", "value": "65%" },
+      { "label": "App Store Rating", "value": "4.8/5" }
+    ],
     "featured": true
   },
   {
@@ -70,6 +82,12 @@
       "live": "https://example.com",
       "github": "https://github.com/example/project"
     },
+    "metrics": [
+      { "label": "Avg Response Time", "value": "120ms" },
+      { "label": "Nodes Processed", "value": "1M+" },
+      { "label": "Search Accuracy", "value": "94%" },
+      { "label": "Daily Active Users", "value": "2.5k" }
+    ],
     "featured": true
   },
   {
@@ -95,6 +113,12 @@
       "live": "https://example.com",
       "github": "https://github.com/example/project"
     },
+    "metrics": [
+      { "label": "Total Components", "value": "50+" },
+      { "label": "Accessibility Score", "value": "100/100" },
+      { "label": "NPM Downloads", "value": "15k/mo" },
+      { "label": "Bundle Size", "value": "12KB Gzip" }
+    ],
     "featured": false
   },
   {
@@ -120,6 +144,12 @@
       "live": "https://example.com",
       "github": "https://github.com/example/project"
     },
+    "metrics": [
+      { "label": "Devices Supported", "value": "200+" },
+      { "label": "Latency", "value": "< 50ms" },
+      { "label": "Energy Saved", "value": "15%" },
+      { "label": "GitHub Stars", "value": "820" }
+    ],
     "featured": false
   }
 ]

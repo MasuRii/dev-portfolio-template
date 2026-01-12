@@ -15,4 +15,8 @@ export interface Project {
     github: string;
   };
   featured: boolean;
+  metrics?: {
+    label: string;
+    value: string;
+  }[];
 }

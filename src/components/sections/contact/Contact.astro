@@ -3,11 +3,11 @@ import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
 import ContactForm from './ContactForm';
 import Icon from '../../common/Icon.astro';
-import personalData from '../../../data/personal.json';
+import { getPersonalData } from '../../../lib/data';
 
-const data = personalData as any;
+const data = getPersonalData();
 const contact = data.contact;
-const socials = data.socials as Record<string, string>;
+const socials = data.socials;
 const location = data.location;
 const availability = data.availability;
 ---

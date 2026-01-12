@@ -37,3 +37,28 @@
 - Files modified: src/components/ui/ShareButtons.tsx, src/components/sections/blog/BlogPostCard.astro, src/components/index.ts, src/components/ui/ShareButtons.test.tsx, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run lint', 'bun run test', and 'bun run typecheck' - SUCCESS.
+
+## Iteration 83 - Personal Data Loader Implementation 2026-01-12T23:15:00.000Z
+- Task: 115. Create component to consume personal data [S, Risk: L]
+- What changed:
+    - Created `src/lib/data.ts` as a centralized data loader for all JSON data files (Personal, Projects, Skills, Experience, Blog).
+    - Refactored `Hero.astro`, `About.astro`, `Contact.astro`, and `Footer.astro` to consume data through the new `getPersonalData` function.
+    - Enhanced `Footer.astro` to dynamically display the developer's name, title, and social links from `personal.json`.
+    - Verified Task 114 as complete as `src/data/personal.json` already existed with correct fields.
+- Why it changed: To provide a single source of truth for all data access, improve type safety, and simplify component logic by decoupling data source from UI.
+- Research documents consulted: CHOSEN_TECH_STACK.md, PLANNED_SECTIONS.md
+- Files modified: src/lib/data.ts, src/components/sections/hero/Hero.astro, src/components/sections/about/About.astro, src/components/sections/contact/Contact.astro, src/components/common/Footer.astro, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck', 'bun run lint', and 'bun run test' - SUCCESS.
+
+## Iteration 84 - Projects Data Enhancement 2026-01-12T23:25:00.000Z
+- Task: 116. Create projects data file [S, Risk: L]
+- What changed:
+    - Updated `src/types/project.ts` to include an optional `metrics` field.
+    - Enhanced `src/data/projects.json` with 4 realistic performance/engagement metrics for each of the 5 project entries.
+    - Refactored `src/components/sections/projects/ProjectModal.tsx` to dynamically render the metrics grid if data is present.
+- Why it changed: To provide data-driven evidence of technical achievements within the portfolio showcase, aligning with 2026 "Show, Don't Tell" best practices.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md
+- Files modified: src/types/project.ts, src/data/projects.json, src/components/sections/projects/ProjectModal.tsx, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck', 'bun run test run', and 'bun run lint' - SUCCESS.

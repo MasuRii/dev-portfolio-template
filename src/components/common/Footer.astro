@@ -1,24 +1,26 @@
 ---
 import Container from './Container.astro';
 import Icon from './Icon.astro';
-import navLinks from '../../data/navigation.json';
+import { getNavigationData, getPersonalData } from '../../lib/data';
 
+const navLinks = getNavigationData();
+const personal = getPersonalData();
 const currentYear = new Date().getFullYear();
 
 const socialLinks = [
   {
     name: 'GitHub',
-    href: 'https://github.com/MasuRii',
+    href: personal.socials.github,
     icon: 'github',
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/in/MasuRii',
+    href: personal.socials.linkedin,
     icon: 'linkedin',
   },
   {
     name: 'Twitter',
-    href: 'https://twitter.com/MasuRii',
+    href: personal.socials.twitter,
     icon: 'twitter',
   },
 ];
@@ -30,11 +32,10 @@ const socialLinks = [
       <!-- Brand & Info -->
       <div class="flex flex-col gap-4">
         <a href="/" class="text-2xl font-bold tracking-tighter text-primary">
-          MasuRii<span class="text-accent">.</span>
+          {personal.name}<span class="text-accent">.</span>
         </a>
         <p class="max-w-xs text-secondary">
-          Full Stack Developer & Creative Technologist building high-performance
-          web experiences.
+          {personal.title} building high-performance web experiences.
         </p>
       </div>
 
@@ -117,7 +118,7 @@ const socialLinks = [
     <div
       class="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground md:flex md:items-center md:justify-between md:text-left"
     >
-      <p>© {currentYear} MasuRii. All rights reserved.</p>
+      <p>© {currentYear} {personal.name}. All rights reserved.</p>
       <p class="mt-2 md:mt-0">
         Built with <a
           href="https://astro.build"
