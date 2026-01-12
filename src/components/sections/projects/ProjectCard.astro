@@ -43,7 +43,7 @@ const { project } = Astro.props;
 
     {/* Overlay with Links */}
     <div
-      class="absolute inset-0 bg-primary/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center gap-4 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto"
+      class="absolute inset-0 bg-primary/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 md:flex hidden flex-col items-center justify-center gap-4 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-500"
     >
       <button
         data-project-details={project.id}
@@ -107,6 +107,36 @@ const { project } = Astro.props;
     >
       {project.summary}
     </p>
+
+    {/* Mobile-only buttons */}
+    <div class="flex md:hidden gap-3 mb-6">
+      <button
+        data-project-details={project.id}
+        class="flex-1 flex items-center justify-center gap-2 py-3 bg-accent text-white rounded-xl font-semibold active:scale-95 transition-all shadow-md"
+        aria-label={`View detailed information for ${project.title}`}
+      >
+        <Icon name="info" class="w-4 h-4" />
+        <span class="text-sm">Details</span>
+      </button>
+      <a
+        href={project.links.live}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-xl active:scale-95 transition-all shadow-sm"
+        aria-label={`View live site for ${project.title}`}
+      >
+        <Icon name="external-link" class="w-5 h-5" />
+      </a>
+      <a
+        href={project.links.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-xl active:scale-95 transition-all shadow-sm"
+        aria-label={`View source code for ${project.title}`}
+      >
+        <Icon name="github" class="w-5 h-5" />
+      </a>
+    </div>
 
     <div class="flex flex-wrap gap-2">
       {

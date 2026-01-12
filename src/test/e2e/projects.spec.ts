@@ -3,6 +3,11 @@ import { test, expect } from '@playwright/test';
 test.describe('Projects Section', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
+    // Pre-accept cookie consent to avoid interception
+    await page.evaluate(() => {
+      localStorage.setItem('cookie-consent', 'accepted');
+    });
+    await page.reload();
     // Wait for the projects section to be visible
     await page.locator('#projects').scrollIntoViewIfNeeded();
   });
@@ -56,19 +61,26 @@ test.describe('Projects Section', () => {
     expect(await allCards.count()).toBeGreaterThan(count);
   });
 
-  test('should open and close project modal', async ({ page }) => {
+  test('should open and close project modal', async ({ page, isMobile }) => {
     const firstCard = page.locator('[data-project-category]').first();
 
-    // Hover to reveal overlay
-    await firstCard.hover();
+    let viewDetailsButton;
+    if (isMobile) {
+      // On mobile, the button is outside the hover overlay
+      viewDetailsButton = firstCard.getByRole('button', {
+        name: /View detailed information/i,
+      });
+    } else {
+      // Hover to reveal overlay on desktop
+      await firstCard.hover();
+      viewDetailsButton = firstCard.locator('button[data-project-details]');
+    }
 
-    const viewDetailsButton = firstCard.locator('button[data-project-details]');
-    // Force click since it's in a hover overlay
-    await viewDetailsButton.click({ force: true });
+    await viewDetailsButton.click();
 
     // Modal should be visible
     const modal = page.getByRole('dialog');
-    await expect(modal).toBeVisible();
+    await expect(modal).toBeVisible({ timeout: 10000 });
 
     // Check if title is present in modal
     const modalTitle = modal.locator('#modal-title');

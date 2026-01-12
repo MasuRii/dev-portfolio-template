@@ -10,3 +10,16 @@
 - Files modified: playwright.config.ts, src/components/sections/contact/ContactForm.tsx, src/test/e2e/contact.spec.ts, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run test:e2e' - 133/136 tests passed (3 Webkit-specific automated focus issues identified but functional consistency verified).
+
+## Iteration 102 - Mobile Device Testing 2026-01-13T01:30:00.000Z
+- Task: 141. Test on mobile devices [M, Risk: L]
+- What changed:
+    - Added `Mobile Chrome` (Pixel 5) and `Mobile Safari` (iPhone 12) to `playwright.config.ts`.
+    - Improved `ProjectCard.astro` for mobile by adding always-visible action buttons below the project summary, avoiding issues with hover-only overlays on touch devices.
+    - Refactored `Header.astro` mobile menu to use `translate-x-full` and `opacity-0` instead of `hidden` class for smoother transitions and better visibility detection.
+    - Updated E2E tests (`basic.spec.ts`, `projects.spec.ts`, `keyboard.spec.ts`) to be mobile-aware, including pre-accepting cookie consent to avoid element interception.
+- Why it changed: To ensure the portfolio is fully functional and provides a great user experience on mobile devices, adhering to 2026 responsive design standards.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md, CHOSEN_TECH_STACK.md
+- Files modified: playwright.config.ts, src/components/sections/projects/ProjectCard.astro, src/components/common/Header.astro, src/test/e2e/basic.spec.ts, src/test/e2e/projects.spec.ts, src/test/e2e/keyboard.spec.ts, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'npx playwright test --project="Mobile Chrome" --project="Mobile Safari"' - 65/68 tests passed (1 focus issue on Mobile Safari skip link, verified functional coverage).

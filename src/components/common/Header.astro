@@ -77,7 +77,7 @@ import navLinks from '../../data/navigation.json';
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 top-[73px] z-40 hidden w-full bg-background transition-all duration-300 md:hidden"
+    class="fixed inset-0 top-[73px] z-40 w-full bg-background transition-all duration-300 translate-x-full opacity-0 pointer-events-none"
   >
     <Container class="py-12">
       <nav>
@@ -124,8 +124,22 @@ import navLinks from '../../data/navigation.json';
     const newState = !isExpanded;
 
     toggle.setAttribute('aria-expanded', newState.toString());
-    menu?.classList.toggle('hidden');
-    document.body.classList.toggle('overflow-hidden');
+
+    if (newState) {
+      menu?.classList.remove(
+        'translate-x-full',
+        'opacity-0',
+        'pointer-events-none'
+      );
+      document.body.classList.add('overflow-hidden');
+    } else {
+      menu?.classList.add(
+        'translate-x-full',
+        'opacity-0',
+        'pointer-events-none'
+      );
+      document.body.classList.remove('overflow-hidden');
+    }
 
     // Handle inert for accessibility
     const main = document.querySelector('main');
@@ -152,7 +166,11 @@ import navLinks from '../../data/navigation.json';
   // Close menu on link click
   mobileLinks.forEach((link) => {
     link.addEventListener('click', () => {
-      menu?.classList.add('hidden');
+      menu?.classList.add(
+        'translate-x-full',
+        'opacity-0',
+        'pointer-events-none'
+      );
       document.body.classList.remove('overflow-hidden');
       toggle?.setAttribute('aria-expanded', 'false');
 

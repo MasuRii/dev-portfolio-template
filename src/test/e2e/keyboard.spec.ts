@@ -23,7 +23,9 @@ test.describe('Keyboard Navigation', () => {
 
   test('should be able to navigate through main navigation links', async ({
     page,
+    isMobile,
   }) => {
+    test.skip(isMobile, 'This test is specific to desktop navigation layout');
     await page.goto('/');
     await waitForLoader(page);
 
