@@ -104,3 +104,28 @@ This document summarizes current (2026) trends, best practices, and technical ev
 ### Predictive & Contextual SEO
 *   **Semantic Search:** Focusing on topics and entities rather than just keywords.
 *   **Performance as SEO:** Core Web Vitals (especially INP < 200ms) are now a direct ranking factor for AI-driven overview features.
+
+## 8. Emerging UI/UX Trends for Personal Branding (2026)
+
+### Tactile Maximalism & Digital Texture
+*   **"Squishy" UI:** Buttons and elements that look like jelly, chrome, or clay. They deform and bounce back when pressed, providing high tactile feedback.
+*   **High-Gloss 3D:** Moving away from flat pixels toward inflatable icons and glossy 3D assets that feel touchable.
+
+### Kinetic & Liquid Typography
+*   **Dancing Letters:** Typography is no longer static; headlines stretch, liquify, or bounce in response to scroll or hover.
+*   **Variable Font Performance:** Using variable fonts to achieve complex animations without the weight of multiple font files.
+
+### Sci-Fi "Cyber" Aesthetics
+*   **Cyber Gradients:** Deep blacks paired with Electric Neon, Sunset Coral, and Holographic Silver.
+*   **Dark-Mode-First:** Designing primarily for high-contrast dark environments with glowing accents.
+
+### "Main Character" Narrative Layouts
+*   **Scrollytelling:** Replacing standard grids with immersive, linear journeys that tell a story as the user scrolls.
+*   **High-Octane Motion:** Interfaces that feel like social media content—fast-paced, rhythmic, and engaging.
+
+### Adaptive & Mood-Based UI
+*   **Contextual Vibes:** Layouts and colors that shift based on the user's context (e.g., "Productivity Era" minimalism vs. "Friday Night" neon gradients).
+*   **AI-Driven Personalization:** Tailoring the UI density and content hierarchy to the user's inferred intent.
+
+### Low-Code WebGL & Shaders
+*   **Accessible Complexity:** Using tools like Spline or Unicorn Studio to integrate advanced shader effects and 3D scenes without heavy manual WebGL coding.
