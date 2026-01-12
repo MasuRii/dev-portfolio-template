@@ -563,9 +563,11 @@
     "category": "functional",
     "description": "18. Document design guidelines and component specifications [M, Risk: L]",
     "steps": [
-      "Add verification steps for this item."
+      "Verified DESIGN_GUIDELINES.md contains Section 5: Spacing System & Layout Grid.",
+      "Verified DESIGN_GUIDELINES.md contains Section 6: Component Specifications.",
+      "Verified DESIGN_GUIDELINES.md contains Section 7: Accessibility Requirements per Component."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",

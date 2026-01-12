@@ -113,3 +113,72 @@ We use a fluid scaling system based on the `clamp()` function to ensure seamless
 
 - **Hover States:** Headlines should support subtle "stretch" or "weight" transitions using `font-variation-settings`.
 - **Scroll Reveals:** Text elements should use "staggered fade-in" or "word-by-word" reveal animations using Motion One.
+
+---
+
+## 5. Spacing System & Layout Grid
+
+### 5.1 Base Unit
+We use an **8px base unit** (0.5rem) for all spacing, ensuring consistent alignment and a clean "Modular Grid" feel.
+
+| Token | Size (px) | Size (rem) | Usage |
+| :--- | :--- | :--- | :--- |
+| `space-1` | 4px | 0.25rem | Micro-spacing, tight element grouping. |
+| `space-2` | 8px | 0.5rem | Small gaps, internal padding. |
+| `space-4` | 16px | 1rem | Standard gaps, component margins. |
+| `space-8` | 32px | 2rem | Section sub-grouping, large component spacing. |
+| `space-12` | 48px | 3rem | Large gaps, section padding (Mobile). |
+| `space-24` | 96px | 6rem | Section padding (Desktop). |
+
+### 5.2 Layout Grid
+- **Columns:** 12-column grid for Desktop, 6-column for Tablet, 4-column for Mobile.
+- **Max Width:** `1280px` for main content container.
+- **Gutter:** `32px` (space-8) for desktop, `16px` (space-4) for mobile.
+- **Container Queries:** Favor container queries over media queries for modular components.
+
+---
+
+## 6. Component Specifications
+
+### 6.1 Buttons & Interactive Elements (Squishy UI)
+- **Primary CTA:**
+  - **Background:** `Electric Indigo` gradient.
+  - **Text:** `Midnight` (Dark) or `White` (Light).
+  - **Animation:** `Motion One` scale animation (0.95 on active).
+  - **Corner Radius:** `8px` (soft but defined).
+- **Secondary CTA:**
+  - **Border:** `1px solid` with `Cool Grey`.
+  - **Background:** Transparent.
+  - **Hover:** Subtle background fill using `Primary` color with 5% opacity.
+
+### 6.2 Form Inputs
+- **Design:** Minimalist with `1px solid` bottom border by default.
+- **Focus State:** 2px solid `Electric Indigo` border with a subtle glow effect.
+- **Labels:** Floating labels or high-contrast labels above the input.
+- **Validation:** Use `Success` and `Error` semantic colors for real-time feedback.
+
+### 6.3 Card Designs (Modular Grid Style)
+- **Border:** `1px solid` using the `Border` token.
+- **Shadow:** None by default (Brutalist style) or very soft 2026-style "glass" shadow.
+- **Hover:** Border color shifts to `Electric Indigo` or `Cyber Cyan`.
+- **Content Padding:** `space-6` (24px) to `space-8` (32px).
+
+### 6.4 Navigation Patterns
+- **Desktop:** Sticky header with `16px` padding and blurred background (`backdrop-filter: blur(8px)`).
+- **Mobile:** Bottom-fixed navigation or a fullscreen "Cyber" menu with high-performance staggered reveals.
+
+---
+
+## 7. Accessibility Requirements per Component
+
+| Component | Keyboard Nav | ARIA Requirement | Contrast Target |
+| :--- | :--- | :--- | :--- |
+| **Theme Toggle** | Space/Enter to toggle | `aria-label`, `aria-pressed` | 4.5:1 |
+| **Navigation** | Tab to navigate links | `role="navigation"`, `aria-current` | 4.5:1 |
+| **Buttons** | Tab + Space/Enter | `role="button"`, `aria-label` | 4.5:1 |
+| **Forms** | Tab through inputs | `aria-required`, `aria-invalid` | 4.5:1 |
+| **Modals** | Focus trap required | `role="dialog"`, `aria-modal="true"` | 4.5:1 |
+| **Images** | N/A | `alt` text mandatory | N/A |
+
+### 7.1 Reduced Motion
+All animations must be wrapped in `prefers-reduced-motion` checks. Motion One and Framer Motion should default to static or simplified transitions if the user has this preference enabled.
