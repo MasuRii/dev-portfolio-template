@@ -1637,26 +1637,33 @@
   {
     "category": "functional",
     "description": "51. Implement smooth scrolling [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified CSS scroll-smooth in global.css.",
+      "Added manual scroll restoration script in RootLayout.astro."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Configure CSS scroll-behavior: smooth",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified @apply scroll-smooth in global.css html tag."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement scroll restoration handling",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added inline script to RootLayout.astro to set history.scrollRestoration = 'manual' and handle sessionStorage persistence."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add smooth scroll polyfill if needed",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Determined polyfill unnecessary for 2026 target browsers (Safari 15.4+ support)."
+    ],
+    "passes": true
   },
   {
     "category": "functional",

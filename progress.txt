@@ -245,3 +245,13 @@
 - Files modified: src/components/common/Footer.astro, src/layouts/MainLayout.astro, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck', 'bun run test run', and 'bun run lint' - SUCCESS.
+- 
+
+## Iteration 42 - Smooth Scrolling and Scroll Restoration 2026-01-12T14:25:00.000Z
+- Task: 51. Implement smooth scrolling [S, Risk: L]
+- What changed: Verified 'scroll-smooth' in global.css. Added an inline script in RootLayout.astro to handle manual scroll restoration using history.scrollRestoration and sessionStorage.
+- Why it changed: To ensure a consistent and high-performance scroll experience, preventing browser jumps on reload while maintaining smooth transitions.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md, DESIGN_GUIDELINES.md
+- Files modified: src/layouts/RootLayout.astro, prd.json, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.

@@ -25,6 +25,27 @@ const {
     <title>{title}</title>
     <ThemeScript />
 
+    <script is:inline>
+      // Handle scroll restoration manually to prevent jumps
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      window.addEventListener('load', () => {
+        const savedPosition = sessionStorage.getItem('scrollPosition');
+        if (savedPosition) {
+          window.scrollTo({
+            top: parseInt(savedPosition, 10),
+            behavior: 'instant',
+          });
+        }
+      });
+
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+      });
+    </script>
+
     <!-- Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
