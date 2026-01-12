@@ -3,22 +3,9 @@ import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
 import ProjectFilters from './ProjectFilters.astro';
 import ProjectCard from './ProjectCard.astro';
+import { ProjectModal } from './ProjectModal';
 import projectsData from '../../../data/projects.json';
-
-interface Project {
-  id: string;
-  title: string;
-  category: string;
-  thumbnail: string;
-  imageAlt: string;
-  tags: string[];
-  summary: string;
-  links: {
-    live: string;
-    github: string;
-  };
-  featured: boolean;
-}
+import type { Project } from '../../../types/project';
 
 const projects = projectsData as Project[];
 const categories = ['All', ...new Set(projects.map((p) => p.category))];
@@ -46,12 +33,28 @@ const categories = ['All', ...new Set(projects.map((p) => p.category))];
     >
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>
+
+    <!-- Project Modal (React Component) -->
+    <ProjectModal client:load projects={projects} />
   </Container>
 </Section>
 
 <script>
   const filterButtons = document.querySelectorAll('#projects-filters button');
   const projectCards = document.querySelectorAll('[data-project-category]');
+  const detailButtons = document.querySelectorAll('[data-project-details]');
+
+  // Handle Project Selection for Modal
+  detailButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const projectId = button.getAttribute('data-project-details');
+      if (projectId) {
+        window.dispatchEvent(
+          new CustomEvent('open-project-modal', { detail: projectId })
+        );
+      }
+    });
+  });
 
   function updateProjects(filter: string) {
     projectCards.forEach((card) => {

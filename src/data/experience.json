@@ -1,0 +1,41 @@
+[
+  {
+    "company": "InnovateStream",
+    "role": "Senior Full Stack Developer",
+    "period": "Jan 2024 - Present",
+    "location": "Remote",
+    "description": [
+      "Architected and deployed high-performance web applications using Astro 5 and React 19, achieving < 200ms INP.",
+      "Led a team of 5 developers in the migration of legacy systems to a modern, island-based architecture.",
+      "Implemented a comprehensive design system with 'Squishy UI' micro-interactions, increasing user engagement by 25%."
+    ],
+    "skills": ["Astro", "React", "TypeScript", "Tailwind CSS", "Motion"],
+    "logo": "innovatestream"
+  },
+  {
+    "company": "DataNexus Solutions",
+    "role": "Full Stack Developer",
+    "period": "Jun 2021 - Dec 2023",
+    "location": "Berlin, Germany",
+    "description": [
+      "Developed and maintained scalable microservices using Node.js and GraphQL, supporting over 100k monthly active users.",
+      "Optimized database queries and implemented caching strategies, reducing API latency by 40%.",
+      "Integrated automated accessibility testing into the CI/CD pipeline, ensuring WCAG 2.1 AA compliance across all products."
+    ],
+    "skills": ["Node.js", "GraphQL", "PostgreSQL", "React", "Docker"],
+    "logo": "datanexus"
+  },
+  {
+    "company": "PixelCraft Studio",
+    "role": "Frontend Developer",
+    "period": "Jan 2019 - May 2021",
+    "location": "Remote",
+    "description": [
+      "Built interactive user interfaces for various client projects using Vue.js and GSAP.",
+      "Collaborated closely with designers to implement pixel-perfect, responsive layouts from Figma designs.",
+      "Improved frontend build performance by 30% through Webpack optimization and code-splitting."
+    ],
+    "skills": ["Vue.js", "GSAP", "JavaScript", "Sass", "Webpack"],
+    "logo": "pixelcraft"
+  }
+]

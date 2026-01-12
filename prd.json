@@ -2271,14 +2271,26 @@
   },
   {
     "category": "functional",
-    "description": "72. Create Projects section container [S, Risk: L]",
+    "description": "77. Add project modal or expanded view [M, Risk: L]",
     "steps": [
-      "Created src/components/sections/projects/Projects.astro with responsive grid layout.",
-      "Implemented filtering controls based on project categories from projects.json.",
-      "Integrated Projects section into index.astro and exported from components/index.ts."
+      "Created src/components/sections/projects/ProjectModal.tsx using React and Framer Motion.",
+      "Implemented open/close animations and backdrop blur.",
+      "Added detailed project information (challenges, solutions, technologies) to projects.json.",
+      "Verified modal functionality and accessibility (Esc key, focus management)."
     ],
     "passes": true
   },
+  {
+    "category": "functional",
+    "description": "78. Implement project filtering functionality [M, Risk: M]",
+    "steps": [
+      "Verified filter buttons connect to project grid.",
+      "Confirmed smooth filtering animations are implemented in Projects.astro.",
+      "Ensured all projects remain accessible during and after filtering."
+    ],
+    "passes": true
+  },
+
   {
     "category": "functional",
     "description": "Build responsive grid layout for projects",
@@ -2474,9 +2486,15 @@
   {
     "category": "functional",
     "description": "79. Test Projects section [XS, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verify project filtering on all categories (All, Web, Mobile, Open Source) via E2E tests.",
+      "Confirm project cards render correctly with appropriate data attributes.",
+      "Verify modal functionality (open, content check, close via button and Escape) via E2E tests.",
+      "Check responsive layout (grid transition) across desktop and mobile viewports."
+    ],
+    "passes": true
   },
+
   {
     "category": "functional",
     "description": "Test filtering on all categories",
@@ -2504,98 +2522,117 @@
   {
     "category": "functional",
     "description": "80. Create Experience section container [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified creation of Experience.astro with responsive grid layout.",
+      "Confirmed usage of Section and Container components.",
+      "Verified integration into index.astro page."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Build timeline or card-based layout",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented vertical timeline for desktop and card-based layout for mobile."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement responsive design for timeline",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified responsive behavior across all breakpoints."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "81. Build experience timeline component [M, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Extracted Timeline.astro component.",
+      "Implemented vertical connecting line and nodes."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create vertical timeline with connecting lines",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified vertical line and alignment."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement timeline nodes and date markers",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added dot markers for each timeline entry."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add responsive design (timeline on desktop, cards on mobile)",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified timeline visibility on desktop and cards on mobile."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "82. Create individual experience entries [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Extracted ExperienceEntry.astro component.",
+      "Implemented cards with role, company, and details."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Build job/role cards with title, company, date, and description",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified all data fields are rendered correctly."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add company logos or placeholders",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added support for company logos/icons."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement hover effects for visual interest",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added hover transitions to experience cards."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "83. Add experience details [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added realistic placeholder data to experience.json.",
+      "Implemented readable typography and bullet points for descriptions."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Write realistic placeholder job descriptions",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Integrated descriptive achievements into experience data."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add key achievements and technologies used",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Listed key achievements and skills for each role."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement readable typography for descriptions",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Used leading-relaxed and bullet points for better readability."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "84. Test Experience section [XS, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verify timeline visibility and responsive behavior via E2E tests.",
+      "Confirmed experience entries and detail visibility.",
+      "Verified accessible structure (lists, labels)."
+    ],
+    "passes": true
   },
   {
     "category": "functional",

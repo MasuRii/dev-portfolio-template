@@ -42,26 +42,36 @@ const { project } = Astro.props;
     <div
       class="absolute inset-0 bg-primary/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center gap-4"
     >
-      <a
-        href={project.links.live}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-full font-semibold hover:scale-105 transition-all active:scale-95 shadow-lg hover:shadow-accent/40"
-        aria-label={`View live site for ${project.title}`}
+      <button
+        data-project-details={project.id}
+        class="flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-full font-semibold hover:scale-105 transition-all active:scale-95 shadow-lg hover:shadow-accent/40 cursor-pointer"
+        aria-label={`View detailed information for ${project.title}`}
       >
-        <Icon name="external-link" class="w-5 h-5" />
-        <span>View Project</span>
-      </a>
-      <a
-        href={project.links.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center gap-2 px-6 py-3 bg-surface border border-border text-primary rounded-full font-semibold hover:scale-105 transition-all active:scale-95 shadow-lg hover:border-accent/50"
-        aria-label={`View source code for ${project.title}`}
-      >
-        <Icon name="github" class="w-5 h-5" />
-        <span>Source Code</span>
-      </a>
+        <Icon name="info" class="w-5 h-5" />
+        <span>View Details</span>
+      </button>
+      <div class="flex gap-4">
+        <a
+          href={project.links.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-full hover:scale-110 transition-all active:scale-95 shadow-lg hover:border-accent/50"
+          aria-label={`View live site for ${project.title}`}
+          title="Live Project"
+        >
+          <Icon name="external-link" class="w-5 h-5" />
+        </a>
+        <a
+          href={project.links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-full hover:scale-110 transition-all active:scale-95 shadow-lg hover:border-accent/50"
+          aria-label={`View source code for ${project.title}`}
+          title="Source Code"
+        >
+          <Icon name="github" class="w-5 h-5" />
+        </a>
+      </div>
     </div>
   </div>
 

@@ -373,42 +373,41 @@
   - [x] Add View Project button (links to live site)
   - [x] Add View Code button (links to GitHub)
   - [x] Add hover animations for buttons
-- [ ] 77. Add project modal or expanded view [M, Risk: L]
-  - Create modal for detailed project information
-  - Implement modal open/close animations
-  - Add project details (challenges, solutions, technologies used)
-- [ ] 78. Implement project filtering functionality [M, Risk: M]
-  - Connect filter buttons to project grid
-  - Implement smooth filtering animations
-  - Ensure all projects are accessible during filtering
-- [ ] 79. Test Projects section [XS, Risk: L]
-  - Test filtering on all categories
-  - Verify project cards render correctly
-  - Test modal functionality and accessibility
-  - Check responsive layout on all screen sizes
+- [x] 77. Add project modal or expanded view [M, Risk: L]
+  - [x] Created src/components/sections/projects/ProjectModal.tsx using React and Framer Motion.
+  - [x] Implemented open/close animations and backdrop blur.
+  - [x] Added detailed project information (challenges, solutions, technologies) to projects.json.
+- [x] 78. Implement project filtering functionality [M, Risk: M]
+  - [x] Connected filter buttons to project grid with smooth animations.
+  - [x] Ensured accessibility for filter controls.
+- [x] 79. Test Projects section [XS, Risk: L]
+  - [x] Test filtering on all categories
+  - [x] Verify project cards render correctly
+  - [x] Test modal functionality and accessibility
+  - [x] Check responsive layout on all screen sizes
 
 ### 4.5 Experience Section
 
-- [ ] 80. Create Experience section container [S, Risk: L]
-  - Build timeline or card-based layout
-  - Implement responsive design for timeline
-  - Add section heading and description
-- [ ] 81. Build experience timeline component [M, Risk: L]
-  - Create vertical timeline with connecting lines
-  - Implement timeline nodes and date markers
-  - Add responsive design (timeline on desktop, cards on mobile)
-- [ ] 82. Create individual experience entries [S, Risk: L]
-  - Build job/role cards with title, company, date, and description
-  - Add company logos or placeholders
-  - Implement hover effects for visual interest
-- [ ] 83. Add experience details [S, Risk: L]
-  - Write realistic placeholder job descriptions
-  - Add key achievements and technologies used
-  - Implement readable typography for descriptions
-- [ ] 84. Test Experience section [XS, Risk: L]
-  - Verify timeline renders correctly
-  - Test responsive layout on mobile
-  - Check accessibility of timeline elements
+- [x] 80. Create Experience section container [S, Risk: L]
+  - [x] Build timeline or card-based layout
+  - [x] Implement responsive design for timeline
+  - [x] Add section heading and description
+- [x] 81. Build experience timeline component [M, Risk: L]
+  - [x] Create vertical timeline with connecting lines
+  - [x] Implement timeline nodes and date markers
+  - [x] Add responsive design (timeline on desktop, cards on mobile)
+- [x] 82. Create individual experience entries [S, Risk: L]
+  - [x] Build job/role cards with title, company, date, and description
+  - [x] Add company logos or placeholders
+  - [x] Implement hover effects for visual interest
+- [x] 83. Add experience details [S, Risk: L]
+  - [x] Write realistic placeholder job descriptions
+  - [x] Add key achievements and technologies used
+  - [x] Implement readable typography for descriptions
+- [x] 84. Test Experience section [XS, Risk: L]
+  - [x] Verify timeline renders correctly
+  - [x] Test responsive layout on mobile
+  - [x] Check accessibility of timeline elements
 
 ### 4.6 Contact Section
 

@@ -1,7 +1,7 @@
 ---
 import RootLayout from '../layouts/RootLayout.astro';
 import MainLayout from '../layouts/MainLayout.astro';
-import { Hero, About, Skills, Projects } from '../components';
+import { Hero, About, Skills, Projects, Experience } from '../components';
 ---
 
 <RootLayout title="MasuRii | Full Stack Developer & Creative Technologist">
@@ -9,12 +9,7 @@ import { Hero, About, Skills, Projects } from '../components';
     <Hero />
     <Projects />
     <Skills />
-    <section
-      id="experience"
-      class="flex min-h-screen flex-col items-center justify-center py-24"
-    >
-      <h2 class="text-4xl font-bold text-primary md:text-6xl">Experience</h2>
-    </section>
+    <Experience />
     <About />
 
     <section
