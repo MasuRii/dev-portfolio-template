@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import ThemeScript from '../components/common/ThemeScript.astro';
 import Schema from '../components/common/Schema.astro';
+import CookieConsent from '../components/common/CookieConsent';
 import { ThemeProvider } from '../components/common/ThemeProvider';
 import { ClientRouter } from 'astro:transitions';
 
@@ -122,6 +123,7 @@ const canonicalURL = new URL(
 
     <ThemeProvider client:load>
       <slot />
+      <CookieConsent client:load />
     </ThemeProvider>
   </body>
 </html>

@@ -539,10 +539,10 @@
 
 ### 5.6 Additional Polish
 
-- [ ] 111. Add cookie consent (optional) [S, Risk: L]
-  - Create simple cookie notice
-  - Implement basic cookie handling
-  - Add privacy policy link
+- [x] 111. Add cookie consent (optional) [S, Risk: L]
+  - [x] Create simple cookie notice
+  - [x] Implement basic cookie handling
+  - [x] Add privacy policy link
 - [ ] 112. Add reading progress indicator [S, Risk: L]
   - Create reading progress bar
   - Implement scroll-based progress calculation
