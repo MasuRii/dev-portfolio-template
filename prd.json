@@ -934,50 +934,58 @@
   {
     "category": "functional",
     "description": "30. Create base configuration files [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified .env.example exists with required variables.",
+      "Verified astro.config.mjs is configured for Astro 5 and Tailwind 4.",
+      "Verified tsconfig.json contains strictly typed configuration."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create .env.example with all required variables",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified .env.example exists in root."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Set up next.config.js or equivalent framework config",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified astro.config.mjs is configured."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create tsconfig paths configuration",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified path aliases in tsconfig.json."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "31. Set up absolute imports and module aliases [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Configured path aliases in tsconfig.json.",
+      "Created src/components/index.ts for clean exports.",
+      "Verified type checking with aliases via 'bun run typecheck'."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Configure path aliases in TypeScript config",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Path aliases added for all major src directories."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create index exports for clean public API",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Created src/components/index.ts."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Verify all imports work correctly with aliases",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified via 'bun run typecheck'."],
+    "passes": true
   },
   {
     "category": "functional",

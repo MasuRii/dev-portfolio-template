@@ -148,14 +148,14 @@
   - [x] Set up /src with components, pages, lib, hooks, types, data folders
   - [x] Create subdirectories for each major section
   - [x] Set up public folder for static assets
-- [ ] 30. Create base configuration files [S, Risk: L]
-  - Create .env.example with all required variables
-  - Set up next.config.js or equivalent framework config
-  - Create tsconfig paths configuration
-- [ ] 31. Set up absolute imports and module aliases [S, Risk: L]
-  - Configure path aliases in TypeScript config
-  - Create index exports for clean public API
-  - Verify all imports work correctly with aliases
+- [x] 30. Create base configuration files [S, Risk: L]
+  - [x] Create .env.example with all required variables
+  - [x] Set up next.config.js or equivalent framework config
+  - [x] Create tsconfig paths configuration
+- [x] 31. Set up absolute imports and module aliases [S, Risk: L]
+  - [x] Configure path aliases in TypeScript config
+  - [x] Create index exports for clean public API
+  - [x] Verify all imports work correctly with aliases
 
 ### 2.4 Git Workflow and CI/CD Setup
 
