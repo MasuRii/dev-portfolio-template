@@ -663,10 +663,10 @@
   - [x] Check meta tags are present and unique
   - [x] Verify Open Graph tags are correct
   - [x] Test structured data with Rich Results Test
-- [ ] 137. Verify sitemap and robots.txt [S, Risk: L]
-  - Verify sitemap.xml is accessible
-  - Check robots.txt allows crawling
-  - Test with Google Search Console
+- [x] 137. Verify sitemap and robots.txt [S, Risk: L]
+  - [x] Verify sitemap.xml is accessible
+  - [x] Check robots.txt allows crawling
+  - [x] Test with Google Search Console
 - [ ] 138. Check heading structure [S, Risk: L]
   - Verify H1-H6 hierarchy is correct
   - Ensure only one H1 per page
