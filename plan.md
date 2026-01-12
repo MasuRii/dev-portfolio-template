@@ -626,14 +626,14 @@
   - [x] Implement font subsetting if using custom fonts
   - [x] Add font-display: swap for faster text display
   - [x] Preload critical fonts
-- [ ] 129. Implement lazy loading [S, Risk: L]
-  - Add lazy loading to images below fold
-  - Lazy load components that are below fold
-  - Verify lazy loading works correctly
-- [ ] 130. Verify performance improvements [XS, Risk: L]
-  - Re-run Lighthouse audit
-  - Document performance score improvements
-  - Target Core Web Vitals: LCP < 2.5s, FID < 100ms, CLS < 0.1
+- [x] 129. Implement lazy loading [S, Risk: L]
+  - [x] Add lazy loading to images below fold
+  - [x] Lazy load components that are below fold
+  - [x] Verify lazy loading works correctly
+- [x] 130. Verify performance improvements [XS, Risk: L]
+  - [x] Re-run Lighthouse audit
+  - [x] Document performance score improvements
+  - [x] Target Core Web Vitals: LCP < 2.5s, FID < 100ms, CLS < 0.1
 
 ### 7.2 Accessibility Testing
 

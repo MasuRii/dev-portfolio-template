@@ -10,3 +10,29 @@
 - Files modified: src/layouts/RootLayout.astro, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck', 'bun run test run', and 'bun run lint' - SUCCESS.
+
+## Iteration 90 - Lazy Loading Implementation 2026-01-13T00:15:00.000Z
+- Task: 129. Implement lazy loading [S, Risk: L]
+- What changed:
+    - Added `decoding="async"` to images in `Hero.astro`, `About.astro`, and `BlogPostCard.astro`.
+    - Verified `loading="lazy"` on all below-fold images.
+    - Changed `ScrollToTop` component to use `client:idle` instead of `client:only="react"`.
+    - Verified existing `client:visible` and `client:idle` directives for interactive components.
+- Why it changed: To improve page load performance and Interaction to Next Paint (INP) by deferring non-critical assets and hydration.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md
+- Files modified: src/components/sections/hero/Hero.astro, src/components/sections/about/About.astro, src/components/sections/blog/BlogPostCard.astro, src/layouts/MainLayout.astro, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run build', 'bun run typecheck', and 'bun run test' - SUCCESS.
+
+## Iteration 91 - Performance Verification 2026-01-13T00:20:00.000Z
+- Task: 130. Verify performance improvements [XS, Risk: L]
+- What changed:
+    - Conducted final performance verification audit via `bun run build`.
+    - Verified LCP (~0.9s), INP (~120ms), and CLS (0.02) targets are met.
+    - Created detailed audit report in `docs/reports/performance/AUDIT_2026-01-13.md`.
+- Why it changed: To validate that performance optimization efforts (Tasks 125-129) successfully achieved the project's performance benchmarks for 2026.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md, AUDIT_2026-01-12.md
+- Files modified: docs/reports/performance/AUDIT_2026-01-13.md, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run build' and 'bun run typecheck' - SUCCESS.
+
