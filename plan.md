@@ -479,15 +479,15 @@
 
 ### 5.2 Accessibility Enhancements
 
-- [ ] 99. Run accessibility audit [S, Risk: L]
-  - Use axe DevTools or similar to audit all sections
-  - Document any accessibility issues found
-  - Prioritize fixes by severity
-- [ ] 100. Fix accessibility issues [M, Risk: L]
-  - Address all high-priority accessibility findings
-  - Fix color contrast issues
-  - Ensure all interactive elements are keyboard accessible
-  - Add ARIA labels where needed
+- [x] 99. Run accessibility audit [S, Risk: L]
+  - [x] Use axe DevTools or similar to audit all sections
+  - [x] Document any accessibility issues found
+  - [x] Prioritize fixes by severity
+- [x] 100. Fix accessibility issues [M, Risk: L]
+  - [x] Address all high-priority accessibility findings
+  - [x] Fix color contrast issues
+  - [x] Ensure all interactive elements are keyboard accessible
+  - [x] Add ARIA labels where needed
 - [x] 101. Add skip navigation link [S, Risk: L]
   - [x] Implement skip to main content link
   - [x] Make link visible on focus

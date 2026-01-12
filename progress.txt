@@ -27,3 +27,28 @@
 - Files modified: src/layouts/RootLayout.astro, src/layouts/MainLayout.astro, src/styles/global.css, src/components/sections/projects/ProjectModal.tsx, src/components/common/Section.astro, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck', 'bun run lint', and all tests - SUCCESS.
+
+## Iteration 72 - Accessibility Audit 2026-01-12T23:55:00.000Z
+- Task: 99. Run accessibility audit [S, Risk: L]
+- What changed:
+    - Performed manual accessibility audit across all major sections (Hero, About, Skills, Projects, Experience, Contact, Blog).
+    - Evaluated codebase against WCAG 2.2 Level AA standards.
+    - Created a detailed audit report identifying 3 key issues: phantom focus in project cards, decorative SVGs in blog, and page loader semantics.
+- Why it changed: To establish a baseline for accessibility compliance and identify areas for improvement as per the 2026 standards.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md
+- Files modified: docs/reports/accessibility/AUDIT_2026-01-12.md, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Manual inspection performed.
+
+## Iteration 73 - Accessibility Fixes (Audit Remediation) 2026-01-13T00:10:00.000Z
+- Task: 100. Fix accessibility issues [M, Risk: L]
+- What changed:
+    - Resolved [ISSUE-001]: Fixed phantom focus in project cards by adding `group-focus-within:opacity-100` and `pointer-events-none` to overlays. This ensures keyboard users can see what they focus on while preventing accidental mouse clicks on invisible elements.
+    - Resolved [ISSUE-002]: Added `aria-hidden="true"` to decorative SVGs in `Blog.astro`, `Skills.astro`, and `Header.astro`.
+    - Resolved [ISSUE-003]: Added `role="status"` and `aria-label="Loading page"` to the page loader in `RootLayout.astro`.
+    - Verified all fixes with unit and E2E tests.
+- Why it changed: To address findings from the accessibility audit and ensure WCAG 2.2 Level AA compliance.
+- Research documents consulted: docs/reports/accessibility/AUDIT_2026-01-12.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
+- Files modified: src/components/sections/projects/ProjectCard.astro, src/components/sections/blog/Blog.astro, src/components/sections/skills/Skills.astro, src/components/common/Header.astro, src/layouts/RootLayout.astro, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck', 'bun run lint', and all tests (Unit & E2E) - SUCCESS.

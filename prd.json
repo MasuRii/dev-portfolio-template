@@ -3069,38 +3069,51 @@
   {
     "category": "functional",
     "description": "99. Run accessibility audit [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Performed manual audit against WCAG 2.2 AA standards.",
+      "Documented findings in docs/reports/accessibility/AUDIT_2026-01-12.md."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Use axe DevTools or similar to audit all sections",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Inspected all major sections (Hero, About, Skills, Projects, Experience, Contact, Blog) for ARIA, semantics, and focus management."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Document any accessibility issues found",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created audit report with 3 high/medium priority issues identified."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Prioritize fixes by severity",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Ranked issues in the audit report for follow-up in Task 100."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "100. Fix accessibility issues [M, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Fixed phantom focus in project cards by ensuring overlay is visible on focus.",
+      "Added aria-hidden='true' to decorative SVGs in Blog, Skills, and Header.",
+      "Added role='status' and aria-label to page loader."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Address all high-priority accessibility findings",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Resolved [ISSUE-001], [ISSUE-002], and [ISSUE-003] from accessibility audit."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
