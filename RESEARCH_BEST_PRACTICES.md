@@ -148,3 +148,31 @@ This document summarizes current (2026) trends, best practices, and technical ev
 
 ### Low-Code WebGL & Shaders
 *   **Accessible Complexity:** Using tools like Spline or Unicorn Studio to integrate advanced shader effects and 3D scenes without heavy manual WebGL coding.
+
+## 10. Design System Best Practices (2026)
+
+### Comprehensive Development Platforms
+*   **Beyond Components:** Modern design systems are comprehensive platforms that integrate live code editing, automated accessibility testing (e.g., Axe), and seamless Figma-to-code workflows.
+*   **AI-Powered Workflows:** Use of AI tools for rapid prototyping and component generation, reducing the gap between design and implementation.
+
+### Component Library Approach: Custom vs. UI Kit
+*   **Custom-First for Branding:** For high-end portfolios, a **Custom** component library is preferred to avoid "template" looks.
+*   **Headless Foundation:** Building on top of headless UI libraries (e.g., Radix UI, Headless UI) to handle complex accessibility patterns while maintaining full styling control via Tailwind CSS 4.x.
+*   **Atomic Design:** Implementing an atomic structure (Atoms, Molecules, Organisms) for scalability and consistency.
+
+### Design Token Structure
+*   **Hybrid CSS Styling:** Design tokens are expressed as **Native CSS Variables** within `@layer` blocks, allowing utilities to sit on top of a stable foundation.
+*   **Color Tokens:**
+    *   **Brand:** Primary, Secondary, Accent (with semantic variants).
+    *   **Neutral:** Surface, Background, Border, Text (High/Medium/Low contrast).
+    *   **Theme Sync:** Tokens that automatically switch values based on `.dark` class or `prefers-color-scheme`.
+*   **Typography Tokens:**
+    *   **Fluid Scaling:** Using `clamp()` for responsive font sizes that adapt seamlessly across devices.
+    *   **Variable Font Axes:** Defining tokens for `weight`, `width`, and `slant` to leverage variable font capabilities.
+*   **Spacing & Layout Tokens:**
+    *   **Fluid Spacing:** Multiples of a base unit (4px/8px) using container queries for contextual spacing.
+    *   **Layout Grids:** Standardized columns and gutters for consistent page structure.
+
+### UX & Intuition
+*   **Calm Design:** Reducing clutter and focusing on whitespace to improve cognitive load.
+*   **Predictive Interfaces:** Elements that anticipate user needs based on scroll behavior and interaction patterns.
