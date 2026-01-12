@@ -76,11 +76,11 @@
   - [x] Search for "2026 design systems web development"
   - [x] Document component library approach (custom vs UI kit)
   - [x] Plan design token structure (colors, typography, spacing)
-- [ ] 16. Define color palette and theme strategy [S, Risk: L]
-  - Research color psychology for professional personal branding
-  - Document primary, secondary, accent, and semantic colors
-  - Plan dark/light mode color schemes with sufficient contrast
-  - Save to DESIGN_GUIDELINES.md
+- [x] 16. Define color palette and theme strategy [S, Risk: L]
+  - [x] Research color psychology for professional personal branding
+  - [x] Document primary, secondary, accent, and semantic colors
+  - [x] Plan dark/light mode color schemes with sufficient contrast
+  - [x] Save to DESIGN_GUIDELINES.md
 - [ ] 17. Define typography system and font choices [S, Risk: L]
   - Research best font pairings for developer portfolios in 2026
   - Document heading and body font selections with fallbacks

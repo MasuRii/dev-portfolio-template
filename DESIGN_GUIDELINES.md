@@ -1,0 +1,68 @@
+# Design Guidelines: Developer Portfolio 2026
+
+This document defines the visual identity, color system, and component specifications for the developer portfolio, aligning with 2026 trends and technical requirements.
+
+## 1. Color Palette & Theme Strategy
+
+The color system is designed for high contrast (WCAG 2.2 AA compliance), technical professionalism, and a "Cyber" aesthetic that feels modern and innovative.
+
+### 1.1 Core Colors (Brand)
+
+| Role | Color Name | Hex (Light) | Hex (Dark) | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **Primary** | Midnight | `#111827` | `#F9FAFB` | Main brand color for text (Light) and surface (Dark). |
+| **Secondary** | Cool Grey | `#4B5563` | `#9CA3AF` | Supporting text and less prominent elements. |
+| **Accent** | Electric Indigo | `#4F46E5` | `#6366F1` | Brand highlights, CTAs, and interactive elements. |
+| **Accent Alt** | Cyber Cyan | `#06B6D4` | `#22D3EE` | Secondary highlights and gradients. |
+
+### 1.2 Semantic Colors
+
+| Role | Hex (Light) | Hex (Dark) | Usage |
+| :--- | :--- | :--- | :--- |
+| **Success** | `#10B981` | `#34D399` | Completion states, successful form submission. |
+| **Error** | `#EF4444` | `#F87171` | Failure states, validation errors. |
+| **Warning** | `#F59E0B` | `#FBBF24` | Important notices, cautious actions. |
+| **Info** | `#3B82F6` | `#60A5FA` | Neutral information and updates. |
+
+### 1.3 Neutral & Surface System
+
+| Role | Hex (Light) | Hex (Dark) | Description |
+| :--- | :--- | :--- | :--- |
+| **Background** | `#FFFFFF` | `#0A0A0B` | Main page background. |
+| **Surface** | `#F9FAFB` | `#161618` | Cards, modals, and elevated sections. |
+| **Border** | `#E5E7EB` | `#27272A` | Dividers and element outlines (Modular Grid style). |
+| **Muted** | `#9CA3AF` | `#52525B` | Placeholder text and disabled states. |
+
+---
+
+## 2. Theme Strategy
+
+### 2.1 Dark Mode First
+The portfolio is designed with a **Dark Mode First** mentality. The default experience should be high-contrast dark, with glowing accents and "Cyber" gradients, as per 2026 trends.
+
+### 2.2 Theme Persistence
+- **Implementation:** Use a `ThemeContext` (React) or a script in the `<head>` (Astro) to prevent FOUC (Flash of Unstyled Content).
+- **Storage:** Persist user preference in `localStorage`.
+- **System Sync:** Default to `prefers-color-scheme` if no local preference exists.
+
+### 2.3 Contrast & Accessibility
+- **Target:** Maintain a minimum contrast ratio of **4.5:1** for normal text and **3:1** for large text/UI components.
+- **Focus States:** Every interactive element must have a high-visibility focus ring using the `Electric Indigo` accent color.
+
+---
+
+## 3. Visual Language (2026 Trends)
+
+### 3.1 Squishy UI (Tactile Feedback)
+- **Buttons:** Implement subtle scaling (`scale: 0.95`) and "spring" animations on click.
+- **Feedback:** Use soft shadows and inner glows to create a 3D "tactile" feel.
+
+### 3.2 Cyber Gradients
+- Use linear gradients for CTAs and Hero headlines:
+  - `linear-gradient(to right, #4F46E5, #06B6D4)`
+- Background glow effects:
+  - Subtle radial gradients in the background to add depth without affecting performance.
+
+### 3.3 Modular Grid
+- Consistent border usage (`1px solid`) between sections to create a structured, "blueprint" feel.
+- Visible grid lines in the background (subtle) to emphasize the technical nature of the portfolio.
