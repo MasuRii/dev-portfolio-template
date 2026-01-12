@@ -71,12 +71,12 @@
 - Files modified: src/data/projects.json, src/components/sections/projects/ProjectFilters.astro, src/components/sections/projects/Projects.astro, prd.json, progress.txt
 - [STALE RESEARCH]: None.
 
-## Iteration 57 - Project Card Component Implementation 2026-01-12T20:55:00.000Z
-- Task: 74. Build project card component [M, Risk: M]
-- What changed: Created a standalone `ProjectCard.astro` component with responsive layout and image optimization. Implemented hover effects (lift, shadow, zoom) and an interactive overlay with links. Updated `Icon.astro` to include `external-link` and `star` icons. Refactored `Projects.astro` to use the new `ProjectCard` component.
-- Why it changed: To provide a high-quality, interactive showcase for technical projects as specified in the 2026 design guidelines and project requirements.
-- Research documents consulted: PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md
-- Files modified: src/components/sections/projects/ProjectCard.astro, src/components/sections/projects/Projects.astro, src/components/common/Icon.astro, prd.json, plan.md, progress.txt
+## Iteration 58 - Project Images Implementation 2026-01-12T20:38:00.000Z
+- Task: 75. Add project images [S, Risk: L]
+- What changed: Expanded `projects.json` to 5 projects with high-quality Unsplash URLs and descriptive `imageAlt` text. Updated `ProjectCard.astro` and `Projects.astro` interfaces to support `imageAlt`. Explicitly set `loading="lazy"` and `decoding="async"` on the project `Image` component.
+- Why it changed: To provide a visually rich and accessible projects showcase, ensuring fast loading and proper image optimization as required by 2026 standards.
+- Research documents consulted: PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
+- Files modified: src/data/projects.json, src/components/sections/projects/ProjectCard.astro, src/components/sections/projects/Projects.astro, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
-- [VALIDATION]: Ran 'bun run typecheck' - SUCCESS.
+- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
 

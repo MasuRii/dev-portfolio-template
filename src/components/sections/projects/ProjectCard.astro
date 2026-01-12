@@ -8,6 +8,7 @@ interface Props {
     title: string;
     category: string;
     thumbnail: string;
+    imageAlt: string;
     tags: string[];
     summary: string;
     links: {
@@ -29,9 +30,11 @@ const { project } = Astro.props;
   <div class="aspect-[16/10] overflow-hidden relative">
     <Image
       src={project.thumbnail}
-      alt={project.title}
+      alt={project.imageAlt}
       width={800}
       height={500}
+      loading="lazy"
+      decoding="async"
       class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
 

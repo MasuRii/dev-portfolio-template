@@ -2363,26 +2363,37 @@
   {
     "category": "functional",
     "description": "75. Add project images [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified creation of descriptive imageAlt text in projects.json.",
+      "Confirmed Image component implementation in ProjectCard.astro with aspect-[16/10].",
+      "Verified lazy loading and async decoding are explicitly set.",
+      "Successful production build confirms image optimization for all 5 projects."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create placeholder images for each project",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added 5 high-quality Unsplash URLs to projects.json reflecting different technical domains."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement lazy loading and proper aspect ratios",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added loading='lazy' and aspect-[16/10] to ProjectCard.astro; verified during build."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add alt text for accessibility",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Integrated imageAlt field into projects.json and ProjectCard.astro; verified descriptive content."
+    ],
+    "passes": true
   },
   {
     "category": "functional",

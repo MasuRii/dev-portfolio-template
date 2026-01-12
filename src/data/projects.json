@@ -1,11 +1,12 @@
 [
   {
-    "id": "project-1",
+    "id": "quantum-flow",
     "title": "Quantum Flow",
     "category": "Web",
     "thumbnail": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Abstract visualization of quantum particles flowing in a grid, representing high-performance data visualization.",
     "tags": ["Astro", "Tailwind", "Motion"],
-    "summary": "A high-performance dashboard for quantum computing visualization.",
+    "summary": "A high-performance dashboard for quantum computing visualization with real-time telemetry.",
     "links": {
       "live": "https://example.com",
       "github": "https://github.com/example/project"
@@ -13,12 +14,13 @@
     "featured": true
   },
   {
-    "id": "project-2",
+    "id": "eco-trace",
     "title": "Eco-Trace",
     "category": "Mobile",
     "thumbnail": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Clean, green energy and sustainability icons representing carbon footprint tracking.",
     "tags": ["React Native", "Firebase", "TypeScript"],
-    "summary": "Track your carbon footprint and discover sustainable local businesses.",
+    "summary": "Track your carbon footprint and discover sustainable local businesses with gamified social features.",
     "links": {
       "live": "https://example.com",
       "github": "https://github.com/example/project"
@@ -26,12 +28,41 @@
     "featured": true
   },
   {
-    "id": "project-3",
+    "id": "neural-notes",
     "title": "Neural Notes",
     "category": "AI/Experiment",
     "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Conceptual representation of neural networks and interconnected nodes, symbolizing AI-powered note organization.",
     "tags": ["OpenAI", "Next.js", "Prisma"],
-    "summary": "AI-powered note-taking app that automatically organizes and links ideas.",
+    "summary": "AI-powered note-taking app that automatically organizes and links ideas using vector embeddings.",
+    "links": {
+      "live": "https://example.com",
+      "github": "https://github.com/example/project"
+    },
+    "featured": true
+  },
+  {
+    "id": "titan-ui",
+    "title": "Titan UI",
+    "category": "Web",
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Code editor showing a modern design system components, representing Titan UI library.",
+    "tags": ["React", "Storybook", "Tailwind"],
+    "summary": "A robust, accessible design system library for enterprise-scale React applications.",
+    "links": {
+      "live": "https://example.com",
+      "github": "https://github.com/example/project"
+    },
+    "featured": false
+  },
+  {
+    "id": "glow-logic",
+    "title": "Glow Logic",
+    "category": "Experiment",
+    "thumbnail": "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Modern smart home interior with ambient lighting, representing Glow Logic automation.",
+    "tags": ["Node.js", "MQTT", "React"],
+    "summary": "A smart home automation dashboard focusing on ambient lighting and energy efficiency.",
     "links": {
       "live": "https://example.com",
       "github": "https://github.com/example/project"
