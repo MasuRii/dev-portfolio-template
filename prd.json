@@ -35,65 +35,65 @@
     "category": "functional",
     "description": "2. Research performance optimization techniques for 2026 [S, Risk: L]",
     "steps": [
-      "Add verification steps for this item."
+      "Verify RESEARCH_BEST_PRACTICES.md contains 2026 performance optimization trends."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Search for \"2026 website performance optimization best practices\"",
     "steps": [
-      "Add verification steps for this item."
+      "Confirm search was performed using Tavily for 2026 performance trends."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Document Core Web Vitals updates and new metrics",
     "steps": [
-      "Add verification steps for this item."
+      "Check RESEARCH_BEST_PRACTICES.md for INP and Core Web Vitals targets."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Note any new image formats, loading strategies, or bundling improvements",
     "steps": [
-      "Add verification steps for this item."
+      "Check RESEARCH_BEST_PRACTICES.md for AVIF, Islands Architecture, and Edge Hydration notes."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "3. Research accessibility standards and WCAG 2.2/3.0 updates [S, Risk: L]",
     "steps": [
-      "Add verification steps for this item."
+      "Verify RESEARCH_BEST_PRACTICES.md contains WCAG 2.2/3.0 standards and mandatory features."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Search for \"WCAG 2026 updates accessibility requirements\"",
     "steps": [
-      "Add verification steps for this item."
+      "Confirm search for WCAG 2026 updates was performed."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Document mandatory accessibility features for professional sites",
     "steps": [
-      "Add verification steps for this item."
+      "Check RESEARCH_BEST_PRACTICES.md for mandatory accessibility features (Keyboard, Focus, Contrast, etc.)."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Note any new testing tools or automated checking capabilities",
     "steps": [
-      "Add verification steps for this item."
+      "Verify testing tools (axe, WAVE, accessFlow) are noted in RESEARCH_BEST_PRACTICES.md."
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "functional",
