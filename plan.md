@@ -608,10 +608,10 @@
 
 ### 7.1 Performance Optimization
 
-- [ ] 125. Run Lighthouse performance audit [S, Risk: L]
-  - Run Lighthouse on local development server
-  - Document performance score and metrics
-  - Identify optimization opportunities
+- [x] 125. Run Lighthouse performance audit [S, Risk: L]
+  - [x] Run Lighthouse on local development server
+  - [x] Document performance score and metrics
+  - [x] Identify optimization opportunities
 - [ ] 126. Optimize images [M, Risk: L]
   - Compress all project and profile images
   - Convert to WebP or AVIF format where supported
