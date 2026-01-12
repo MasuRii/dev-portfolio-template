@@ -102,6 +102,11 @@ const InputField: React.FC<InputFieldProps> = ({
 };
 
 const ContactForm: React.FC = () => {
+  const [isHydrated, setIsHydrated] = React.useState(false);
+  React.useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -240,6 +245,7 @@ const ContactForm: React.FC = () => {
               className="space-y-8"
               noValidate
               data-testid="contact-form"
+              data-hydrated={isHydrated}
             >
               {/* Honeypot Field */}
               <div className="hidden" aria-hidden="true">

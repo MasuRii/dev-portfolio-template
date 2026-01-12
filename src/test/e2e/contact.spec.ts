@@ -4,7 +4,15 @@ test.describe('Contact Section', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     // Wait for the contact section to be visible
-    await page.locator('#contact').scrollIntoViewIfNeeded();
+    const section = page.locator('#contact');
+    await section.scrollIntoViewIfNeeded();
+
+    // Wait for the form to be hydrated
+    await expect(page.getByTestId('contact-form')).toHaveAttribute(
+      'data-hydrated',
+      'true',
+      { timeout: 10000 }
+    );
   });
 
   test('should display contact section with heading', async ({ page }) => {
