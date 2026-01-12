@@ -11,3 +11,16 @@
 - Files modified: src/components/common/CookieConsent.tsx, src/layouts/RootLayout.astro, src/components/common/CookieConsent.test.tsx, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck', 'bun run lint', and 'bun run test' - SUCCESS.
+
+## Iteration 81 - Reading Progress Indicator 2026-01-12T22:50:00.000Z
+- Task: 112. Add reading progress indicator [S, Risk: L]
+- What changed:
+    - Created `ReadingProgress.tsx` React component using `framer-motion` to track and display scroll depth.
+    - Added `showReadingProgress` prop to `RootLayout.astro` to conditionally render the indicator.
+    - Configured the indicator to automatically show on any page path starting with `/blog`.
+    - Added unit tests for the component in `src/components/ui/ReadingProgress.test.tsx`.
+- Why it changed: To improve user experience on long-form content by providing a visual cue of scroll depth, following 2026 UX best practices.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, DESIGN_GUIDELINES.md
+- Files modified: src/components/ui/ReadingProgress.tsx, src/layouts/RootLayout.astro, src/components/ui/ReadingProgress.test.tsx, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run lint', 'bun run test run', and 'bun run typecheck' - SUCCESS.

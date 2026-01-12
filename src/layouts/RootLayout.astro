@@ -3,6 +3,7 @@ import '../styles/global.css';
 import ThemeScript from '../components/common/ThemeScript.astro';
 import Schema from '../components/common/Schema.astro';
 import CookieConsent from '../components/common/CookieConsent';
+import ReadingProgress from '../components/ui/ReadingProgress';
 import { ThemeProvider } from '../components/common/ThemeProvider';
 import { ClientRouter } from 'astro:transitions';
 
@@ -10,12 +11,14 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  showReadingProgress?: boolean;
 }
 
 const {
   title = 'MasuRii | Full Stack Developer & Creative Technologist',
   description = 'Building high-performance, accessible, and visually stunning web experiences with modern technology.',
   ogImage = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&h=630&auto=format&fit=crop',
+  showReadingProgress = Astro.url.pathname.startsWith('/blog'),
 } = Astro.props;
 
 const canonicalURL = new URL(
@@ -122,6 +125,7 @@ const canonicalURL = new URL(
     </script>
 
     <ThemeProvider client:load>
+      {showReadingProgress && <ReadingProgress client:load />}
       <slot />
       <CookieConsent client:load />
     </ThemeProvider>

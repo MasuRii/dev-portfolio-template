@@ -3441,26 +3441,36 @@
   {
     "category": "functional",
     "description": "112. Add reading progress indicator [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created ReadingProgress.tsx using Framer Motion scroll depth tracking.",
+      "Integrated into RootLayout with path-based visibility (blog pages).",
+      "Verified unit tests for progress bar rendering and fixed positioning."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create reading progress bar",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented sticky top progress bar with accent color and scaleX animation."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement scroll-based progress calculation",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Used useScroll() hook from framer-motion to track scrollYProgress."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Show only on article/blog pages",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Configured showReadingProgress prop in RootLayout default to Astro.url.pathname.startsWith('/blog')."
+    ],
+    "passes": true
   },
   {
     "category": "functional",

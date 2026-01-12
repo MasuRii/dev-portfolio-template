@@ -543,10 +543,10 @@
   - [x] Create simple cookie notice
   - [x] Implement basic cookie handling
   - [x] Add privacy policy link
-- [ ] 112. Add reading progress indicator [S, Risk: L]
-  - Create reading progress bar
-  - Implement scroll-based progress calculation
-  - Show only on article/blog pages
+- [x] 112. Add reading progress indicator [S, Risk: L]
+  - [x] Create reading progress bar
+  - [x] Implement scroll-based progress calculation
+  - [x] Show only on article/blog pages
 - [ ] 113. Add share functionality [S, Risk: L]
   - Add social share buttons
   - Implement share API where supported
