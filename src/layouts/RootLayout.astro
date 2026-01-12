@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+import ThemeScript from '../components/common/ThemeScript.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'MasuRii | Full Stack Developer',
+  description = 'Full stack developer specialized in React, Astro, and high-performance animations.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <ThemeScript />
+
+    <!-- Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-background text-primary antialiased selection:bg-accent selection:text-white"
+  >
+    <slot />
+  </body>
+</html>

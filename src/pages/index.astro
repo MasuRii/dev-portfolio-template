@@ -1,16 +1,33 @@
 ---
-import '../styles/global.css';
+import RootLayout from '../layouts/RootLayout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1 class="text-4xl font-bold text-indigo-600">Astro</h1>
-  </body>
-</html>
+<RootLayout title="MasuRii | Full Stack Developer & Creative Technologist">
+  <MainLayout>
+    <main class="flex min-h-[80vh] flex-col items-center justify-center py-24">
+      <h1
+        class="bg-linear-to-r from-accent to-accent-alt bg-clip-text text-6xl font-bold text-transparent md:text-8xl"
+      >
+        MasuRii
+      </h1>
+      <p class="mt-6 text-xl text-secondary md:text-2xl">
+        Full Stack Developer & Creative Technologist
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href="#projects"
+          class="rounded-lg bg-accent px-8 py-4 font-medium text-white transition-transform active:scale-95"
+        >
+          View Projects
+        </a>
+        <a
+          href="#contact"
+          class="rounded-lg border border-border px-8 py-4 font-medium text-primary transition-colors hover:bg-surface"
+        >
+          Contact Me
+        </a>
+      </div>
+    </main>
+  </MainLayout>
+</RootLayout>

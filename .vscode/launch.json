@@ -2,10 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "./node_modules/.bin/astro dev",
-      "name": "Development server",
+      "name": "Launch Chrome against localhost",
+      "type": "chrome",
       "request": "launch",
-      "type": "node-terminal"
+      "url": "http://localhost:4321",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Debug Astro Dev (Bun)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": ["run", "dev"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
     }
   ]
 }

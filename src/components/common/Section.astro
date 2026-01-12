@@ -1,0 +1,32 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+  variant?: 'primary' | 'surface' | 'background';
+  as?: any;
+}
+
+const {
+  id,
+  class: className,
+  variant = 'background',
+  as: Tag = 'section',
+} = Astro.props;
+
+const variantClasses = {
+  primary: 'bg-primary text-background',
+  surface: 'bg-surface text-primary',
+  background: 'bg-background text-primary',
+} as const;
+---
+
+<Tag
+  id={id}
+  class:list={[
+    'py-24 md:py-32 border-b border-border',
+    variantClasses[variant as keyof typeof variantClasses],
+    className,
+  ]}
+>
+  <slot />
+</Tag>

@@ -1260,27 +1260,43 @@
   {
     "category": "functional",
     "description": "43. Build theme toggle component [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified ThemeToggle.tsx exists and uses useTheme hook.",
+      "Confirmed accessible attributes (aria-label, aria-pressed) are present.",
+      "Verified smooth transition animations using framer-motion.",
+      "Confirmed keyboard navigability (Enter/Space to toggle).",
+      "Verified with unit tests (ThemeToggle.test.tsx)."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create accessible toggle button with keyboard navigation",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented button role with keyboard event support (default button behavior).",
+      "Verified focus states and keyboard interaction."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement smooth transition between themes",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Used AnimatePresence and motion.svg for smooth icon transitions.",
+      "Configured exit/initial animations for Sun/Moon icons."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add screen reader labels and ARIA attributes",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added dynamic aria-label based on current theme.",
+      "Added aria-pressed to indicate the current state."
+    ],
+    "passes": true
   },
+
   {
     "category": "functional",
     "description": "44. Apply global theme styles [S, Risk: L]",

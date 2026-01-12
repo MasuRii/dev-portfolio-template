@@ -183,3 +183,38 @@
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck' - SUCCESS.
 
+## Iteration 27 - Git Branching Strategy 2026-01-12T13:50:00.000Z
+- Task: 32. Configure git branching strategy [S, Risk: L]
+- What changed: Created CONTRIBUTING.md documenting the git branching strategy, branch naming conventions, and protection rules. Initialized the 'develop' branch.
+- Why it changed: To establish a clear workflow for collaboration and feature management.
+- Research documents consulted: CHOSEN_TECH_STACK.md, RESEARCH_BEST_PRACTICES.md
+- Files modified: CONTRIBUTING.md, prd.json, plan.md, progress.txt, README.md
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' && 'bun run test run' && 'bun run lint' - SUCCESS.
+
+## Iteration 35 - Section Component Implementation 2026-01-12T13:34:00.000Z
+- Task: 40. Create section container components [S, Risk: L]
+- What changed: Created src/components/common/Section.astro with support for multiple background variants (primary, surface, background) and consistent vertical padding. Implemented the "Modular Grid" border-bottom style.
+- Why it changed: To provide a reusable component for page sections that ensures consistent spacing and visual hierarchy across the portfolio.
+- Research documents consulted: DESIGN_GUIDELINES.md, PLANNED_SECTIONS.md
+- Files modified: src/components/common/Section.astro, prd.json, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
+
+## Iteration 37 - Theme System Implementation 2026-01-12T13:40:00.000Z
+- Task: 42. Implement theme provider [S, Risk: M]
+- What changed: Created ThemeScript.astro for FOUC-free theme initialization and ThemeProvider.tsx React context for theme management. Integrated ThemeScript into RootLayout.astro and exported ThemeProvider from the components index. Added unit tests for ThemeProvider.
+- Why it changed: To provide a robust theme switching system with persistence and system preference detection, supporting the "Dark Mode First" strategy.
+- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md
+- Files modified: src/components/common/ThemeScript.astro, src/components/common/ThemeProvider.tsx, src/components/common/ThemeProvider.test.tsx, src/layouts/RootLayout.astro, src/components/index.ts, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run test run' - SUCCESS (3 tests passed). Ran 'bun run build' - SUCCESS.
+
+## Iteration 38 - Build Theme Toggle Component 2026-01-12T13:45:00.000Z
+- Task: 43. Build theme toggle component [S, Risk: L]
+- What changed: Created ThemeToggle.tsx React component with smooth Framer Motion animations and accessible ARIA attributes. Added unit tests in ThemeToggle.test.tsx. Fixed lint errors in ThemeProvider.test.tsx.
+- Why it changed: To provide a user-facing control for switching between light and dark themes, supporting the "Dark Mode First" strategy and enhancing UX/accessibility.
+- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md
+- Files modified: src/components/common/ThemeToggle.tsx, src/components/common/ThemeToggle.test.tsx, src/components/index.ts, src/components/common/ThemeProvider.test.tsx, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run test run' - SUCCESS (4 tests passed). Ran 'bun run lint' - SUCCESS. Ran 'bun run typecheck' - SUCCESS.
