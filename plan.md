@@ -415,14 +415,14 @@
   - [x] Build responsive layout for contact section
   - [x] Implement proper spacing and alignment
   - [x] Add section heading and introduction text
-- [ ] 86. Build contact form component [M, Risk: M]
-  - Create form fields (name, email, subject, message)
-  - Implement proper input types and validation
-  - Add accessible error messages and labels
-- [ ] 87. Add form styling and animations [S, Risk: L]
-  - Style form inputs with focus states
-  - Add floating labels if appropriate
-  - Implement form field animations
+- [x] 86. Build contact form component [M, Risk: M]
+  - [x] Create form fields (name, email, subject, message)
+  - [x] Implement proper input types and validation
+  - [x] Add accessible error messages and labels
+- [x] 87. Add form styling and animations [S, Risk: L]
+  - [x] Style form inputs with focus states
+  - [x] Add floating labels if appropriate
+  - [x] Implement form field animations
 - [ ] 88. Configure form submission handling [M, Risk: M]
   - Set up form validation (client-side)
   - Implement form submission handler

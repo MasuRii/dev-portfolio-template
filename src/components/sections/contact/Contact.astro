@@ -1,6 +1,7 @@
 ---
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
+import ContactForm from './ContactForm';
 import personalData from '../../../data/personal.json';
 
 const { contact } = personalData;
@@ -68,18 +69,13 @@ const { contact } = personalData;
         </div>
       </div>
 
-      {/* Right Column: Contact Form (To be implemented in Task 86) */}
+      {/* Right Column: Contact Form */}
       <div class="relative" data-testid="contact-form-container">
         <div
           class="absolute -inset-4 bg-gradient-to-r from-accent/20 to-accent-alt/20 blur-3xl opacity-20 -z-10"
         >
         </div>
-        {/* Placeholder for ContactForm component */}
-        <div class="p-8 rounded-2xl border border-border bg-surface shadow-xl">
-          <p class="text-center text-secondary py-20">
-            Contact form coming soon...
-          </p>
-        </div>
+        <ContactForm client:visible />
       </div>
     </div>
   </Container>
