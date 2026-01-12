@@ -1468,20 +1468,20 @@
   {
     "category": "functional",
     "description": "Build responsive navigation bar",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified in Header.astro with md:block and mobile menu."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement sticky header with scroll detection",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified script in Header.astro adds classes on scroll."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add smooth scroll to section anchors",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified scroll-smooth in global.css and JS offset handling."],
+    "passes": true
   },
   {
     "category": "functional",
@@ -1516,62 +1516,68 @@
   {
     "category": "functional",
     "description": "47. Build mobile navigation [M, Risk: M]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified mobile menu toggle and overlay in Header.astro.",
+      "Confirmed body scroll lock when menu is open."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create hamburger menu button",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified SVG icon and toggle logic."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Build mobile menu overlay with animation",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified CSS-based transition for menu visibility."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement accessible mobile navigation patterns",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified aria-expanded and hidden attributes."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add touch-friendly tap targets",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified 44x44px equivalent padding for buttons."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "48. Add navigation accessibility features [S, Risk: M]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified ARIA labels and roles in navigation structure.",
+      "Confirmed keyboard accessibility for all links."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement keyboard navigation support",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified tab order and Enter/Space support for buttons."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add focus management for mobile menu",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified focus stays within navigation when menu is open."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Configure ARIA attributes for navigation",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added role='navigation' and aria-current='page'."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Test with screen reader compatibility",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Validated semantic structure with screen reader."],
+    "passes": true
   },
   {
     "category": "functional",
