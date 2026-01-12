@@ -119,3 +119,31 @@
 - Files modified: package.json, astro.config.mjs, src/pages/index.astro, src/styles/global.css, prd.json, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run build' - SUCCESS.
+
+## Iteration 20 - TypeScript Configuration 2026-01-12T22:30:00.000Z
+- Task: 24. Set up TypeScript configuration [S, Risk: L]
+- What changed: Configured tsconfig.json with strict mode and comprehensive path aliases (@components, @styles, @lib, etc.). Installed @astrojs/check and typescript as devDependencies. Added 'typecheck' script to package.json.
+- Why it changed: To establish a robust, type-safe development environment and simplify imports across the project.
+- Research documents consulted: CHOSEN_TECH_STACK.md, PLANNED_SECTIONS.md
+- Files modified: tsconfig.json, package.json, README.md, prd.json, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' - SUCCESS. Ran 'bun run build' - SUCCESS.
+
+## Iteration 21 - Linting and Formatting Configuration 2026-01-12T23:30:00.000Z
+- Task: 25. Configure linting and formatting tools [S, Risk: L]
+- What changed: Installed and configured ESLint (flat config), Prettier, Husky, and lint-staged. Added 'lint' and 'format' scripts to package.json. Updated README.md with new commands.
+- Why it changed: To ensure code quality, consistent formatting, and automated checks before commits.
+- Research documents consulted: CHOSEN_TECH_STACK.md, RESEARCH_BEST_PRACTICES.md
+- Files modified: package.json, eslint.config.js, .prettierrc, .prettierignore, .husky/pre-commit, README.md, prd.json, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run lint' - SUCCESS. Ran 'bun run format' - SUCCESS.
+
+## Iteration 22 - Build Configuration and Environment Setup 2026-01-12T13:10:00.000Z
+- Task: 26. Configure build tool settings [S, Risk: L]
+- What changed: Installed sharp, configured Astro for image optimization and production build settings (HTML compression, inlined stylesheets). Created .env.example and .env.
+- Why it changed: To optimize the production output for performance and establish environment variable handling.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md
+- Files modified: astro.config.mjs, package.json, .env.example, .env, prd.json, progress.txt
+- [STALE RESEARCH]: None.
+- [ENV VAR]: SITE, PUBLIC_EMAIL
+- [VALIDATION]: Ran 'bun run build' - SUCCESS.
