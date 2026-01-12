@@ -4,6 +4,32 @@ import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
 import { StatCounter } from './StatCounter';
 import personal from '../../../data/personal.json';
+
+interface Stat {
+  label: string;
+  value: number;
+  suffix: string;
+}
+
+interface PersonalInfo {
+  name: string;
+  title: string;
+  bio: string | string[];
+  shortBio: string;
+  avatar: string;
+  location: string;
+  socials: {
+    github: string;
+    linkedin: string;
+    twitter: string;
+  };
+  contact: {
+    email: string;
+  };
+  stats: Stat[];
+}
+
+const info = personal as PersonalInfo;
 ---
 
 <Section id="about" variant="surface">
@@ -22,10 +48,10 @@ import personal from '../../../data/personal.json';
           class="space-y-6 text-body text-secondary leading-relaxed max-w-prose"
         >
           {
-            Array.isArray(personal.bio) ? (
-              personal.bio.map((paragraph) => <p>{paragraph}</p>)
+            Array.isArray(info.bio) ? (
+              info.bio.map((paragraph) => <p>{paragraph}</p>)
             ) : (
-              <p>{personal.bio}</p>
+              <p>{info.bio}</p>
             )
           }
         </div>
@@ -33,7 +59,7 @@ import personal from '../../../data/personal.json';
         <!-- Stats Grid - Task 64 -->
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-4">
           {
-            personal.stats.map((stat) => (
+            info.stats.map((stat: Stat) => (
               <StatCounter
                 client:visible
                 value={stat.value}
@@ -55,8 +81,8 @@ import personal from '../../../data/personal.json';
           >
           </div>
           <Image
-            src={personal.avatar}
-            alt={personal.name}
+            src={info.avatar}
+            alt={info.name}
             width={800}
             height={800}
             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"

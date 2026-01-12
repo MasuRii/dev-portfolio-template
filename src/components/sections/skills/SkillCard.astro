@@ -1,0 +1,37 @@
+---
+interface Props {
+  name: string;
+  icon: string;
+  level: number;
+}
+
+const { name, icon, level } = Astro.props;
+---
+
+<div
+  class="group relative flex flex-col items-center justify-center rounded-xl border border-border bg-surface p-4 transition-all duration-300 hover:border-accent hover:shadow-lg hover:shadow-accent/5"
+>
+  <div
+    class="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-background text-secondary transition-colors duration-300 group-hover:text-accent"
+  >
+    <span class="text-xs font-mono uppercase tracking-widest">{icon}</span>
+  </div>
+
+  <span class="text-small font-medium text-primary mb-2">{name}</span>
+
+  {/* Proficiency Indicator */}
+  <div class="w-full h-1 bg-background rounded-full overflow-hidden mt-auto">
+    <div
+      class="h-full bg-accent/30 group-hover:bg-accent transition-all duration-500 ease-out origin-left"
+      style={`width: ${level}%`}
+    >
+    </div>
+  </div>
+
+  {/* Tooltip or Label for Level on Hover */}
+  <div
+    class="absolute -top-2 -right-2 bg-accent text-accent-foreground text-[10px] font-bold px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-sm"
+  >
+    {level}%
+  </div>
+</div>

@@ -1,0 +1,41 @@
+---
+import Section from '../../common/Section.astro';
+import Container from '../../common/Container.astro';
+import SkillCategory from './SkillCategory.astro';
+import skillsData from '../../../data/skills.json';
+
+interface Skill {
+  name: string;
+  icon: string;
+  level: number;
+}
+
+interface SkillCategoryData {
+  category: string;
+  description: string;
+  skills: Skill[];
+}
+
+const typedSkillsData = skillsData as SkillCategoryData[];
+---
+
+<Section id="skills" variant="background">
+  <Container>
+    <div class="mb-16 max-w-2xl">
+      <h2 class="font-display text-h2 mb-4 font-bold text-primary">
+        Technical <span class="text-accent">Expertise</span>
+      </h2>
+      <p class="text-body leading-relaxed text-secondary">
+        A curated selection of my technical toolbox, categorized by domain.
+        Focused on building high-performance, accessible, and scalable digital
+        products.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 gap-px bg-border lg:grid-cols-2 border border-border"
+    >
+      {typedSkillsData.map((category) => <SkillCategory {...category} />)}
+    </div>
+  </Container>
+</Section>
