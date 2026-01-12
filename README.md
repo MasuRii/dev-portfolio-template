@@ -11,6 +11,7 @@ bun create astro@latest -- --template minimal
 Detailed project documentation can be found in the `docs/` directory:
 
 - [Architecture](./docs/ARCHITECTURE.md) - Tech stack and design patterns.
+- [Design Decisions](./docs/DESIGN_DECISIONS.md) - Rationale for visual identity and UI patterns.
 - [Deployment](./docs/DEPLOYMENT.md) - How to deploy to Vercel.
 - [Content Guide](./docs/CONTENT_GUIDE.md) - How to update your portfolio content.
 

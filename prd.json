@@ -4887,26 +4887,32 @@
   {
     "category": "functional",
     "description": "161. Document design decisions [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Created docs/DESIGN_DECISIONS.md documenting design rationale and visual identity.",
+      "Documented color palette, typography choices, and component guidelines.",
+      "Updated README.md with links to the new design documentation."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add design rationale to documentation",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Created docs/DESIGN_DECISIONS.md."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Document color palette and typography choices",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Included color and typography specifications in DESIGN_DECISIONS.md."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Record component usage guidelines",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Added component guidelines to DESIGN_DECISIONS.md."],
+    "passes": true
   },
   {
     "category": "functional",

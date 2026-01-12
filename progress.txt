@@ -154,3 +154,14 @@
 - Files modified: package.json, bun.lock, src/components/sections/hero/Hero.astro, src/components/sections/contact/ContactForm.tsx, src/components/sections/projects/Projects.astro, src/components/sections/blog/BlogPostCard.astro, src/components/ui/ShareButtons.tsx, prd.json, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck', 'bun run test run', 'bun run lint' - All passed.
+
+## Iteration 114 - Design Documentation 2026-01-13T13:00:00.000Z
+- Task: 161. Document design decisions [S, Risk: L]
+- What changed:
+    - Created `docs/DESIGN_DECISIONS.md` documenting the design rationale (Cyber aesthetic, modular grid), visual identity (color palette, typography), and component usage guidelines (sections, buttons, cards).
+    - Updated `README.md` to include a link to the new design documentation.
+- Why it changed: To provide a clear record of the UI/UX design choices and patterns used in the portfolio, ensuring visual consistency and accessibility compliance.
+- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, TOP_EXAMPLES.md
+- Files modified: docs/DESIGN_DECISIONS.md, README.md, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' - Passed. Verified documentation links in README.md.

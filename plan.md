@@ -785,10 +785,10 @@
   - [x] Document deployment process
   - [x] Create README with setup instructions
   - [x] Document how to update content
-- [ ] 161. Document design decisions [S, Risk: L]
-  - Add design rationale to documentation
-  - Document color palette and typography choices
-  - Record component usage guidelines
+- [x] 161. Document design decisions [S, Risk: L]
+  - [x] Add design rationale to documentation
+  - [x] Document color palette and typography choices
+  - [x] Record component usage guidelines
 - [ ] 162. Create content update guide [S, Risk: L]
   - Document how to update personal information
   - Document how to add/edit projects
