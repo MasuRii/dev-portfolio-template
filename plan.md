@@ -533,9 +533,9 @@
   - [x] Build 404 page with friendly message
   - [x] Add navigation back to home
   - [x] Add search functionality if appropriate
-- [ ] 110. Test error pages [XS, Risk: L]
-  - Verify 404 page renders correctly
-  - Test navigation from 404 page
+- [x] 110. Test error pages [XS, Risk: L]
+  - [x] Verify 404 page renders correctly
+  - [x] Test navigation from 404 page
 
 ### 5.6 Additional Polish
 

@@ -3389,20 +3389,23 @@
   {
     "category": "functional",
     "description": "110. Test error pages [XS, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified 404 page renders with Cyber Void message via E2E tests.",
+      "Confirmed navigation from 404 page back to home works correctly."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Verify 404 page renders correctly",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified via src/test/e2e/error.spec.ts."],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Test navigation from 404 page",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": ["Verified via src/test/e2e/error.spec.ts."],
+    "passes": true
   },
   {
     "category": "functional",
