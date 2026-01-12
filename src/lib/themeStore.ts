@@ -14,10 +14,16 @@ export function setTheme(newTheme: Theme) {
   if (!newTheme) return;
 
   const root = window.document.documentElement;
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
   if (newTheme === 'dark') {
     root.classList.add('dark');
+    root.setAttribute('data-theme', 'dark');
+    if (themeColorMeta) themeColorMeta.setAttribute('content', '#0a0a0b');
   } else {
     root.classList.remove('dark');
+    root.setAttribute('data-theme', 'light');
+    if (themeColorMeta) themeColorMeta.setAttribute('content', '#ffffff');
   }
 
   localStorage.setItem('theme', newTheme);

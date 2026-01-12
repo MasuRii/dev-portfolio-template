@@ -7,12 +7,19 @@ import { ClientRouter } from 'astro:transitions';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
 }
 
 const {
-  title = 'MasuRii | Full Stack Developer',
-  description = 'Full stack developer specialized in React, Astro, and high-performance animations.',
+  title = 'MasuRii | Full Stack Developer & Creative Technologist',
+  description = 'Building high-performance, accessible, and visually stunning web experiences with modern technology.',
+  ogImage = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&h=630&auto=format&fit=crop',
 } = Astro.props;
+
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || 'https://masurii.dev'
+);
 ---
 
 <!doctype html>
@@ -21,9 +28,31 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000" />
+
     <ThemeScript />
 
     <script is:inline>

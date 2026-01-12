@@ -52,3 +52,17 @@
 - Files modified: src/components/sections/projects/ProjectCard.astro, src/components/sections/blog/Blog.astro, src/components/sections/skills/Skills.astro, src/components/common/Header.astro, src/layouts/RootLayout.astro, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck', 'bun run lint', and all tests (Unit & E2E) - SUCCESS.
+
+## Iteration 74 - SEO Meta Tags Implementation 2026-01-13T00:25:00.000Z
+- Task: 103. Add meta tags for SEO [S, Risk: L]
+- What changed:
+    - Updated `RootLayout.astro` to include comprehensive SEO meta tags: Primary Meta Tags (title, description, canonical), Open Graph (Facebook/LinkedIn), and Twitter Cards (X).
+    - Implemented a default `ogImage` using a high-quality professional portrait placeholder sized for social sharing.
+    - Enhanced `theme-color` meta tag to be dynamic: it now updates in real-time when the user toggles dark/light mode, using a new utility in `themeStore.ts` and an updated `ThemeScript.astro`.
+    - Synchronized default title and description with `personal.json` data.
+- Why it changed: To improve search engine visibility, social media shareability, and OS-level integration (theme-color) as per 2026 best practices.
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, CHOSEN_TECH_STACK.md
+- Files modified: src/layouts/RootLayout.astro, src/pages/index.astro, src/lib/themeStore.ts, src/components/common/ThemeScript.astro, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' and all E2E tests - SUCCESS. Verified meta tags presence in head.
+
