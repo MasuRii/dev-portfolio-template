@@ -1,5 +1,7 @@
 # build output
 dist/
+.vercel/
+stats.html
 # generated types
 .astro/
 

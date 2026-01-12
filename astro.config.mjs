@@ -4,11 +4,23 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://masurii.dev',
+  output: 'static',
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+    imagesConfig: {
+      sizes: [320, 480, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+      domains: [],
+      formats: ['image/avif', 'image/webp'],
+    },
+  }),
   integrations: [react(), icon(), sitemap()],
   server: {
     port: 4321,
