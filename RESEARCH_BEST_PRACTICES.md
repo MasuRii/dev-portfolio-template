@@ -89,6 +89,11 @@ This document summarizes current (2026) trends, best practices, and technical ev
 *   **Answer-Ready Snippets:** Including concise "TL;DR" summaries for complex sections to feed conversational AI queries.
 *   **E-E-A-T Focus:** Demonstrating Experience, Expertise, Authoritativeness, and Trust through verified project links, testimonials, and detailed case studies.
 
+### Target Keywords & Job Titles (2026)
+*   **Primary Job Titles:** Senior Frontend Engineer, Full Stack Developer, Creative Technologist, UI/UX Engineer, Software Architect, Product Engineer.
+*   **Core Technical Keywords:** React Specialist, Astro Developer, Tailwind CSS Expert, Three.js Developer, WebGL/WebGPU, TypeScript Expert, Performance-Optimized Web, WCAG 2.2 Accessibility.
+*   **Niche Keywords:** High-performance micro-interactions, "Squishy" UI implementation, INP optimization specialist, Serverless architecture.
+
 ### Schema Markup & Structured Data
 *   **Person Schema:** Mandatory for personal branding. Should include `name`, `jobTitle`, `url`, `sameAs` (social links), and `knowsAbout` (technical skills).
 *   **SoftwareApplication / CreativeWork:** Using specific schema for projects to enable rich snippets in search results.
@@ -104,6 +109,20 @@ This document summarizes current (2026) trends, best practices, and technical ev
 ### Predictive & Contextual SEO
 *   **Semantic Search:** Focusing on topics and entities rather than just keywords.
 *   **Performance as SEO:** Core Web Vitals (especially INP < 200ms) are now a direct ranking factor for AI-driven overview features.
+
+## 9. Content Strategy & Blog Topics (2026)
+
+### Professional Content Strategy
+*   **Technical Storytelling:** Focusing on the "how" and "why" behind technical decisions in case studies.
+*   **AEO-Ready Summaries:** Providing high-level technical summaries at the start of each project.
+*   **Personal Branding:** Balancing technical rigor with a clear, approachable personal brand narrative.
+
+### Suggested Blog Topics
+*   "Optimizing INP for 2026: A Deep Dive into Astro & Motion One."
+*   "Why I Chose Astro 5 for my 2026 Developer Portfolio."
+*   "The Future of Web Typography: Variable Fonts and Kinetic Motion."
+*   "Accessibility First: Implementing WCAG 2.2 in a React/Astro Environment."
+*   "Building 'Squishy' UIs: Bringing Tactile Feedback to the Web."
 
 ## 8. Emerging UI/UX Trends for Personal Branding (2026)
 

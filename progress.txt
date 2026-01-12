@@ -50,11 +50,20 @@
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Skipped (Documentation and research only).
 
-## Iteration 8 - Essential Sections Research 2026-01-12T10:30:00.000Z
-- Task: 12. Research essential sections for developer portfolios [S, Risk: L]
-- What changed: Researched 2026 essential portfolio sections using Tavily. Documented obligatory and optional sections in PLANNED_SECTIONS.md, including a section hierarchy and user flow.
-- Why it changed: To define the content structure and information architecture of the portfolio based on current industry standards and conversion goals.
-- Research documents consulted: RESEARCH_BEST_PRACTICES.md, TOP_EXAMPLES.md, CHOSEN_TECH_STACK.md
+## Iteration 9 - Content Hierarchy and User Flow 2026-01-12T11:30:00.000Z
+- Task: 13. Plan content hierarchy and user flow [S, Risk: L]
+- What changed: Defined primary conversion goals (Recruiters, Clients, Peers), documented information architecture (Header, Footer), and mapped the section order to a conversion funnel (Hook -> Evidence -> Toolbox -> Credibility -> Personality -> Action) in PLANNED_SECTIONS.md.
+- Why it changed: To ensure the portfolio's structure is strategically aligned with professional goals and provides a logical narrative journey for visitors.
+- Research documents consulted: PLANNED_SECTIONS.md, RESEARCH_BEST_PRACTICES.md, TOP_EXAMPLES.md
 - Files modified: PLANNED_SECTIONS.md, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Skipped (Documentation only).
+
+## Iteration 10 - SEO and Content Strategy 2026-01-12T12:30:00.000Z
+- Task: 14. Research SEO keywords and content strategy for developers [S, Risk: L]
+- What changed: Identified target job titles and keywords for 2026. Documented meta description and title tag strategies per section in PLANNED_SECTIONS.md. Planned blog topics aligned with 2026 trends in RESEARCH_BEST_PRACTICES.md.
+- Why it changed: To optimize the portfolio for discoverability in both traditional search engines and AI-driven answer engines (AEO).
+- Research documents consulted: RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md, CHOSEN_TECH_STACK.md
+- Files modified: RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md, prd.json, plan.md, progress.txt
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Skipped (Documentation only).

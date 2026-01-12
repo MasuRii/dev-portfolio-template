@@ -85,24 +85,43 @@ This document outlines the essential and optional sections for the developer por
 
 ---
 
-## 3. Section Hierarchy & User Flow
+## 3. Content Hierarchy & User Flow
 
-1.  **Hero** (Hook)
-2.  **Projects** (Evidence - Most Important)
-3.  **Skills** (Toolbox)
-4.  **Experience** (Credibility)
-5.  **About** (Personality)
-6.  **Contact** (Action)
+### 3.1 Primary Conversion Goals
+1.  **Recruiters & Hiring Managers:** Secure job interviews by demonstrating technical competence and professionalism. (High Priority)
+2.  **Potential Clients:** Generate freelance leads by showcasing problem-solving abilities and successful project delivery. (Medium Priority)
+3.  **Peer Developers:** Foster networking and open-source collaboration by sharing knowledge and technical depth. (Low Priority)
+
+### 3.2 Information Architecture & Navigation
+*   **Primary Navigation (Sticky Header):**
+    *   `Work` (Jump to Projects)
+    *   `Skills` (Jump to Technical Expertise)
+    *   `Experience` (Jump to Timeline)
+    *   `About` (Jump to Narrative)
+    *   `Contact` (Jump to Action)
+*   **Secondary Navigation (Footer):**
+    *   Quick links to all sections.
+    *   Social links (LinkedIn, GitHub, Twitter).
+    *   Resume download.
+
+### 3.3 Section Order & Conversion Funnel
+1.  **Hero (Hook):** Immediate identification. "I am [Name], a [Role] building [Value]."
+2.  **Projects (Evidence):** The "Why". Proof of technical excellence.
+3.  **Skills (Toolbox):** The "How". Categorized technical stack.
+4.  **Experience (Credibility):** The "Where". Professional history and trajectory.
+5.  **About (Personality):** The "Who". Personal brand and cultural fit.
+6.  **Contact (Action):** The "Next Step". Frictionless conversion point.
 
 ---
 
-## 4. Technical Requirements per Section
+## 4. Technical Requirements & SEO Strategy per Section
 
-| Section | Tech Priority | Data Source |
-| :--- | :--- | :--- |
-| **Hero** | Motion One / Framer Motion | Static / CMS |
-| **Projects** | React / Filter Logic | JSON / CMS |
-| **Skills** | CSS Grid / Icons | JSON |
-| **Experience** | Timeline Component | JSON |
-| **Contact** | Form Validation / API | Serverless Action |
-| **Blog** | Markdown / Content Collections | .md files |
+| Section | Tech Priority | Data Source | Title Tag Strategy | Meta Description Strategy |
+| :--- | :--- | :--- | :--- | :--- |
+| **Hero** | Motion One / Framer Motion | Static / CMS | [Name] \| [Role] - Building High-Performance Web Experiences | [Role] specialized in React, Astro, and high-performance animations. View my work and technical case studies. |
+| **Projects** | React / Filter Logic | JSON / CMS | Portfolio & Case Studies \| [Name] | Explore a curated list of technical projects and in-depth case studies by [Name], focusing on performance and accessibility. |
+| **Skills** | CSS Grid / Icons | JSON | Technical Expertise & Skills \| [Name] | Deep dive into the technical toolbox of [Name]. Expertise in React, TypeScript, Astro, Tailwind CSS, and WebGL. |
+| **Experience** | Timeline Component | JSON | Work History & Professional Trajectory \| [Name] | Professional journey of [Name]. Timeline of roles highlighting key technical achievements and growth. |
+| **About** | Narrative Text | Static | About [Name] \| [Role] & Problem Solver | The story behind the code. Learn about [Name]'s professional philosophy and approach to building the modern web. |
+| **Contact** | Form Validation / API | Serverless Action | Get in Touch \| [Name] | Looking for a [Role]? Contact [Name] for collaborations, job opportunities, or technical consulting. |
+| **Blog** | Markdown / Content Collections | .md files | [Post Title] \| Blog \| [Name] | Technical insights and tutorials by [Name] on [Topic]. Focused on modern web development trends. |

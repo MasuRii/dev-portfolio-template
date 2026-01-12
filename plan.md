@@ -61,14 +61,14 @@
   - [x] Search for "must-have sections developer portfolio website"
   - [x] Document obligatory vs optional sections
   - [x] Create PLANNED_SECTIONS.md with detailed section breakdown
-- [ ] 13. Plan content hierarchy and user flow [S, Risk: L]
-  - Define primary conversion goals (job interviews, freelance leads)
-  - Document information architecture and navigation structure
-  - Plan section order and relationship to conversion funnel
-- [ ] 14. Research SEO keywords and content strategy for developers [S, Risk: L]
-  - Identify target job titles and related search terms
-  - Document meta description and title tag strategy per section
-  - Plan blog topics if blog section is included
+- [x] 13. Plan content hierarchy and user flow [S, Risk: L]
+  - [x] Define primary conversion goals (job interviews, freelance leads)
+  - [x] Document information architecture and navigation structure
+  - [x] Plan section order and relationship to conversion funnel
+- [x] 14. Research SEO keywords and content strategy for developers [S, Risk: L]
+  - [x] Identify target job titles and related search terms
+  - [x] Document meta description and title tag strategy per section
+  - [x] Plan blog topics if blog section is included
 
 ### 1.5 Design System Development
 
