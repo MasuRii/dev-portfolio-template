@@ -62,7 +62,6 @@
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
 
-
 ## Iteration 56 - Project Filter Component Implementation 2026-01-12T20:45:00.000Z
 - Task: 73. Create project filter component [M, Risk: L]
 - What changed: Extracted project filters into a standalone `ProjectFilters.astro` component. Updated `projects.json` categories for better clarity. Integrated the new component into `Projects.astro` and enhanced it with "Squishy UI" active states and improved keyboard focus rings.
@@ -70,6 +69,7 @@
 - Research documents consulted: PLANNED_SECTIONS.md, DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md
 - Files modified: src/data/projects.json, src/components/sections/projects/ProjectFilters.astro, src/components/sections/projects/Projects.astro, prd.json, progress.txt
 - [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
 
 ## Iteration 58 - Project Images Implementation 2026-01-12T20:38:00.000Z
 - Task: 75. Add project images [S, Risk: L]
@@ -80,3 +80,11 @@
 - [STALE RESEARCH]: None.
 - [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.
 
+## Iteration 59 - Project Links and Actions Implementation 2026-01-12T20:41:00.000Z
+- Task: 76. Implement project links and actions [S, Risk: L]
+- What changed: Enhanced `ProjectCard.astro` by adding explicit 'View Project' and 'Source Code' text labels to the overlay buttons. Improved the hover state with `scale-105` and `shadow-lg`, and implemented 'Squishy UI' feedback with `active:scale-95`.
+- Why it changed: To improve the user experience and accessibility of the project showcase by providing clear, interactive calls to action for each project.
+- Research documents consulted: DESIGN_GUIDELINES.md, RESEARCH_BEST_PRACTICES.md, PLANNED_SECTIONS.md
+- Files modified: src/components/sections/projects/ProjectCard.astro, prd.json, plan.md, progress.txt
+- [STALE RESEARCH]: None.
+- [VALIDATION]: Ran 'bun run typecheck' and 'bun run build' - SUCCESS.

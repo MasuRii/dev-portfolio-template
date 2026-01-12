@@ -369,10 +369,10 @@
   - [x] Create placeholder images for each project
   - [x] Implement lazy loading and proper aspect ratios
   - [x] Add alt text for accessibility
-- [ ] 76. Implement project links and actions [S, Risk: L]
-  - Add View Project button (links to live site)
-  - Add View Code button (links to GitHub)
-  - Add hover animations for buttons
+- [x] 76. Implement project links and actions [S, Risk: L]
+  - [x] Add View Project button (links to live site)
+  - [x] Add View Code button (links to GitHub)
+  - [x] Add hover animations for buttons
 - [ ] 77. Add project modal or expanded view [M, Risk: L]
   - Create modal for detailed project information
   - Implement modal open/close animations

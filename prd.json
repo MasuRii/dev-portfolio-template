@@ -2398,26 +2398,36 @@
   {
     "category": "functional",
     "description": "76. Implement project links and actions [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified ProjectCard.astro contains View Project and Source Code buttons with text labels.",
+      "Confirmed hover animations and scale effects are implemented.",
+      "Verified buttons use descriptive aria-labels and target='_blank'."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add View Project button (links to live site)",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added 'View Project' button with external-link icon and live URL."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add View Code button (links to GitHub)",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added 'Source Code' button with github icon and repository URL."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add hover animations for buttons",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented scale-105 on hover and scale-95 on active for tactile feedback."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
