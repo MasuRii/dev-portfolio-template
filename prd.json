@@ -3919,26 +3919,37 @@
   {
     "category": "functional",
     "description": "128. Optimize fonts [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added rel='preload' for Google Fonts CSS in RootLayout.astro.",
+      "Implemented asynchronous stylesheet loading for fonts to improve FCP.",
+      "Verified 'display=swap' is present in font URLs for faster text rendering.",
+      "Leveraged Google Fonts' automatic unicode-range subsetting for Latin characters."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement font subsetting if using custom fonts",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Leveraged Google Fonts' built-in unicode-range subsetting which automatically delivers only required glyphs."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add font-display: swap for faster text display",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Verified 'display=swap' parameter in the Google Fonts API request in RootLayout.astro."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Preload critical fonts",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added rel='preload' as='style' for the primary font stylesheet in RootLayout.astro."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
