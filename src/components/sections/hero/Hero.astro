@@ -138,6 +138,19 @@ const { id = 'hero', class: className } = Astro.props;
 
 <script>
   import { scroll, animate } from 'motion';
+  import { track } from '@vercel/analytics';
+
+  // Track Hero CTA clicks
+  const viewWorkBtn = document.querySelector('a[href="#projects"]');
+  const contactMeBtn = document.querySelector('a[href="#contact"]');
+
+  viewWorkBtn?.addEventListener('click', () => {
+    track('hero_view_work_click');
+  });
+
+  contactMeBtn?.addEventListener('click', () => {
+    track('hero_contact_me_click');
+  });
 
   // Parallax effects for hero background glows
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

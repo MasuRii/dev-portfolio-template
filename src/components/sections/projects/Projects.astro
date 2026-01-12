@@ -44,6 +44,8 @@ const categories = getProjectCategories();
 </Section>
 
 <script>
+  import { track } from '@vercel/analytics';
+
   const filterButtons = document.querySelectorAll('#projects-filters button');
   const projectCards = document.querySelectorAll('[data-project-category]');
   const detailButtons = document.querySelectorAll('[data-project-details]');
@@ -53,6 +55,7 @@ const categories = getProjectCategories();
     button.addEventListener('click', () => {
       const projectId = button.getAttribute('data-project-details');
       if (projectId) {
+        track('project_details_click', { projectId });
         window.dispatchEvent(
           new CustomEvent('open-project-modal', { detail: projectId })
         );
@@ -61,6 +64,7 @@ const categories = getProjectCategories();
   });
 
   function updateProjects(filter: string) {
+    track('project_filter_change', { filter });
     let count = 0;
     projectCards.forEach((card) => {
       if (!(card instanceof HTMLElement)) return;

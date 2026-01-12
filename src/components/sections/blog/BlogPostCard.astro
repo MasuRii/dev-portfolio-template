@@ -43,7 +43,7 @@ const { post } = Astro.props;
     <h3
       class="mb-3 font-display text-xl font-bold leading-tight text-primary transition-colors group-hover:text-accent"
     >
-      <a href={post.url}>
+      <a href={post.url} data-blog-post-link={post.title}>
         <span class="absolute inset-0"></span>
         {post.title}
       </a>
@@ -79,3 +79,15 @@ const { post } = Astro.props;
     </div>
   </div>
 </article>
+
+<script>
+  import { track } from '@vercel/analytics';
+
+  const blogLinks = document.querySelectorAll('[data-blog-post-link]');
+  blogLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      const title = link.getAttribute('data-blog-post-link');
+      track('blog_post_click', { title });
+    });
+  });
+</script>

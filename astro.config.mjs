@@ -9,7 +9,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://masurii.dev',
+  site: process.env.SITE || 'https://masurii.dev',
   output: 'static',
   adapter: vercel({
     webAnalytics: {
@@ -38,6 +38,8 @@ export default defineConfig({
     ],
     build: {
       sourcemap: true,
+      cssMinify: true,
+      minify: 'esbuild',
       rollupOptions: {
         output: {
           manualChunks: {
@@ -51,6 +53,9 @@ export default defineConfig({
           },
         },
       },
+    },
+    esbuild: {
+      legalComments: 'none',
     },
     css: {
       devSourcemap: true,

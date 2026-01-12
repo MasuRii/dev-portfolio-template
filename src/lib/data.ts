@@ -7,11 +7,18 @@ import navigationData from '../data/navigation.json';
 import type { Project } from '../types/project';
 import type { BlogPost } from '../types/blog';
 import type { Experience } from '../types/experience';
+import { PUBLIC_EMAIL } from './env';
 
 // Data Loaders
 
 // Personal
-export const getPersonalData = () => personalData;
+export const getPersonalData = () => {
+  const data = { ...personalData };
+  if (PUBLIC_EMAIL) {
+    data.contact.email = PUBLIC_EMAIL;
+  }
+  return data;
+};
 
 // Projects
 export const getProjectsData = () => projectsData as Project[];

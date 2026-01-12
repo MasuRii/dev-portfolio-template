@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { m, AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import { track } from '@vercel/analytics';
 
 interface ShareButtonsProps {
   title: string;
@@ -35,13 +36,19 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           text: excerpt,
           url: fullUrl,
         });
+        track('share_native_success', { title });
       } catch (error) {
         if ((error as Error).name !== 'AbortError') {
           console.error('Error sharing:', error);
+          track('share_native_error', {
+            title,
+            error: (error as Error).message,
+          });
         }
       }
     } else {
       setShowOptions(!showOptions);
+      track('share_options_toggle', { title, showOptions: !showOptions });
     }
   };
 
@@ -49,6 +56,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
     try {
       await navigator.clipboard.writeText(fullUrl);
       setIsCopied(true);
+      track('share_copy_link', { title });
       setTimeout(() => setIsCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy:', err);
@@ -140,6 +148,9 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    track('share_social_click', { platform: link.name, title })
+                  }
                   className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
                   aria-label={`Share on ${link.name}`}
                   whileTap={{ scale: 0.9 }}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { m, AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
+import { track } from '@vercel/analytics';
 
 interface InputFieldProps {
   id: string;
@@ -168,6 +169,7 @@ const ContactForm: React.FC = () => {
       }
 
       setStatus('success');
+      track('contact_form_success', { subject: formData.subject });
       setFormData({
         name: '',
         email: '',
