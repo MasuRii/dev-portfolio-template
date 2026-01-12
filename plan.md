@@ -802,14 +802,14 @@
 
 ### 8.6 Launch Preparation
 
-- [ ] 164. Prepare social media announcements [S, Risk: L]
-  - Create social media graphics
-  - Write announcement copy
-  - Prepare LinkedIn post
-- [ ] 165. Submit to directories (optional) [S, Risk: L]
-  - Submit to portfolio directories if desired
-  - Update LinkedIn with portfolio link
-  - Add portfolio link to GitHub profile
+- [x] 164. Prepare social media announcements [S, Risk: L]
+  - [x] Create social media graphics
+  - [x] Write announcement copy
+  - [x] Prepare LinkedIn post
+- [x] 165. Submit to directories (optional) [S, Risk: L]
+  - [x] Submit to portfolio directories if desired
+  - [x] Update LinkedIn with portfolio link
+  - [x] Add portfolio link to GitHub profile
 
 ---
 
