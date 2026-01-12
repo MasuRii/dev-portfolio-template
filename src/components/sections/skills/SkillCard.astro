@@ -1,4 +1,6 @@
 ---
+import Icon from '../../common/Icon.astro';
+
 interface Props {
   name: string;
   icon: string;
@@ -14,7 +16,7 @@ const { name, icon, level } = Astro.props;
   <div
     class="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-background text-secondary transition-colors duration-300 group-hover:text-accent"
   >
-    <span class="text-xs font-mono uppercase tracking-widest">{icon}</span>
+    <Icon name={icon} class="h-6 w-6" title={`${name} icon`} />
   </div>
 
   <span class="text-small font-medium text-primary mb-2">{name}</span>

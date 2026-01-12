@@ -2174,26 +2174,40 @@
   {
     "category": "functional",
     "description": "69. Add skill icons [M, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Installed astro-icon and icon sets (@iconify-json/simple-icons, @iconify-json/lucide).",
+      "Created reusable Icon.astro component with name mapping.",
+      "Integrated icons into SkillCard.astro and Footer.astro.",
+      "Verified build success and icon rendering."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Research and include appropriate icons for each skill",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Mapped skill names from skills.json to Simple Icons equivalents.",
+      "Mapped social links in Footer.astro to Simple Icons."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Optimize icon loading (SVG sprites or individual SVGs)",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Used astro-icon which optimizes and inlines SVGs at build time.",
+      "Added astro-icon integration to astro.config.mjs."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Ensure icons are accessible with proper ARIA labels",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added aria-hidden='true' for decorative icons.",
+      "Added role='img' and title support for descriptive icons in Icon.astro."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
