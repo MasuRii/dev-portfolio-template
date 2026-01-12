@@ -1990,50 +1990,71 @@
   {
     "category": "functional",
     "description": "63. Create profile image component [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Implemented Image component from astro:assets in About.astro.",
+      "Configured remotePatterns in astro.config.mjs to support Unsplash placeholder.",
+      "Added grayscale and hover effects as per DESIGN_GUIDELINES.md.",
+      "Verified image optimization during build process."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add developer photo placeholder",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Updated personal.json with a high-quality Unsplash portrait URL."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Implement image optimization and lazy loading",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Used astro:assets Image component with width/height and loading='lazy'."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add border/shadow effects for visual interest",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added rounded-2xl, border-border, shadow-2xl, and decorative background glow/border elements."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "64. Add personal stats or quick facts [S, Risk: L]",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Updated personal.json with a stats array containing years of experience, projects, and clients.",
+      "Implemented StatCounter React component with framer-motion for animated counting.",
+      "Integrated StatCounter in About.astro with client:visible directive."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Create stats grid (years experience, projects completed, etc.)",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Added stats grid with background variants and consistent border styling in About.astro."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Add animated counter effect for numbers",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Used useMotionValue and useSpring from framer-motion to create smooth numerical transitions when stats enter viewport."
+    ],
+    "passes": true
   },
   {
     "category": "functional",
     "description": "Ensure responsive layout for stats",
-    "steps": ["Add verification steps for this item."],
-    "passes": false
+    "steps": [
+      "Configured grid-cols-2 sm:grid-cols-3 gap-6 to ensure stats adapt to mobile and tablet screens."
+    ],
+    "passes": true
   },
   {
     "category": "functional",

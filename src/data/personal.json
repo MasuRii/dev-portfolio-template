@@ -7,7 +7,7 @@
     "When I'm not coding, I'm usually exploring new design trends, contributing to open-source projects, or experimenting with creative coding and 3D graphics to push the boundaries of what's possible on the web."
   ],
   "shortBio": "Building high-performance, accessible, and visually stunning web experiences with modern technology.",
-  "avatar": "/assets/images/profile.avif",
+  "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&h=800&auto=format&fit=crop",
   "location": "Global / Remote",
   "socials": {
     "github": "https://github.com/MasuRii",
@@ -16,5 +16,22 @@
   },
   "contact": {
     "email": "hello@masurii.dev"
-  }
+  },
+  "stats": [
+    {
+      "label": "Years Exp.",
+      "value": 5,
+      "suffix": "+"
+    },
+    {
+      "label": "Projects",
+      "value": 50,
+      "suffix": "+"
+    },
+    {
+      "label": "Clients",
+      "value": 10,
+      "suffix": "+"
+    }
+  ]
 }

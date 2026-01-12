@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import Section from '../../common/Section.astro';
 import Container from '../../common/Container.astro';
+import { StatCounter } from './StatCounter';
 import personal from '../../../data/personal.json';
 ---
 
@@ -28,20 +30,18 @@ import personal from '../../../data/personal.json';
           }
         </div>
 
-        <!-- Stats Placeholder - Task 64 -->
+        <!-- Stats Grid - Task 64 -->
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-4">
-          <div class="p-4 rounded-xl bg-background border border-border">
-            <div class="text-h3 font-bold text-primary">5+</div>
-            <div class="text-small text-secondary">Years Exp.</div>
-          </div>
-          <div class="p-4 rounded-xl bg-background border border-border">
-            <div class="text-h3 font-bold text-primary">50+</div>
-            <div class="text-small text-secondary">Projects</div>
-          </div>
-          <div class="p-4 rounded-xl bg-background border border-border">
-            <div class="text-h3 font-bold text-primary">10+</div>
-            <div class="text-small text-secondary">Clients</div>
-          </div>
+          {
+            personal.stats.map((stat) => (
+              <StatCounter
+                client:visible
+                value={stat.value}
+                label={stat.label}
+                suffix={stat.suffix}
+              />
+            ))
+          }
         </div>
       </div>
 
@@ -51,14 +51,17 @@ import personal from '../../../data/personal.json';
           class="relative z-10 aspect-square rounded-2xl bg-surface border border-border overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
         >
           <div
-            class="absolute inset-0 bg-gradient-to-tr from-accent/10 to-accent-alt/10"
+            class="absolute inset-0 bg-gradient-to-tr from-accent/20 to-accent-alt/20 z-10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500"
           >
           </div>
-          <div class="absolute inset-0 flex items-center justify-center">
-            <span class="text-muted font-mono uppercase tracking-widest"
-              >Profile Image</span
-            >
-          </div>
+          <Image
+            src={personal.avatar}
+            alt={personal.name}
+            width={800}
+            height={800}
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+            loading="lazy"
+          />
         </div>
 
         <!-- Decorative Background Elements -->
@@ -67,11 +70,11 @@ import personal from '../../../data/personal.json';
         >
         </div>
         <div
-          class="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl -z-20"
+          class="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl -z-20 animate-pulse"
         >
         </div>
         <div
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent-alt/5 rounded-full blur-[100px] -z-30"
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent-alt/10 rounded-full blur-[100px] -z-30"
         >
         </div>
       </div>

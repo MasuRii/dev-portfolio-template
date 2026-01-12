@@ -24,7 +24,12 @@ export default defineConfig({
       entrypoint: 'astro/assets/services/sharp',
     },
     domains: [],
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
   },
   compressHTML: true,
   build: {
