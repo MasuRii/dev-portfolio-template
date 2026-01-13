@@ -1,0 +1,50 @@
+---
+import { Icon as AstroIcon } from 'astro-icon/components';
+
+interface Props {
+  name: string;
+  class?: string;
+  title?: string;
+}
+
+const { name, class: className, title } = Astro.props;
+
+// Map internal names to iconify names if needed
+const iconMap: Record<string, string> = {
+  // Socials
+  github: 'simple-icons:github',
+  linkedin: 'simple-icons:linkedin',
+  twitter: 'simple-icons:x',
+
+  // Skills
+  astro: 'simple-icons:astro',
+  react: 'simple-icons:react',
+  typescript: 'simple-icons:typescript',
+  tailwind: 'simple-icons:tailwindcss',
+  motion: 'simple-icons:framer',
+  nextjs: 'simple-icons:nextdotjs',
+  nodejs: 'simple-icons:nodedotjs',
+  postgresql: 'simple-icons:postgresql',
+  bun: 'simple-icons:bun',
+  git: 'simple-icons:git',
+  docker: 'simple-icons:docker',
+  vercel: 'simple-icons:vercel',
+
+  // UI
+  'external-link': 'lucide:external-link',
+  star: 'lucide:star',
+  info: 'lucide:info',
+  mail: 'lucide:mail',
+  'map-pin': 'lucide:map-pin',
+};
+
+const iconName = iconMap[name] || name;
+---
+
+<AstroIcon
+  name={iconName}
+  class={className}
+  title={title}
+  aria-hidden={title ? 'false' : 'true'}
+  role={title ? 'img' : 'presentation'}
+/>

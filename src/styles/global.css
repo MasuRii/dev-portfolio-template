@@ -1,1 +1,199 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-alt: var(--accent-alt);
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Fluid Typography Scale */
+  --text-display: clamp(2.5rem, 8vw, 6rem);
+  --text-h1: clamp(2rem, 6vw, 4rem);
+  --text-h2: clamp(1.5rem, 4vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 3vw, 1.75rem);
+  --text-body: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+  --text-small: clamp(0.875rem, 0.5vw + 0.75rem, 1rem);
+
+  /* Spacing Tokens (8px base) */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-24: 6rem; /* 96px */
+
+  /* Layout Tokens */
+  --max-width-main: 1280px;
+  --gutter-desktop: 2rem;
+  --gutter-mobile: 1rem;
+
+  /* Semantic Colors */
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+}
+
+:root {
+  /* Brand Colors (Light) */
+  --primary: #111827;
+  --secondary: #4b5563;
+  --accent: #4f46e5;
+  --accent-alt: #06b6d4;
+
+  /* Semantic Colors (Light) */
+  --success: #10b981;
+  --error: #dc2626;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+
+  /* Surface System (Light) */
+  --background: #ffffff;
+  --surface: #f9fafb;
+  --border: #e5e7eb;
+  --muted: #9ca3af;
+}
+
+/* Dark Mode Strategy - Defaulting to Dark Mode First as per Design Guidelines */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #f9fafb;
+    --secondary: #9ca3af;
+    --accent: #6366f1;
+    --accent-alt: #22d3ee;
+
+    --success: #34d399;
+    --error: #f87171;
+    --warning: #fbbf24;
+    --info: #60a5fa;
+
+    --background: #0a0a0b;
+    --surface: #161618;
+    --border: #27272a;
+    --muted: #52525b;
+  }
+}
+
+/* Specific theme attribute override */
+[data-theme='dark'] {
+  --primary: #f9fafb;
+  --secondary: #9ca3af;
+  --accent: #6366f1;
+  --accent-alt: #22d3ee;
+
+  --success: #34d399;
+  --error: #f87171;
+  --warning: #fbbf24;
+  --info: #60a5fa;
+
+  --background: #0a0a0b;
+  --surface: #161618;
+  --border: #27272a;
+  --muted: #52525b;
+}
+
+[data-theme='light'] {
+  --primary: #111827;
+  --secondary: #4b5563;
+  --accent: #4f46e5;
+  --accent-alt: #06b6d4;
+
+  --success: #10b981;
+  --error: #dc2626;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+
+  --background: #ffffff;
+  --surface: #f9fafb;
+  --border: #e5e7eb;
+  --muted: #9ca3af;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  h1 {
+    @apply text-h1 leading-tight;
+  }
+
+  h2 {
+    @apply text-h2 leading-tight;
+  }
+
+  h3 {
+    @apply text-h3 leading-snug;
+  }
+
+  body {
+    @apply font-sans text-body text-primary bg-background;
+  }
+
+  /* Global Focus Indicators */
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-accent;
+  }
+}
+
+@layer utilities {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[101] focus:px-4 focus:py-2 focus:bg-accent focus:text-white focus:rounded-md focus:shadow-lg focus:outline-none;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-accent transition-colors;
+  }
+
+  /* Support for prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Entrance Animations Support */
+  .js .reveal-on-scroll,
+  .js .animate-item {
+    opacity: 0;
+  }
+
+  /* Skeleton Loaders */
+  @keyframes skeleton-pulse {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+
+  .skeleton {
+    @apply bg-border animate-[skeleton-pulse_1.5s_infinite_ease-in-out];
+  }
+}

@@ -1,0 +1,27 @@
+---
+import type { Experience } from '../../../types/experience';
+import ExperienceEntry from './ExperienceEntry.astro';
+
+interface Props {
+  experiences: Experience[];
+}
+
+const { experiences } = Astro.props;
+---
+
+<div class="relative">
+  {/* Timeline vertical line */}
+  <div
+    data-testid="timeline-line"
+    class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2 hidden md:block"
+  >
+  </div>
+
+  <div class="space-y-12 md:space-y-24">
+    {
+      experiences.map((exp, index) => (
+        <ExperienceEntry experience={exp} index={index} />
+      ))
+    }
+  </div>
+</div>

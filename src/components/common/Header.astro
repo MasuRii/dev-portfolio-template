@@ -1,0 +1,255 @@
+---
+import Container from './Container.astro';
+import { ThemeToggle } from './ThemeToggle';
+import navLinks from '../../data/navigation.json';
+---
+
+<header
+  class="fixed top-0 z-50 w-full border-b border-border bg-background/80 py-4 backdrop-blur-md transition-all duration-300"
+  id="main-header"
+>
+  <Container class="flex items-center justify-between">
+    <a href="/" class="text-2xl font-bold tracking-tighter text-primary">
+      MasuRii<span class="text-accent">.</span>
+    </a>
+
+    <nav class="hidden md:block" aria-label="Desktop navigation">
+      <ul class="flex items-center gap-8">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="nav-link text-sm font-medium text-secondary transition-all hover:text-accent aria-[current=page]:text-accent aria-[current=page]:after:scale-x-100 relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-right after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <ThemeToggle client:only="react" />
+      <button
+        id="mobile-menu-toggle"
+        class="block p-2 text-primary md:hidden"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="menu-icon"
+          aria-hidden="true"
+        >
+          <line
+            x1="3"
+            y1="12"
+            x2="21"
+            y2="12"
+            class="line-1 origin-center transition-all duration-300"></line>
+          <line
+            x1="3"
+            y1="6"
+            x2="21"
+            y2="6"
+            class="line-2 origin-center transition-all duration-300"></line>
+          <line
+            x1="3"
+            y1="18"
+            x2="21"
+            y2="18"
+            class="line-3 origin-center transition-all duration-300"></line>
+        </svg>
+      </button>
+    </div>
+  </Container>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 top-[73px] z-40 w-full bg-background transition-all duration-300 translate-x-full opacity-0 pointer-events-none"
+  >
+    <Container class="py-12">
+      <nav aria-label="Mobile navigation">
+        <ul class="flex flex-col gap-6 text-center">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="mobile-nav-link text-3xl font-bold text-primary transition-colors hover:text-accent aria-[current=page]:text-accent"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </Container>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('main-header');
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Sticky header scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header?.classList.add('py-3', 'shadow-sm');
+      header?.classList.remove('py-4');
+    } else {
+      header?.classList.add('py-4');
+      header?.classList.remove('py-3', 'shadow-sm');
+    }
+  });
+
+  // Mobile menu toggle
+  toggle?.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    const newState = !isExpanded;
+
+    toggle.setAttribute('aria-expanded', newState.toString());
+
+    if (newState) {
+      menu?.classList.remove(
+        'translate-x-full',
+        'opacity-0',
+        'pointer-events-none'
+      );
+      document.body.classList.add('overflow-hidden');
+    } else {
+      menu?.classList.add(
+        'translate-x-full',
+        'opacity-0',
+        'pointer-events-none'
+      );
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Handle inert for accessibility
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+    const skipLink = document.querySelector('.skip-link');
+
+    if (newState) {
+      main?.setAttribute('inert', '');
+      footer?.setAttribute('inert', '');
+      skipLink?.setAttribute('inert', '');
+      // Focus the first link in the mobile menu after a short delay for transition
+      setTimeout(() => {
+        (menu?.querySelector('.mobile-nav-link') as HTMLElement)?.focus();
+      }, 100);
+    } else {
+      main?.removeAttribute('inert');
+      footer?.removeAttribute('inert');
+      skipLink?.removeAttribute('inert');
+      // Return focus to toggle
+      toggle?.focus();
+    }
+  });
+
+  // Close menu on link click
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.add(
+        'translate-x-full',
+        'opacity-0',
+        'pointer-events-none'
+      );
+      document.body.classList.remove('overflow-hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+
+      // Remove inert
+      document.querySelector('main')?.removeAttribute('inert');
+      document.querySelector('footer')?.removeAttribute('inert');
+      document.querySelector('.skip-link')?.removeAttribute('inert');
+    });
+  });
+
+  // Active section detection via Intersection Observer
+  const sections = document.querySelectorAll('section[id]');
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0,
+  };
+
+  const observerCallback = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        updateActiveLink(`#${id}`);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+  sections.forEach((section) => observer.observe(section));
+
+  function updateActiveLink(href: string) {
+    const allLinks = [...Array.from(navLinks), ...Array.from(mobileLinks)];
+    allLinks.forEach((link) => {
+      if (link.getAttribute('href') === href) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  // Handle smooth scroll manually if needed (optional since we have CSS scroll-behavior: smooth)
+  // But useful for fine-tuning offsets
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const targetAnchor = e.currentTarget as HTMLAnchorElement;
+      const href = targetAnchor.getAttribute('href');
+      if (!href || href === '#') return;
+
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const headerHeight = header?.offsetHeight || 0;
+        const targetPosition =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth',
+        });
+
+        // Update URL hash without jumping
+        history.pushState(null, '', href);
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Simplified Hamburger Animation via CSS classes */
+  [aria-expanded='true'] .line-1 {
+    transform: translateY(6px) rotate(45deg);
+  }
+  [aria-expanded='true'] .line-2 {
+    opacity: 0;
+  }
+  [aria-expanded='true'] .line-3 {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+</style>

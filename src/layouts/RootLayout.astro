@@ -1,0 +1,146 @@
+---
+import '../styles/global.css';
+import ThemeScript from '../components/common/ThemeScript.astro';
+import Schema from '../components/common/Schema.astro';
+import CookieConsent from '../components/common/CookieConsent';
+import ReadingProgress from '../components/ui/ReadingProgress';
+import { ThemeProvider } from '../components/common/ThemeProvider';
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  showReadingProgress?: boolean;
+}
+
+const {
+  title = 'MasuRii | Full Stack Developer & Creative Technologist',
+  description = 'Building high-performance, accessible, and visually stunning web experiences with modern technology.',
+  ogImage = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&h=630&auto=format&fit=crop',
+  showReadingProgress = Astro.url.pathname.startsWith('/blog'),
+} = Astro.props;
+
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || 'https://masurii.dev'
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000" />
+
+    <ThemeScript />
+    <Schema />
+
+    <script is:inline>
+      // Add 'js' class to document element to handle JS-dependent styles
+      document.documentElement.classList.add('js');
+
+      // Handle scroll restoration manually to prevent jumps
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      window.addEventListener('load', () => {
+        const savedPosition = sessionStorage.getItem('scrollPosition');
+        if (savedPosition) {
+          window.scrollTo({
+            top: parseInt(savedPosition, 10),
+            behavior: 'instant',
+          });
+        }
+      });
+
+      window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+      });
+    </script>
+
+    <!-- Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <ClientRouter />
+  </head>
+  <body
+    class="bg-background text-primary antialiased selection:bg-accent selection:text-white"
+  >
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div
+      id="loader"
+      role="status"
+      aria-label="Loading page"
+      class="fixed inset-0 z-[100] flex items-center justify-center bg-background transition-opacity duration-500"
+    >
+      <div
+        class="h-12 w-12 rounded-full border-4 border-accent border-t-transparent animate-spin"
+      >
+      </div>
+    </div>
+
+    <script is:inline>
+      // Page Loader
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => loader.remove(), 500);
+        }
+      });
+    </script>
+
+    <ThemeProvider client:load>
+      {showReadingProgress && <ReadingProgress client:idle />}
+      <slot />
+      <CookieConsent client:idle />
+    </ThemeProvider>
+  </body>
+</html>

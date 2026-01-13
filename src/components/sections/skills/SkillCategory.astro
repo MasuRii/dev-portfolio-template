@@ -1,0 +1,35 @@
+---
+import SkillCard from './SkillCard.astro';
+
+interface Skill {
+  name: string;
+  icon: string;
+  level: number;
+}
+
+interface Props {
+  category: string;
+  description: string;
+  skills: Skill[];
+}
+
+const { category, description, skills } = Astro.props;
+---
+
+<div
+  class="bg-background p-8 md:p-12 transition-all duration-500"
+  data-skill-category={category}
+>
+  <div class="mb-8">
+    <h3 class="font-display text-h3 mb-2 font-bold text-primary">
+      {category}
+    </h3>
+    <p class="text-small text-secondary">
+      {description}
+    </p>
+  </div>
+
+  <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+    {skills.map((skill) => <SkillCard {...skill} />)}
+  </div>
+</div>

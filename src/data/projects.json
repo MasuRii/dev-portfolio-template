@@ -1,0 +1,155 @@
+[
+  {
+    "id": "quantum-flow",
+    "title": "Quantum Flow",
+    "category": "Web",
+    "thumbnail": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Abstract visualization of quantum particles flowing in a grid, representing high-performance data visualization.",
+    "tags": ["Astro", "Tailwind", "Motion"],
+    "summary": "A high-performance dashboard for quantum computing visualization with real-time telemetry.",
+    "description": "Quantum Flow is a specialized visualization platform designed for researchers and engineers working with quantum hardware. It provides a real-time view into qubit coherence, gate fidelity, and error rates using advanced 2D and 3D data representations.",
+    "challenges": "Visualizing high-dimensional quantum states in a way that is intuitive and performant was the primary challenge. Real-time updates from telemetry streams required a highly optimized rendering pipeline.",
+    "solutions": "I implemented a custom rendering engine using Astro's islands architecture to minimize JavaScript. For the data visualization, I used specialized SVG patterns and Motion One for hardware-accelerated animations.",
+    "technologies": [
+      "Astro 5",
+      "Motion One",
+      "Tailwind CSS 4",
+      "TypeScript",
+      "D3.js"
+    ],
+    "links": {
+      "live": "https://example.com",
+      "github": "https://github.com/example/project"
+    },
+    "metrics": [
+      { "label": "LCP Improvement", "value": "40%" },
+      { "label": "Data Throttling", "value": "60fps" },
+      { "label": "Active Users", "value": "1.2k" },
+      { "label": "Open Source Stars", "value": "450+" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "eco-trace",
+    "title": "Eco-Trace",
+    "category": "Mobile",
+    "thumbnail": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Clean, green energy and sustainability icons representing carbon footprint tracking.",
+    "tags": ["React Native", "Firebase", "TypeScript"],
+    "summary": "Track your carbon footprint and discover sustainable local businesses with gamified social features.",
+    "description": "Eco-Trace is a community-driven mobile application that helps users reduce their environmental impact. It combines accurate carbon tracking with a social platform that rewards sustainable choices.",
+    "challenges": "Aggregating accurate carbon data from multiple lifestyle sources (transport, diet, energy) while maintaining a low-friction user experience was difficult. Building a robust gamification system that kept users engaged was also a priority.",
+    "solutions": "I built a modular API wrapper for various carbon footprint databases and implemented a React Native frontend with smooth gesture-based interactions. The backend used Firebase for real-time social updates and secure data storage.",
+    "technologies": [
+      "React Native",
+      "Firebase",
+      "TypeScript",
+      "Node.js",
+      "Express"
+    ],
+    "links": {
+      "live": "https://example.com",
+      "github": "https://github.com/example/project"
+    },
+    "metrics": [
+      { "label": "Total Downloads", "value": "50k+" },
+      { "label": "CO2 Tracked", "value": "120 Tons" },
+      { "label": "User Retention", "value": "65%" },
+      { "label": "App Store Rating", "value": "4.8/5" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "neural-notes",
+    "title": "Neural Notes",
+    "category": "AI/Experiment",
+    "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Conceptual representation of neural networks and interconnected nodes, symbolizing AI-powered note organization.",
+    "tags": ["OpenAI", "Next.js", "Prisma"],
+    "summary": "AI-powered note-taking app that automatically organizes and links ideas using vector embeddings.",
+    "description": "Neural Notes transforms fragmented ideas into a structured knowledge graph. Using large language models, it analyzes your notes to suggest connections, summarize long entries, and automatically categorize content based on meaning.",
+    "challenges": "Managing low-latency AI responses while processing large amounts of text content in real-time. Designing a visual knowledge graph that remained usable even with hundreds of nodes.",
+    "solutions": "I implemented a streaming response system using OpenAI's API and leveraged Pinecone for vector search. The graph visualization was built using React Force Graph with custom styling to match the portfolio's aesthetic.",
+    "technologies": [
+      "Next.js",
+      "OpenAI API",
+      "Pinecone",
+      "Prisma",
+      "Tailwind CSS",
+      "Framer Motion"
+    ],
+    "links": {
+      "live": "https://example.com",
+      "github": "https://github.com/example/project"
+    },
+    "metrics": [
+      { "label": "Avg Response Time", "value": "120ms" },
+      { "label": "Nodes Processed", "value": "1M+" },
+      { "label": "Search Accuracy", "value": "94%" },
+      { "label": "Daily Active Users", "value": "2.5k" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "titan-ui",
+    "title": "Titan UI",
+    "category": "Web",
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Code editor showing a modern design system components, representing Titan UI library.",
+    "tags": ["React", "Storybook", "Tailwind"],
+    "summary": "A robust, accessible design system library for enterprise-scale React applications.",
+    "description": "Titan UI is a comprehensive component library designed for consistency and accessibility in large-scale applications. It features over 50+ modular components with full TypeScript support and WCAG 2.1 Level AA compliance out of the box.",
+    "challenges": "Ensuring perfect accessibility (ARIA patterns, keyboard navigation) across all components while allowing for deep customization via Tailwind CSS.",
+    "solutions": "I leveraged Radix UI primitives as a foundation and built a custom styling layer on top. Every component was rigorously tested using Axe and manual screen reader audits. Documentation was generated using Storybook for an interactive developer experience.",
+    "technologies": [
+      "React",
+      "Storybook",
+      "Tailwind CSS",
+      "Radix UI",
+      "Vitest",
+      "Playwright"
+    ],
+    "links": {
+      "live": "https://example.com",
+      "github": "https://github.com/example/project"
+    },
+    "metrics": [
+      { "label": "Total Components", "value": "50+" },
+      { "label": "Accessibility Score", "value": "100/100" },
+      { "label": "NPM Downloads", "value": "15k/mo" },
+      { "label": "Bundle Size", "value": "12KB Gzip" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "glow-logic",
+    "title": "Glow Logic",
+    "category": "Experiment",
+    "thumbnail": "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop",
+    "imageAlt": "Modern smart home interior with ambient lighting, representing Glow Logic automation.",
+    "tags": ["Node.js", "MQTT", "React"],
+    "summary": "A smart home automation dashboard focusing on ambient lighting and energy efficiency.",
+    "description": "Glow Logic is an open-source home automation platform that prioritizes local control and privacy. It connects to various smart lighting systems and provides a unified, beautiful interface for managing your home's atmosphere.",
+    "challenges": "Integrating disparate IoT protocols into a single, cohesive dashboard without significant latency. Ensuring the system remained stable during network fluctuations.",
+    "solutions": "I used MQTT as the primary communication protocol and built a Node.js gateway to bridge different devices. The frontend used React with WebSocket for real-time state updates, ensuring a lag-free user experience.",
+    "technologies": [
+      "Node.js",
+      "MQTT",
+      "React",
+      "WebSockets",
+      "Docker",
+      "Raspberry Pi"
+    ],
+    "links": {
+      "live": "https://example.com",
+      "github": "https://github.com/example/project"
+    },
+    "metrics": [
+      { "label": "Devices Supported", "value": "200+" },
+      { "label": "Latency", "value": "< 50ms" },
+      { "label": "Energy Saved", "value": "15%" },
+      { "label": "GitHub Stars", "value": "820" }
+    ],
+    "featured": false
+  }
+]

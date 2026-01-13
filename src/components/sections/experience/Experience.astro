@@ -1,0 +1,37 @@
+---
+import Section from '../../common/Section.astro';
+import Container from '../../common/Container.astro';
+import Timeline from './Timeline.astro';
+import { getExperienceSorted } from '../../../lib/data';
+
+const experiences = getExperienceSorted();
+---
+
+<Section id="experience" variant="background">
+  <Container>
+    <div
+      class="mb-16 md:mb-24 flex flex-col items-start max-w-3xl animate-item"
+    >
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-4"
+      >
+        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+        <span class="text-xs font-semibold uppercase tracking-wider text-accent"
+          >Career Journey</span
+        >
+      </div>
+      <h2 class="text-h2 font-bold tracking-tight text-primary">
+        Professional Experience
+      </h2>
+      <p class="mt-6 text-body text-secondary leading-relaxed">
+        A chronological overview of my professional growth, highlighting the
+        challenges I've tackled, the technical impact I've made, and the
+        expertise I've developed across different industries and teams.
+      </p>
+    </div>
+
+    <div class="animate-item">
+      <Timeline experiences={experiences} />
+    </div>
+  </Container>
+</Section>

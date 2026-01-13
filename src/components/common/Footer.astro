@@ -1,0 +1,137 @@
+---
+import Container from './Container.astro';
+import Icon from './Icon.astro';
+import { getNavigationData, getPersonalData } from '../../lib/data';
+
+const navLinks = getNavigationData();
+const personal = getPersonalData();
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  {
+    name: 'GitHub',
+    href: personal.socials.github,
+    icon: 'github',
+  },
+  {
+    name: 'LinkedIn',
+    href: personal.socials.linkedin,
+    icon: 'linkedin',
+  },
+  {
+    name: 'Twitter',
+    href: personal.socials.twitter,
+    icon: 'twitter',
+  },
+];
+---
+
+<footer class="border-t border-border bg-surface py-12 md:py-16">
+  <Container>
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-4 md:gap-8">
+      <!-- Brand & Info -->
+      <div class="flex flex-col gap-4">
+        <a href="/" class="text-2xl font-bold tracking-tighter text-primary">
+          {personal.name}<span class="text-accent">.</span>
+        </a>
+        <p class="max-w-xs text-secondary">
+          {personal.title} building high-performance web experiences.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="flex flex-col gap-4">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-primary">
+          Quick Links
+        </h3>
+        <nav>
+          <ul class="flex flex-col gap-2">
+            {
+              navLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-secondary transition-colors hover:text-accent"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Legal -->
+      <div class="flex flex-col gap-4">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-primary">
+          Legal
+        </h3>
+        <nav>
+          <ul class="flex flex-col gap-2">
+            <li>
+              <a
+                href="/privacy"
+                class="text-secondary transition-colors hover:text-accent"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a
+                href="/terms"
+                class="text-secondary transition-colors hover:text-accent"
+              >
+                Terms of Service
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Socials -->
+      <div class="flex flex-col gap-4">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-primary">
+          Connect
+        </h3>
+        <div class="flex gap-4">
+          {
+            socialLinks.map((social) => (
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-background text-secondary transition-all hover:border-accent hover:text-accent hover:scale-110"
+                aria-label={social.name}
+              >
+                <Icon name={social.icon} class="h-5 w-5" />
+              </a>
+            ))
+          }
+        </div>
+        <p class="mt-2 text-xs text-muted-foreground">
+          Available for new opportunities.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground md:flex md:items-center md:justify-between md:text-left"
+    >
+      <p>© {currentYear} {personal.name}. All rights reserved.</p>
+      <p class="mt-2 md:mt-0">
+        Built with <a
+          href="https://astro.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-medium text-primary hover:text-accent">Astro</a
+        > & <a
+          href="https://tailwindcss.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-medium text-primary hover:text-accent">Tailwind CSS</a
+        >.
+      </p>
+    </div>
+  </Container>
+</footer>

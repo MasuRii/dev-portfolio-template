@@ -1,0 +1,179 @@
+---
+import { Image } from 'astro:assets';
+import Section from '../../common/Section.astro';
+import Container from '../../common/Container.astro';
+import { getPersonalData } from '../../../lib/data';
+
+const personal = getPersonalData();
+
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id = 'hero', class: className } = Astro.props;
+---
+
+<Section
+  id={id}
+  animate={false}
+  class:list={[
+    'relative flex min-h-[calc(100vh-73px)] items-center justify-center overflow-hidden',
+    className,
+  ]}
+>
+  {/* Background glow effects - as per DESIGN_GUIDELINES.md 3.2 */}
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div
+      class="hero-glow-1 absolute -top-[10%] -left-[10%] h-[40%] w-[40%] rounded-full bg-accent/10 blur-[120px]"
+    >
+    </div>
+    <div
+      class="hero-glow-2 absolute -bottom-[10%] -right-[10%] h-[40%] w-[40%] rounded-full bg-accent-alt/10 blur-[120px]"
+    >
+    </div>
+  </div>
+
+  <Container class="flex flex-col items-center justify-center text-center">
+    <div class="hero-content animate-reveal flex flex-col items-center">
+      {/* Avatar Area - Task 58 */}
+      <div class="relative mb-8 h-32 w-32 md:h-40 md:w-40">
+        <div
+          class="absolute inset-0 rounded-full bg-linear-to-r from-accent to-accent-alt blur-xl opacity-20"
+        >
+        </div>
+        <div
+          class="relative h-full w-full overflow-hidden rounded-full border-2 border-accent/20 bg-surface shadow-inner transition-transform duration-500 hover:scale-105 active:scale-95"
+        >
+          <Image
+            src={personal.avatar}
+            alt={personal.name}
+            width={160}
+            height={160}
+            format="avif"
+            widths={[160, 320]}
+            sizes="(max-width: 768px) 128px, 160px"
+            class="h-full w-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      <h1
+        class="font-display text-display font-bold leading-tight tracking-tighter"
+      >
+        <span class="block">I'm {personal.name}</span>
+        <span
+          class="bg-linear-to-r from-accent to-accent-alt bg-clip-text text-transparent"
+        >
+          {personal.title}
+        </span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-body text-secondary">
+        {personal.shortBio}
+      </p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="#projects"
+          class="rounded-lg bg-linear-to-r from-accent to-accent-alt px-8 py-4 font-medium text-white shadow-lg transition-all active:scale-95 hover:shadow-accent/20"
+        >
+          View My Work
+        </a>
+        <a
+          href="#contact"
+          class="rounded-lg border border-border bg-surface/50 px-8 py-4 font-medium text-primary backdrop-blur-sm transition-all hover:bg-surface active:scale-95"
+        >
+          Contact Me
+        </a>
+      </div>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-reveal {
+    animation: reveal 0.8s ease-out forwards;
+  }
+
+  .animate-reveal > * {
+    opacity: 0;
+    animation: reveal 0.8s ease-out forwards;
+  }
+
+  .animate-reveal > *:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .animate-reveal > *:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  .animate-reveal > *:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+  .animate-reveal > *:nth-child(4) {
+    animation-delay: 0.7s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-reveal,
+    .animate-reveal > * {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  import { scroll, animate } from 'motion';
+  import { track } from '@vercel/analytics';
+
+  // Track Hero CTA clicks
+  const viewWorkBtn = document.querySelector('a[href="#projects"]');
+  const contactMeBtn = document.querySelector('a[href="#contact"]');
+
+  viewWorkBtn?.addEventListener('click', () => {
+    track('hero_view_work_click');
+  });
+
+  contactMeBtn?.addEventListener('click', () => {
+    track('hero_contact_me_click');
+  });
+
+  // Parallax effects for hero background glows
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const glow1 = document.querySelector('.hero-glow-1');
+    const glow2 = document.querySelector('.hero-glow-2');
+
+    if (glow1 instanceof HTMLElement) {
+      scroll(
+        animate(
+          glow1,
+          { transform: ['translateY(0)', 'translateY(200px)'] },
+          { ease: 'linear' }
+        )
+      );
+    }
+    if (glow2 instanceof HTMLElement) {
+      scroll(
+        animate(
+          glow2,
+          { transform: ['translateY(0)', 'translateY(-200px)'] },
+          { ease: 'linear' }
+        )
+      );
+    }
+  }
+</script>

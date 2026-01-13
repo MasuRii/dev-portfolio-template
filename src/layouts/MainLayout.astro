@@ -1,0 +1,20 @@
+---
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import { ScrollToTop } from '../components';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={['min-h-screen flex flex-col', className]}>
+  <Header />
+  <main id="main-content" class="flex-grow pt-[73px]">
+    <slot />
+  </main>
+  <Footer />
+  <ScrollToTop client:idle />
+</div>

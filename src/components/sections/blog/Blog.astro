@@ -1,0 +1,53 @@
+---
+import Section from '../../common/Section.astro';
+import Container from '../../common/Container.astro';
+import BlogPostCard from './BlogPostCard.astro';
+import { getBlogPostsSorted } from '../../../lib/data';
+
+const posts = getBlogPostsSorted();
+---
+
+<Section id="blog" variant="surface" data-testid="blog-section">
+  <Container>
+    <div class="mb-12 max-w-2xl animate-item">
+      <h2 class="font-display text-h2 mb-4 font-bold text-primary">
+        Latest <span class="text-accent">Insights</span>
+      </h2>
+      <p class="text-body leading-relaxed text-secondary">
+        Thoughts on modern web development, performance optimization, and the
+        future of digital experiences.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-item"
+    >
+      {posts.map((post) => <BlogPostCard post={post} />)}
+    </div>
+
+    <div class="mt-12 flex justify-center animate-item">
+      <a
+        href="#"
+        class="group flex items-center gap-2 font-medium text-primary transition-colors hover:text-accent"
+      >
+        View All Articles
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="transition-transform group-hover:translate-x-1"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </Container>
+</Section>

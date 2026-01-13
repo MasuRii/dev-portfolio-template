@@ -1,0 +1,22 @@
+---
+interface Props {
+  categories: string[];
+}
+
+const { categories } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-4 mb-12" id="projects-filters">
+  {
+    categories.map((category) => (
+      <button
+        data-filter={category === 'All' ? 'all' : category}
+        class="px-6 py-3 rounded-full border border-border text-small font-medium transition-all hover:border-accent hover:text-accent active:scale-95 aria-pressed:bg-accent aria-pressed:text-white aria-pressed:border-accent focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:outline-none"
+        aria-pressed={category === 'All' ? 'true' : 'false'}
+        aria-label={`Filter projects by ${category}`}
+      >
+        {category}
+      </button>
+    ))
+  }
+</div>

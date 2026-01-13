@@ -1,0 +1,79 @@
+---
+import personal from '../../data/personal.json';
+import projects from '../../data/projects.json';
+
+const siteUrl = Astro.site || 'https://masurii.dev';
+
+// Person Schema
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: personal.name,
+  jobTitle: personal.title,
+  url: siteUrl.toString(),
+  image: personal.avatar,
+  sameAs: [
+    personal.socials.github,
+    personal.socials.linkedin,
+    personal.socials.twitter,
+  ],
+  description: personal.shortBio,
+  knowsAbout: [
+    'Web Development',
+    'Frontend Development',
+    'Full Stack Development',
+    'Creative Technologist',
+    'React',
+    'Astro',
+    'TypeScript',
+    'Tailwind CSS',
+    'Accessibility',
+    'Performance Optimization',
+  ],
+};
+
+// Organization Schema (linking to the Person)
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: personal.name,
+  url: siteUrl.toString(),
+  logo: personal.avatar,
+  founder: {
+    '@type': 'Person',
+    name: personal.name,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: personal.contact.email,
+    contactType: 'customer support',
+  },
+};
+
+// SoftwareApplication Schemas for Projects
+const projectSchemas = projects.map((project) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: project.title,
+  description: project.summary,
+  applicationCategory:
+    project.category === 'Web' ? 'WebApplication' : 'MobileApplication',
+  operatingSystem: 'All',
+  url: project.links.live,
+  author: {
+    '@type': 'Person',
+    name: personal.name,
+  },
+  image: project.thumbnail,
+  featureList: project.tags.join(', '),
+}));
+
+// Combine schemas
+const combinedSchema = [personSchema, organizationSchema, ...projectSchemas];
+---
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(combinedSchema)}
+/>

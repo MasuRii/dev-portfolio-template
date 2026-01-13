@@ -1,0 +1,107 @@
+---
+import Section from '../../common/Section.astro';
+import Container from '../../common/Container.astro';
+import ProjectFilters from './ProjectFilters.astro';
+import ProjectCard from './ProjectCard.astro';
+import { ProjectModal } from './ProjectModal';
+import { getProjectsData, getProjectCategories } from '../../../lib/data';
+
+const projects = getProjectsData();
+const categories = getProjectCategories();
+---
+
+<Section id="projects" variant="background">
+  <Container>
+    <div class="mb-16 max-w-2xl animate-item">
+      <h2 class="font-display text-h2 mb-4 font-bold text-primary">
+        Featured <span class="text-accent">Projects</span>
+      </h2>
+      <p class="text-body leading-relaxed text-secondary">
+        A collection of technical case studies and experiments, focusing on
+        performance, accessibility, and user experience.
+      </p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="animate-item">
+      <ProjectFilters categories={categories} />
+    </div>
+
+    <!-- Projects Grid -->
+    <div
+      id="projects-grid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 animate-item"
+    >
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+
+    <div id="projects-status" role="status" aria-live="polite" class="sr-only">
+    </div>
+
+    <!-- Project Modal (React Component) -->
+    <ProjectModal client:load projects={projects} />
+  </Container>
+</Section>
+
+<script>
+  import { track } from '@vercel/analytics';
+
+  const filterButtons = document.querySelectorAll('#projects-filters button');
+  const projectCards = document.querySelectorAll('[data-project-category]');
+  const detailButtons = document.querySelectorAll('[data-project-details]');
+
+  // Handle Project Selection for Modal
+  detailButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const projectId = button.getAttribute('data-project-details');
+      if (projectId) {
+        track('project_details_click', { projectId });
+        window.dispatchEvent(
+          new CustomEvent('open-project-modal', { detail: projectId })
+        );
+      }
+    });
+  });
+
+  function updateProjects(filter: string) {
+    track('project_filter_change', { filter });
+    let count = 0;
+    projectCards.forEach((card) => {
+      if (!(card instanceof HTMLElement)) return;
+      const category = card.getAttribute('data-project-category');
+
+      if (filter === 'all' || category === filter) {
+        card.style.display = 'block';
+        count++;
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        }, 10);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          card.style.display = 'none';
+        }, 300);
+      }
+    });
+
+    // Update accessibility status
+    const statusElement = document.getElementById('projects-status');
+    if (statusElement) {
+      statusElement.textContent = `Showing ${count} ${count === 1 ? 'project' : 'projects'} for ${filter === 'all' ? 'all categories' : filter}.`;
+    }
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      if (!filter) return;
+
+      filterButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
+      button.setAttribute('aria-pressed', 'true');
+
+      updateProjects(filter);
+    });
+  });
+</script>
