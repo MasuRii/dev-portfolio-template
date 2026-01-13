@@ -14,7 +14,7 @@
 
 **A modern, high-performance developer portfolio template built with Astro, React, and Tailwind CSS.**
 
-![SampleImage](sample\image.png)
+![SampleImage](sample/image.png)
 
 [🚀 Live Demo](https://masurii.github.io/dev-portfolio-template/) | [Documentation](#-documentation) | [Quick Start](#-quick-start)
 
