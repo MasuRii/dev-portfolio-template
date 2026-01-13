@@ -11,7 +11,6 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "prepare": "husky"
@@ -47,7 +46,6 @@
     "@commitlint/config-conventional": "^20.3.1",
     "@iconify-json/lucide": "^1.2.84",
     "@iconify-json/simple-icons": "^1.2.66",
-    "@playwright/test": "^1.57.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^14.6.1",

@@ -10,7 +10,6 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/MasuRii/dev-portfolio-template/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/MasuRii/dev-portfolio-template/actions)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/MasuRii/dev-portfolio-template/deploy.yml?branch=main&style=flat-square&logo=github&label=deploy)](https://github.com/MasuRii/dev-portfolio-template/actions/workflows/deploy.yml)
 [![Version](https://img.shields.io/badge/version-0.0.1-blue?style=flat-square)](package.json)
-[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
 **A modern, high-performance developer portfolio template built with Astro, React, and Tailwind CSS.**
@@ -37,16 +36,16 @@
 
 ## Tech Stack
 
-| Category             | Technology                                                          |
-| -------------------- | ------------------------------------------------------------------- |
-| **Framework**        | [Astro](https://astro.build) v5.16.8                                |
-| **UI Library**       | [React](https://react.dev) v19.2.3                                  |
-| **Styling**          | [Tailwind CSS](https://tailwindcss.com) v4.1.18                     |
-| **Animations**       | [Motion](https://motion.dev) v12.25.0                               |
-| **State Management** | [Nanostores](https://github.com/nanostores/nanostores)              |
-| **Icons**            | [Iconify](https://iconify.design) (Lucide + Simple Icons)           |
-| **Testing**          | [Vitest](https://vitest.dev) + [Playwright](https://playwright.dev) |
-| **Deployment**       | [Vercel](https://vercel.com)                                        |
+| Category             | Technology                                                |
+| -------------------- | --------------------------------------------------------- |
+| **Framework**        | [Astro](https://astro.build) v5.16.8                      |
+| **UI Library**       | [React](https://react.dev) v19.2.3                        |
+| **Styling**          | [Tailwind CSS](https://tailwindcss.com) v4.1.18           |
+| **Animations**       | [Motion](https://motion.dev) v12.25.0                     |
+| **State Management** | [Nanostores](https://github.com/nanostores/nanostores)    |
+| **Icons**            | [Iconify](https://iconify.design) (Lucide + Simple Icons) |
+| **Testing**          | [Vitest](https://vitest.dev)                              |
+| **Deployment**       | [Vercel](https://vercel.com)                              |
 
 ## Quick Start
 
@@ -88,7 +87,6 @@ All commands are run from the root of the project:
 | `bun run lint`          | Run ESLint for code quality                |
 | `bun run format`        | Run Prettier for code formatting           |
 | `bun run test`          | Run unit tests with Vitest                 |
-| `bun run test:e2e`      | Run E2E tests with Playwright              |
 | `bun run test:coverage` | Generate test coverage report              |
 
 ## Project Structure
@@ -171,12 +169,7 @@ For other platforms, run `bun build` and deploy the `dist/` folder.
 
 ## Documentation
 
-Detailed documentation is available in the repository:
-
-- [Architecture](./docs/ARCHITECTURE.md) - Tech stack and design patterns
-- [Design Decisions](./docs/DESIGN_DECISIONS.md) - Visual identity and UI patterns
-- [Deployment](./docs/DEPLOYMENT.md) - Deployment guide for Vercel
-- [Content Guide](./docs/CONTENT_GUIDE.md) - How to update portfolio content
+For detailed information on customizing your portfolio, refer to the [Content](#customization) section above.
 
 ## Contributing
 
@@ -187,10 +180,6 @@ We follow:
 - [Conventional Commits](https://www.conventionalcommits.org/) for commit messages
 - Git Flow branching strategy
 - ESLint and Prettier for code style
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
