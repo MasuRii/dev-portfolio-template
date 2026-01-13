@@ -31,7 +31,10 @@ const socialLinks = [
     <div class="grid grid-cols-1 gap-12 md:grid-cols-4 md:gap-8">
       <!-- Brand & Info -->
       <div class="flex flex-col gap-4">
-        <a href="/" class="text-2xl font-bold tracking-tighter text-primary">
+        <a
+          href={import.meta.env.BASE_URL}
+          class="text-2xl font-bold tracking-tighter text-primary"
+        >
           {personal.name}<span class="text-accent">.</span>
         </a>
         <p class="max-w-xs text-secondary">
@@ -71,7 +74,7 @@ const socialLinks = [
           <ul class="flex flex-col gap-2">
             <li>
               <a
-                href="/privacy"
+                href={`${import.meta.env.BASE_URL}privacy`}
                 class="text-secondary transition-colors hover:text-accent"
               >
                 Privacy Policy
@@ -79,7 +82,7 @@ const socialLinks = [
             </li>
             <li>
               <a
-                href="/terms"
+                href={`${import.meta.env.BASE_URL}terms`}
                 class="text-secondary transition-colors hover:text-accent"
               >
                 Terms of Service

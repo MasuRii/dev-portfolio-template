@@ -9,7 +9,10 @@ import navLinks from '../../data/navigation.json';
   id="main-header"
 >
   <Container class="flex items-center justify-between">
-    <a href="/" class="text-2xl font-bold tracking-tighter text-primary">
+    <a
+      href={import.meta.env.BASE_URL}
+      class="text-2xl font-bold tracking-tighter text-primary"
+    >
       MasuRii<span class="text-accent">.</span>
     </a>
 

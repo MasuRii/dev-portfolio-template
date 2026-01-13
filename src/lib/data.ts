@@ -64,6 +64,9 @@ export const getBlogPostsSorted = () =>
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
+export const getBlogPostById = (id: string) =>
+  (blogData as BlogPost[]).find((post) => post.id === id);
+
 // Navigation
 export const getNavigationData = () => navigationData;
 

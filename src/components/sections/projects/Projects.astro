@@ -4,6 +4,7 @@ import Container from '../../common/Container.astro';
 import ProjectFilters from './ProjectFilters.astro';
 import ProjectCard from './ProjectCard.astro';
 import { ProjectModal } from './ProjectModal';
+import { LinkNotAvailableModal } from '../../common/LinkNotAvailableModal';
 import { getProjectsData, getProjectCategories } from '../../../lib/data';
 
 const projects = getProjectsData();
@@ -40,6 +41,9 @@ const categories = getProjectCategories();
 
     <!-- Project Modal (React Component) -->
     <ProjectModal client:load projects={projects} />
+
+    <!-- Link Not Available Modal (React Component) -->
+    <LinkNotAvailableModal client:load />
   </Container>
 </Section>
 
@@ -49,6 +53,27 @@ const categories = getProjectCategories();
   const filterButtons = document.querySelectorAll('#projects-filters button');
   const projectCards = document.querySelectorAll('[data-project-category]');
   const detailButtons = document.querySelectorAll('[data-project-details]');
+  const demoLinkButtons = document.querySelectorAll('[data-demo-link]');
+
+  // Handle Demo Link Buttons - show "link not available" modal
+  demoLinkButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const linkType = button.getAttribute('data-demo-link') as
+        | 'live'
+        | 'github'
+        | 'generic';
+      const linkUrl = button.getAttribute('data-link-url') || '';
+
+      track('demo_link_click', { linkType, linkUrl });
+
+      window.dispatchEvent(
+        new CustomEvent('open-link-not-available-modal', {
+          detail: { type: linkType, url: linkUrl },
+        })
+      );
+    });
+  });
 
   // Handle Project Selection for Modal
   detailButtons.forEach((button) => {

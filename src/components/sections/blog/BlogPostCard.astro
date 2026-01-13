@@ -8,6 +8,9 @@ interface Props {
 }
 
 const { post } = Astro.props;
+
+// Construct the blog post URL with the base path
+const postUrl = `${import.meta.env.BASE_URL}blog/${post.id}`;
 ---
 
 <article
@@ -43,7 +46,7 @@ const { post } = Astro.props;
     <h3
       class="mb-3 font-display text-xl font-bold leading-tight text-primary transition-colors group-hover:text-accent"
     >
-      <a href={post.url} data-blog-post-link={post.title}>
+      <a href={postUrl} data-blog-post-link={post.title}>
         <span class="absolute inset-0"></span>
         {post.title}
       </a>
@@ -72,7 +75,7 @@ const { post } = Astro.props;
         <ShareButtons
           client:visible
           title={post.title}
-          url={post.url}
+          url={postUrl}
           excerpt={post.excerpt}
         />
       </div>

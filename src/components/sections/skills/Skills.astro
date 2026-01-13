@@ -26,7 +26,7 @@ const typedSkillsData = getSkillsData();
       <div class="flex flex-wrap gap-3" id="skills-filters">
         <button
           data-filter="all"
-          class="px-6 py-3 rounded-full border border-border text-small font-medium transition-all hover:border-accent hover:text-accent aria-pressed:bg-accent aria-pressed:text-white aria-pressed:border-accent"
+          class="px-6 py-3 rounded-full border text-small font-medium transition-all duration-300 border-accent bg-accent text-white shadow-md shadow-accent/20 aria-[pressed=false]:border-border aria-[pressed=false]:bg-surface aria-[pressed=false]:text-secondary aria-[pressed=false]:shadow-none hover:aria-[pressed=false]:border-accent/50 hover:aria-[pressed=false]:text-primary hover:aria-[pressed=false]:bg-surface/80"
           aria-pressed="true"
         >
           All
@@ -35,7 +35,7 @@ const typedSkillsData = getSkillsData();
           typedSkillsData.map((category) => (
             <button
               data-filter={category.category}
-              class="px-6 py-3 rounded-full border border-border text-small font-medium transition-all hover:border-accent hover:text-accent aria-pressed:bg-accent aria-pressed:text-white aria-pressed:border-accent"
+              class="px-6 py-3 rounded-full border text-small font-medium transition-all duration-300 border-accent bg-accent text-white shadow-md shadow-accent/20 aria-[pressed=false]:border-border aria-[pressed=false]:bg-surface aria-[pressed=false]:text-secondary aria-[pressed=false]:shadow-none hover:aria-[pressed=false]:border-accent/50 hover:aria-[pressed=false]:text-primary hover:aria-[pressed=false]:bg-surface/80"
               aria-pressed="false"
             >
               {category.category}
@@ -76,7 +76,11 @@ const typedSkillsData = getSkillsData();
       id="skills-grid"
       class="grid grid-cols-1 gap-px bg-border lg:grid-cols-2 border border-border transition-all duration-500 animate-item"
     >
-      {typedSkillsData.map((category) => <SkillCategory {...category} />)}
+      {
+        typedSkillsData.map((category, index) => (
+          <SkillCategory {...category} index={index} />
+        ))
+      }
     </div>
 
     <div id="skills-status" role="status" aria-live="polite" class="sr-only">
@@ -132,18 +136,27 @@ const typedSkillsData = getSkillsData();
       const shouldShowCategory = matchesFilter && visibleSkillsInCategory > 0;
 
       if (shouldShowCategory) {
-        cat.style.display = 'block';
+        // Show category - ensure it's visible and in flow
+        cat.style.visibility = 'visible';
+        cat.style.position = 'relative';
+        cat.style.height = 'auto';
+        cat.style.overflow = 'visible';
         totalVisible += visibleSkillsInCategory;
-        setTimeout(() => {
+        // Small delay to ensure layout is ready before animating
+        requestAnimationFrame(() => {
           cat.style.opacity = '1';
           cat.style.transform = 'translateY(0)';
-        }, 10);
+        });
       } else {
+        // Hide category - use visibility to maintain grid position on desktop
         cat.style.opacity = '0';
         cat.style.transform = 'translateY(10px)';
         setTimeout(() => {
-          cat.style.display = 'none';
-        }, 500);
+          cat.style.visibility = 'hidden';
+          cat.style.position = 'absolute';
+          cat.style.height = '0';
+          cat.style.overflow = 'hidden';
+        }, 300);
       }
     });
 

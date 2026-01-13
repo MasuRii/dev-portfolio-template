@@ -1,6 +1,11 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { m, AnimatePresence, LazyMotion, domAnimation } from 'motion/react';
 import type { Project } from '../../../types/project';
+import {
+  isPlaceholderLink,
+  openLinkNotAvailableModal,
+} from '../../common/LinkNotAvailableModal';
 
 interface ProjectModalProps {
   projects: Project[];
@@ -10,9 +15,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
     null
   );
+  const [mounted, setMounted] = useState(false);
   const project = projects.find((p) => p.id === selectedProjectId);
   const modalRef = useRef<HTMLDivElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
+
+  // Ensure we're mounted before using portal (SSR safety)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const closeModal = useCallback(() => {
     setSelectedProjectId(null);
@@ -83,7 +94,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedProjectId, closeModal]);
 
-  return (
+  // Don't render anything on server or before mount
+  if (!mounted) return null;
+
+  return createPortal(
     <LazyMotion features={domAnimation} strict>
       <AnimatePresence>
         {selectedProjectId && project && (
@@ -98,14 +112,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
               aria-hidden="true"
             />
 
-            {/* Modal Content */}
+            {/* Modal Content - constrained height with internal scroll */}
             <m.div
               ref={modalRef}
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-surface border border-border rounded-3xl shadow-2xl flex flex-col"
+              className="relative z-10 w-full max-w-4xl max-h-[calc(100dvh-2rem)] md:max-h-[calc(100dvh-4rem)] bg-surface border border-border rounded-3xl shadow-2xl flex flex-col overflow-hidden"
               role="dialog"
               aria-modal="true"
               aria-labelledby="modal-title"
@@ -134,8 +148,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
                 </svg>
               </button>
 
-              {/* Scrollable Area */}
-              <div className="overflow-y-auto custom-scrollbar p-6 md:p-12">
+              {/* Scrollable Content Area */}
+              <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain p-6 md:p-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                   {/* Left: Content */}
                   <div className="order-2 lg:order-1">
@@ -186,16 +200,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
                           <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-3">
                             Project Metrics
                           </h3>
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          <div className="grid grid-cols-2 gap-3 md:gap-4">
                             {project.metrics.map((metric) => (
                               <div
                                 key={metric.label}
-                                className="p-4 bg-background border border-border rounded-2xl flex flex-col"
+                                className="p-3 md:p-4 bg-background border border-border rounded-2xl flex flex-col"
                               >
-                                <span className="text-accent font-display text-2xl font-bold mb-1">
+                                <span className="text-accent font-display text-lg md:text-xl lg:text-2xl font-bold mb-1 break-words">
                                   {metric.value}
                                 </span>
-                                <span className="text-muted text-xs uppercase tracking-wider">
+                                <span className="text-muted text-[10px] md:text-xs uppercase tracking-wider break-words">
                                   {metric.label}
                                 </span>
                               </div>
@@ -222,22 +236,52 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
                     </div>
 
                     <div className="flex flex-wrap gap-4 mt-12">
-                      <a
-                        href={project.links.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-8 py-4 bg-accent text-white rounded-full font-bold shadow-lg shadow-accent/20 hover:scale-105 active:scale-95 transition-all"
-                      >
-                        Visit Live Project
-                      </a>
-                      <a
-                        href={project.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-8 py-4 bg-surface border border-border text-primary rounded-full font-bold hover:border-accent/50 hover:scale-105 active:scale-95 transition-all"
-                      >
-                        View Source Code
-                      </a>
+                      {project.links.live &&
+                        (isPlaceholderLink(project.links.live) ? (
+                          <button
+                            onClick={() =>
+                              openLinkNotAvailableModal(
+                                'live',
+                                project.links.live
+                              )
+                            }
+                            className="px-8 py-4 bg-accent text-white rounded-full font-bold shadow-lg shadow-accent/20 hover:scale-105 active:scale-95 transition-all"
+                          >
+                            Visit Live Project
+                          </button>
+                        ) : (
+                          <a
+                            href={project.links.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-8 py-4 bg-accent text-white rounded-full font-bold shadow-lg shadow-accent/20 hover:scale-105 active:scale-95 transition-all"
+                          >
+                            Visit Live Project
+                          </a>
+                        ))}
+                      {project.links.github &&
+                        (isPlaceholderLink(project.links.github) ? (
+                          <button
+                            onClick={() =>
+                              openLinkNotAvailableModal(
+                                'github',
+                                project.links.github
+                              )
+                            }
+                            className="px-8 py-4 bg-surface border border-border text-primary rounded-full font-bold hover:border-accent/50 hover:scale-105 active:scale-95 transition-all"
+                          >
+                            View Source Code
+                          </button>
+                        ) : (
+                          <a
+                            href={project.links.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-8 py-4 bg-surface border border-border text-primary rounded-full font-bold hover:border-accent/50 hover:scale-105 active:scale-95 transition-all"
+                          >
+                            View Source Code
+                          </a>
+                        ))}
                     </div>
                   </div>
 
@@ -258,6 +302,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ projects }) => {
           </div>
         )}
       </AnimatePresence>
-    </LazyMotion>
+    </LazyMotion>,
+    document.body
   );
 };

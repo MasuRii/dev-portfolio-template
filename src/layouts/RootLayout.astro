@@ -32,10 +32,22 @@ const canonicalURL = new URL(
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={`${import.meta.env.BASE_URL}favicon.svg`}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href={`${import.meta.env.BASE_URL}favicon-32x32.png`}
+      sizes="32x32"
+    />
+    <link
+      rel="apple-touch-icon"
+      href={`${import.meta.env.BASE_URL}apple-touch-icon.png`}
+    />
+    <link rel="manifest" href={`${import.meta.env.BASE_URL}manifest.json`} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -68,23 +80,21 @@ const canonicalURL = new URL(
       // Add 'js' class to document element to handle JS-dependent styles
       document.documentElement.classList.add('js');
 
-      // Handle scroll restoration manually to prevent jumps
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
+      // Scroll handling for View Transitions
+      // Note: Astro View Transitions handle scroll restoration automatically
+      // We just need to scroll to top for new page navigations
+      document.addEventListener('astro:page-load', () => {
+        // Check if this is navigation to a new page (not back/forward)
+        const navigationType =
+          performance.getEntriesByType?.('navigation')?.[0]?.type;
+        const isNewNavigation =
+          navigationType === 'navigate' || !navigationType;
 
-      window.addEventListener('load', () => {
-        const savedPosition = sessionStorage.getItem('scrollPosition');
-        if (savedPosition) {
-          window.scrollTo({
-            top: parseInt(savedPosition, 10),
-            behavior: 'instant',
-          });
+        // For View Transitions, scroll to top on new navigation
+        // Back/forward navigation is handled by the browser
+        if (isNewNavigation && !window.location.hash) {
+          window.scrollTo({ top: 0, behavior: 'instant' });
         }
-      });
-
-      window.addEventListener('beforeunload', () => {
-        sessionStorage.setItem('scrollPosition', window.scrollY.toString());
       });
     </script>
 
@@ -127,14 +137,25 @@ const canonicalURL = new URL(
     </div>
 
     <script is:inline>
-      // Page Loader
-      window.addEventListener('load', () => {
+      // Page Loader - Use astro:page-load for View Transitions compatibility
+      // This event fires on initial load AND after each client-side navigation
+      function hideLoader() {
         const loader = document.getElementById('loader');
         if (loader) {
           loader.style.opacity = '0';
           setTimeout(() => loader.remove(), 500);
         }
-      });
+      }
+
+      // Handle View Transitions (client-side navigation)
+      document.addEventListener('astro:page-load', hideLoader);
+
+      // Fallback for initial load if astro:page-load doesn't fire
+      if (document.readyState === 'complete') {
+        hideLoader();
+      } else {
+        window.addEventListener('load', hideLoader, { once: true });
+      }
     </script>
 
     <ThemeProvider client:load>

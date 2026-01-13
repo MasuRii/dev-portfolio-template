@@ -20,6 +20,24 @@ interface Props {
 }
 
 const { project } = Astro.props;
+
+// Helper to check if a link is a placeholder
+const isPlaceholderLink = (url: string): boolean => {
+  if (!url) return true;
+  const placeholderPatterns = [
+    /^#$/,
+    /^#[^/]/,
+    /example\.com/i,
+    /github\.com\/example\//i,
+    /placeholder/i,
+    /demo\.test/i,
+    /^javascript:/i,
+  ];
+  return placeholderPatterns.some((pattern) => pattern.test(url));
+};
+
+const isLivePlaceholder = isPlaceholderLink(project.links.live);
+const isGithubPlaceholder = isPlaceholderLink(project.links.github);
 ---
 
 <div
@@ -54,26 +72,54 @@ const { project } = Astro.props;
         <span>View Details</span>
       </button>
       <div class="flex gap-4">
-        <a
-          href={project.links.live}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-full hover:scale-110 transition-all active:scale-95 shadow-lg hover:border-accent/50"
-          aria-label={`View live site for ${project.title}`}
-          title="Live Project"
-        >
-          <Icon name="external-link" class="w-5 h-5" />
-        </a>
-        <a
-          href={project.links.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-full hover:scale-110 transition-all active:scale-95 shadow-lg hover:border-accent/50"
-          aria-label={`View source code for ${project.title}`}
-          title="Source Code"
-        >
-          <Icon name="github" class="w-5 h-5" />
-        </a>
+        {
+          isLivePlaceholder ? (
+            <button
+              data-demo-link="live"
+              data-link-url={project.links.live}
+              class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-full hover:scale-110 transition-all active:scale-95 shadow-lg hover:border-accent/50"
+              aria-label={`View live site for ${project.title} (demo link)`}
+              title="Live Project"
+            >
+              <Icon name="external-link" class="w-5 h-5" />
+            </button>
+          ) : (
+            <a
+              href={project.links.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-full hover:scale-110 transition-all active:scale-95 shadow-lg hover:border-accent/50"
+              aria-label={`View live site for ${project.title}`}
+              title="Live Project"
+            >
+              <Icon name="external-link" class="w-5 h-5" />
+            </a>
+          )
+        }
+        {
+          isGithubPlaceholder ? (
+            <button
+              data-demo-link="github"
+              data-link-url={project.links.github}
+              class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-full hover:scale-110 transition-all active:scale-95 shadow-lg hover:border-accent/50"
+              aria-label={`View source code for ${project.title} (demo link)`}
+              title="Source Code"
+            >
+              <Icon name="github" class="w-5 h-5" />
+            </button>
+          ) : (
+            <a
+              href={project.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-full hover:scale-110 transition-all active:scale-95 shadow-lg hover:border-accent/50"
+              aria-label={`View source code for ${project.title}`}
+              title="Source Code"
+            >
+              <Icon name="github" class="w-5 h-5" />
+            </a>
+          )
+        }
       </div>
     </div>
   </div>
@@ -118,24 +164,50 @@ const { project } = Astro.props;
         <Icon name="info" class="w-4 h-4" />
         <span class="text-sm">Details</span>
       </button>
-      <a
-        href={project.links.live}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-xl active:scale-95 transition-all shadow-sm"
-        aria-label={`View live site for ${project.title}`}
-      >
-        <Icon name="external-link" class="w-5 h-5" />
-      </a>
-      <a
-        href={project.links.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-xl active:scale-95 transition-all shadow-sm"
-        aria-label={`View source code for ${project.title}`}
-      >
-        <Icon name="github" class="w-5 h-5" />
-      </a>
+      {
+        isLivePlaceholder ? (
+          <button
+            data-demo-link="live"
+            data-link-url={project.links.live}
+            class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-xl active:scale-95 transition-all shadow-sm"
+            aria-label={`View live site for ${project.title} (demo link)`}
+          >
+            <Icon name="external-link" class="w-5 h-5" />
+          </button>
+        ) : (
+          <a
+            href={project.links.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-xl active:scale-95 transition-all shadow-sm"
+            aria-label={`View live site for ${project.title}`}
+          >
+            <Icon name="external-link" class="w-5 h-5" />
+          </a>
+        )
+      }
+      {
+        isGithubPlaceholder ? (
+          <button
+            data-demo-link="github"
+            data-link-url={project.links.github}
+            class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-xl active:scale-95 transition-all shadow-sm"
+            aria-label={`View source code for ${project.title} (demo link)`}
+          >
+            <Icon name="github" class="w-5 h-5" />
+          </button>
+        ) : (
+          <a
+            href={project.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center w-12 h-12 bg-surface border border-border text-primary rounded-xl active:scale-95 transition-all shadow-sm"
+            aria-label={`View source code for ${project.title}`}
+          >
+            <Icon name="github" class="w-5 h-5" />
+          </a>
+        )
+      }
     </div>
 
     <div class="flex flex-wrap gap-2">
