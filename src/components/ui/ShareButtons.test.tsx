@@ -33,9 +33,13 @@ describe('ShareButtons', () => {
     render(<ShareButtons {...mockPost} />);
 
     // Since navigator.share is undefined, it should show options by default (based on my implementation)
-    // Wait, let's check implementation: if (!canShare) showOptions is effectively true for the container
-    expect(screen.getByLabelText('Share on Twitter')).toBeInTheDocument();
-    expect(screen.getByLabelText('Share on LinkedIn')).toBeInTheDocument();
+    // Note: These are now placeholder buttons with "(demo)" suffix in aria-label
+    expect(
+      screen.getByLabelText('Share on Twitter (demo)')
+    ).toBeInTheDocument();
+    expect(
+      screen.getByLabelText('Share on LinkedIn (demo)')
+    ).toBeInTheDocument();
     expect(screen.getByLabelText('Copy link to clipboard')).toBeInTheDocument();
   });
 

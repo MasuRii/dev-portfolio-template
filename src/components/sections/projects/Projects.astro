@@ -4,7 +4,6 @@ import Container from '../../common/Container.astro';
 import ProjectFilters from './ProjectFilters.astro';
 import ProjectCard from './ProjectCard.astro';
 import { ProjectModal } from './ProjectModal';
-import { LinkNotAvailableModal } from '../../common/LinkNotAvailableModal';
 import { getProjectsData, getProjectCategories } from '../../../lib/data';
 
 const projects = getProjectsData();
@@ -41,9 +40,6 @@ const categories = getProjectCategories();
 
     <!-- Project Modal (React Component) -->
     <ProjectModal client:load projects={projects} />
-
-    <!-- Link Not Available Modal (React Component) -->
-    <LinkNotAvailableModal client:load />
   </Container>
 </Section>
 

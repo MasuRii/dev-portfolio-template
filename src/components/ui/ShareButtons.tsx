@@ -8,6 +8,20 @@ interface ShareButtonsProps {
   excerpt?: string;
 }
 
+/**
+ * Opens the LinkNotAvailableModal with the given link info
+ */
+function openLinkNotAvailableModal(
+  type: 'live' | 'github' | 'generic',
+  url: string
+): void {
+  window.dispatchEvent(
+    new CustomEvent('open-link-not-available-modal', {
+      detail: { type, url },
+    })
+  );
+}
+
 export const ShareButtons: React.FC<ShareButtonsProps> = ({
   title,
   url,
@@ -63,6 +77,12 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
     }
   };
 
+  // Handle placeholder share button clicks - show modal instead of sharing
+  const handlePlaceholderShareClick = (platform: string) => {
+    track('share_placeholder_click', { platform, title });
+    openLinkNotAvailableModal('generic', `share-to-${platform.toLowerCase()}`);
+  };
+
   const shareLinks = [
     {
       name: 'Twitter',
@@ -81,7 +101,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
         </svg>
       ),
-      url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(fullUrl)}`,
+      isPlaceholder: true, // Twitter/X share is placeholder for demo
     },
     {
       name: 'LinkedIn',
@@ -102,7 +122,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           <circle cx="4" cy="4" r="2" />
         </svg>
       ),
-      url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullUrl)}`,
+      isPlaceholder: true, // LinkedIn share is placeholder for demo
     },
   ];
 
@@ -142,23 +162,39 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
               exit={{ opacity: 0, x: -10 }}
               className="flex items-center gap-2"
             >
-              {shareLinks.map((link) => (
-                <m.a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    track('share_social_click', { platform: link.name, title })
-                  }
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
-                  aria-label={`Share on ${link.name}`}
-                  whileTap={{ scale: 0.9 }}
-                  whileHover={{ scale: 1.1 }}
-                >
-                  {link.icon}
-                </m.a>
-              ))}
+              {shareLinks.map((link) =>
+                link.isPlaceholder ? (
+                  <m.button
+                    key={link.name}
+                    onClick={() => handlePlaceholderShareClick(link.name)}
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer"
+                    aria-label={`Share on ${link.name} (demo)`}
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {link.icon}
+                  </m.button>
+                ) : (
+                  <m.a
+                    key={link.name}
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      track('share_social_click', {
+                        platform: link.name,
+                        title,
+                      })
+                    }
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface text-secondary transition-colors hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+                    aria-label={`Share on ${link.name}`}
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {link.icon}
+                  </m.a>
+                )
+              )}
 
               <m.button
                 onClick={copyToClipboard}

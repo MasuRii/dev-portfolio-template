@@ -7,21 +7,61 @@ const navLinks = getNavigationData();
 const personal = getPersonalData();
 const currentYear = new Date().getFullYear();
 
+// Helper to check if a link is a placeholder
+const isPlaceholderLink = (url: string): boolean => {
+  if (!url) return true;
+  const placeholderPatterns = [
+    /^#$/,
+    /^#[^/]/,
+    /example\.com/i,
+    /github\.com\/example\//i,
+    /placeholder/i,
+    /demo\.test/i,
+    /^javascript:/i,
+    /linkedin\.com\/in\/example/i,
+    /twitter\.com\/example/i,
+  ];
+  return placeholderPatterns.some((pattern) => pattern.test(url));
+};
+
+// Check each social link
 const socialLinks = [
   {
     name: 'GitHub',
     href: personal.socials.github,
     icon: 'github',
+    isPlaceholder: isPlaceholderLink(personal.socials.github),
+    linkType: 'github' as const,
   },
   {
     name: 'LinkedIn',
     href: personal.socials.linkedin,
     icon: 'linkedin',
+    isPlaceholder: isPlaceholderLink(personal.socials.linkedin),
+    linkType: 'generic' as const,
   },
   {
     name: 'Twitter',
     href: personal.socials.twitter,
     icon: 'twitter',
+    isPlaceholder: isPlaceholderLink(personal.socials.twitter),
+    linkType: 'generic' as const,
+  },
+];
+
+// Legal links - these pages don't exist, so treat as placeholder
+const legalLinks = [
+  {
+    name: 'Privacy Policy',
+    href: `${import.meta.env.BASE_URL}privacy`,
+    isPlaceholder: true,
+    linkType: 'generic' as const,
+  },
+  {
+    name: 'Terms of Service',
+    href: `${import.meta.env.BASE_URL}terms`,
+    isPlaceholder: true,
+    linkType: 'generic' as const,
   },
 ];
 ---
@@ -72,22 +112,31 @@ const socialLinks = [
         </h3>
         <nav>
           <ul class="flex flex-col gap-2">
-            <li>
-              <a
-                href={`${import.meta.env.BASE_URL}privacy`}
-                class="text-secondary transition-colors hover:text-accent"
-              >
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href={`${import.meta.env.BASE_URL}terms`}
-                class="text-secondary transition-colors hover:text-accent"
-              >
-                Terms of Service
-              </a>
-            </li>
+            {
+              legalLinks.map((link) =>
+                link.isPlaceholder ? (
+                  <li>
+                    <button
+                      data-placeholder-link
+                      data-link-type={link.linkType}
+                      data-link-url={link.href}
+                      class="text-secondary transition-colors hover:text-accent cursor-pointer text-left"
+                    >
+                      {link.name}
+                    </button>
+                  </li>
+                ) : (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-secondary transition-colors hover:text-accent"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                )
+              )
+            }
           </ul>
         </nav>
       </div>
@@ -99,17 +148,29 @@ const socialLinks = [
         </h3>
         <div class="flex gap-4">
           {
-            socialLinks.map((social) => (
-              <a
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-background text-secondary transition-all hover:border-accent hover:text-accent hover:scale-110"
-                aria-label={social.name}
-              >
-                <Icon name={social.icon} class="h-5 w-5" />
-              </a>
-            ))
+            socialLinks.map((social) =>
+              social.isPlaceholder ? (
+                <button
+                  data-placeholder-link
+                  data-link-type={social.linkType}
+                  data-link-url={social.href}
+                  class="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-background text-secondary transition-all hover:border-accent hover:text-accent hover:scale-110 cursor-pointer"
+                  aria-label={`${social.name} (demo link)`}
+                >
+                  <Icon name={social.icon} class="h-5 w-5" />
+                </button>
+              ) : (
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-background text-secondary transition-all hover:border-accent hover:text-accent hover:scale-110"
+                  aria-label={social.name}
+                >
+                  <Icon name={social.icon} class="h-5 w-5" />
+                </a>
+              )
+            )
           }
         </div>
         <p class="mt-2 text-xs text-muted-foreground">
@@ -138,3 +199,37 @@ const socialLinks = [
     </div>
   </Container>
 </footer>
+
+<script>
+  import { track } from '@vercel/analytics';
+
+  // Handle placeholder link buttons - show "link not available" modal
+  function setupPlaceholderLinks() {
+    const placeholderButtons = document.querySelectorAll(
+      '[data-placeholder-link]'
+    );
+
+    placeholderButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const linkType = button.getAttribute('data-link-type') as
+          | 'live'
+          | 'github'
+          | 'generic';
+        const linkUrl = button.getAttribute('data-link-url') || '';
+
+        track('placeholder_link_click', { linkType, linkUrl });
+
+        window.dispatchEvent(
+          new CustomEvent('open-link-not-available-modal', {
+            detail: { type: linkType, url: linkUrl },
+          })
+        );
+      });
+    });
+  }
+
+  // Run on initial load and after View Transitions
+  setupPlaceholderLinks();
+  document.addEventListener('astro:page-load', setupPlaceholderLinks);
+</script>

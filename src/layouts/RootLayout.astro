@@ -5,6 +5,7 @@ import Schema from '../components/common/Schema.astro';
 import CookieConsent from '../components/common/CookieConsent';
 import ReadingProgress from '../components/ui/ReadingProgress';
 import { ThemeProvider } from '../components/common/ThemeProvider';
+import { LinkNotAvailableModal } from '../components/common/LinkNotAvailableModal';
 import { ClientRouter } from 'astro:transitions';
 
 interface Props {
@@ -162,6 +163,7 @@ const canonicalURL = new URL(
       {showReadingProgress && <ReadingProgress client:idle />}
       <slot />
       <CookieConsent client:idle />
+      <LinkNotAvailableModal client:load />
     </ThemeProvider>
   </body>
 </html>

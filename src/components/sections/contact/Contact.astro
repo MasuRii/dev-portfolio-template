@@ -10,6 +10,37 @@ const contact = data.contact;
 const socials = data.socials;
 const location = data.location;
 const availability = data.availability;
+
+// Helper to check if a link is a placeholder
+const isPlaceholderLink = (url: string): boolean => {
+  if (!url) return true;
+  const placeholderPatterns = [
+    /^#$/,
+    /^#[^/]/,
+    /example\.com/i,
+    /github\.com\/example\//i,
+    /placeholder/i,
+    /demo\.test/i,
+    /^javascript:/i,
+    /linkedin\.com\/in\/example/i,
+    /twitter\.com\/example/i,
+  ];
+  return placeholderPatterns.some((pattern) => pattern.test(url));
+};
+
+// Helper to get link type
+const getLinkType = (platform: string): 'live' | 'github' | 'generic' => {
+  if (platform === 'github') return 'github';
+  return 'generic';
+};
+
+// Process social links
+const socialLinksArray = Object.entries(socials).map(([platform, url]) => ({
+  platform,
+  url,
+  isPlaceholder: isPlaceholderLink(url),
+  linkType: getLinkType(platform),
+}));
 ---
 
 <Section id="contact" variant="background" className="border-t border-border">
@@ -92,20 +123,36 @@ const availability = data.availability;
             </h4>
             <div class="flex flex-wrap gap-4">
               {
-                Object.entries(socials).map(([platform, url]) => (
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="p-4 rounded-xl border border-border bg-surface hover:border-accent hover:text-accent hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 group/social"
-                    aria-label={`Visit my ${platform} profile`}
-                  >
-                    <Icon
-                      name={platform}
-                      class="w-6 h-6 transition-transform group-hover/social:scale-110"
-                    />
-                  </a>
-                ))
+                socialLinksArray.map(
+                  ({ platform, url, isPlaceholder, linkType }) =>
+                    isPlaceholder ? (
+                      <button
+                        data-placeholder-link
+                        data-link-type={linkType}
+                        data-link-url={url}
+                        class="p-4 rounded-xl border border-border bg-surface hover:border-accent hover:text-accent hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 group/social cursor-pointer"
+                        aria-label={`${platform} profile (demo link)`}
+                      >
+                        <Icon
+                          name={platform}
+                          class="w-6 h-6 transition-transform group-hover/social:scale-110"
+                        />
+                      </button>
+                    ) : (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="p-4 rounded-xl border border-border bg-surface hover:border-accent hover:text-accent hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 group/social"
+                        aria-label={`Visit my ${platform} profile`}
+                      >
+                        <Icon
+                          name={platform}
+                          class="w-6 h-6 transition-transform group-hover/social:scale-110"
+                        />
+                      </a>
+                    )
+                )
               }
             </div>
           </div>
@@ -123,3 +170,40 @@ const availability = data.availability;
     </div>
   </Container>
 </Section>
+
+<script>
+  import { track } from '@vercel/analytics';
+
+  // Handle placeholder link buttons in the contact section
+  function setupContactPlaceholderLinks() {
+    const contactSection = document.getElementById('contact');
+    if (!contactSection) return;
+
+    const placeholderButtons = contactSection.querySelectorAll(
+      '[data-placeholder-link]'
+    );
+
+    placeholderButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const linkType = button.getAttribute('data-link-type') as
+          | 'live'
+          | 'github'
+          | 'generic';
+        const linkUrl = button.getAttribute('data-link-url') || '';
+
+        track('contact_placeholder_link_click', { linkType, linkUrl });
+
+        window.dispatchEvent(
+          new CustomEvent('open-link-not-available-modal', {
+            detail: { type: linkType, url: linkUrl },
+          })
+        );
+      });
+    });
+  }
+
+  // Run on initial load and after View Transitions
+  setupContactPlaceholderLinks();
+  document.addEventListener('astro:page-load', setupContactPlaceholderLinks);
+</script>
