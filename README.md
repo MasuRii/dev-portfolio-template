@@ -8,13 +8,16 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/MasuRii/dev-portfolio-template/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/MasuRii/dev-portfolio-template/actions)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/MasuRii/dev-portfolio-template/deploy.yml?branch=main&style=flat-square&logo=github&label=deploy)](https://github.com/MasuRii/dev-portfolio-template/actions/workflows/deploy.yml)
 [![Version](https://img.shields.io/badge/version-0.0.1-blue?style=flat-square)](package.json)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
 
 **A modern, high-performance developer portfolio template built with Astro, React, and Tailwind CSS.**
 
-[Live Demo](https://masurii.dev) | [Documentation](#-documentation) | [Quick Start](#-quick-start)
+![SampleImage](image.png)
+
+[🚀 Live Demo](https://masurii.github.io/dev-portfolio-template/) | [Documentation](#-documentation) | [Quick Start](#-quick-start)
 
 </div>
 
@@ -148,7 +151,16 @@ Copy `.env.example` to `.env` and update the values for your deployment.
 
 ## Deployment
 
-This project is optimized for **Vercel** deployment:
+This project supports both **GitHub Pages** and **Vercel** deployment:
+
+### GitHub Pages (Automatic)
+
+1. Push your code to GitHub
+2. Enable GitHub Pages in repository settings (Settings → Pages → Source: GitHub Actions)
+3. The included workflow will automatically build and deploy on every push to `main`
+4. Your site will be available at `https://<username>.github.io/<repo-name>/`
+
+### Vercel
 
 1. Push your code to GitHub
 2. Import the repository in [Vercel](https://vercel.com)
